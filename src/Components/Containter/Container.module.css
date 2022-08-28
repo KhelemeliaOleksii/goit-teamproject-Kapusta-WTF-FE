@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width:380px) {
+    .container {
+        max-width: var(--display-size-mobile);
+    }
+}
+
+
+@media screen and (min-width:768px) {
+    .container {
+        max-width: var(--display-size-tablet);
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .container {
+        max-width: var(--display-size-desktop);
+    }
+}
