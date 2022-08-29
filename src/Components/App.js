@@ -1,7 +1,8 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import ExampleView from "../Views/ExampleView";
-import HomeView from "../Views/HomeView";
-import Layout from "./Layout";
+import { Routes, Route, Navigate } from 'react-router-dom';
+import ExampleView from '../Views/ExampleView';
+import HomeView from '../Views/HomeView';
+
+import Layout from './Layout';
 
 function App() {
   return (
