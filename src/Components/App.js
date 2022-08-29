@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ExampleView from '../Views/ExampleView';
 import HomeView from '../Views/HomeView';
-
 import Layout from './Layout';
+import Report from './Report/Report';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Route path="example" element={<ExampleView />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Route>
+      <Route path="report" element={<Report />} />
     </Routes>
   );
 }

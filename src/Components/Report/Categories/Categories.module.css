@@ -1,0 +1,67 @@
+li {
+  list-style-type: none;
+}
+.container {
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.titleExpenses {
+  margin: 0 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.categoriesItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 102px;
+  height: 140px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+.background {
+  position: relative;
+  margin: 5px 0;
+  background-color: #f5f6fb;
+  width: 59px;
+  height: 46px;
+  border-radius: 20px;
+}
+.svg {
+  position: absolute;
+  bottom: -3px;
+}
+
+.background:hover {
+  background-color: #ffdac0;
+  fill: #ff751d;
+}
+
+/* @media screen and (min-width:768px) {
+    .container {
+        max-width: var(--display-size-tablet);
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .container {
+        max-width: var(--display-size-desktop);
+    }
+} */
