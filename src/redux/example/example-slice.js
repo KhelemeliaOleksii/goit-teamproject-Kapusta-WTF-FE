@@ -18,7 +18,7 @@ const exampleSlice = createSlice({
   // для асинхронних операцій, передбачає запитит до бази даних
   extraReducers: {
     [exampleOperations.testRequest.fulfilled](state, action) {
-      state.example = action.payload.user;
+      state.example = action.payload;
     },
     [exampleOperations.testRequest.rejected](state, _) {
       state.example = [];
