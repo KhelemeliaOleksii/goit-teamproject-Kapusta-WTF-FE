@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --display-size-mobile: 320px;
+  --display-size-tablet: 768px;
+  --display-size-desktop: 1200px;
+}
+
 p,
 h1,
 h2,
