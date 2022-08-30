@@ -1,35 +1,14 @@
 import s from './Categories.module.css';
 import sprite from '../../../public/sprite_categories.svg';
-
-// const obj = {
-//   EXPENSES,
-// };
+import Switcher from '../Switcher/Switcher';
 
 export default function Categories() {
   return (
     <div className={s.container}>
-      <ul className={s.list}>
-        <li>
-          <a href="report">
-            <svg width="10" height="15" aria-label="clickLeft">
-              <use href={`${sprite}#icon-clickLeft`} />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <p className={s.titleExpenses}>EXPENSES</p>
-        </li>
-        <li>
-          <a href="report">
-            <svg width="10" height="15" aria-label="clickRight">
-              <use href={`${sprite}#icon-clickRigth`} />
-            </svg>
-          </a>
-        </li>
-      </ul>
+      <Switcher title="EXPENSES" />
       <ul className={s.categories}>
         <li className={s.categoriesItem}>
-          <span>1000</span>
+          <span className={s.span}>1000</span>
           <div className={s.background}>
             <svg
               className={s.svg}
@@ -37,13 +16,13 @@ export default function Categories() {
               height="56"
               aria-label="clickLeft"
             >
-              <use href={`${sprite}#icon-products`} />
+              <use href={`${sprite}#icon-transport`} />
             </svg>
           </div>
-          <h3>PRODUCTS</h3>
+          <h3>transport</h3>
         </li>
         <li className={s.categoriesItem}>
-          <span>1000</span>
+          <span className={s.span}>1000</span>
           <div className={s.background}>
             <svg
               className={s.svg}
@@ -51,13 +30,13 @@ export default function Categories() {
               height="56"
               aria-label="clickLeft"
             >
-              <use href={`${sprite}#icon-products`} />
+              <use href={`${sprite}#icon-education`} />
             </svg>
           </div>
-          <h3>PRODUCTS</h3>
+          <h3>education</h3>
         </li>
         <li className={s.categoriesItem}>
-          <span>1000</span>
+          <span className={s.span}>1000</span>
           <div className={s.background}>
             <svg
               className={s.svg}
@@ -65,13 +44,13 @@ export default function Categories() {
               height="56"
               aria-label="clickLeft"
             >
-              <use href={`${sprite}#icon-products`} />
+              <use href={`${sprite}#icon-other`} />
             </svg>
           </div>
-          <h3>PRODUCTS</h3>
+          <h3>other</h3>
         </li>
         <li className={s.categoriesItem}>
-          <span>1000</span>
+          <span className={s.span}>1000</span>
           <div className={s.background}>
             <svg
               className={s.svg}
@@ -79,69 +58,13 @@ export default function Categories() {
               height="56"
               aria-label="clickLeft"
             >
-              <use href={`${sprite}#icon-products`} />
+              <use href={`${sprite}#icon-health`} />
             </svg>
           </div>
-          <h3>PRODUCTS</h3>
+          <h3>health</h3>
         </li>
         <li className={s.categoriesItem}>
-          <span>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-products`} />
-            </svg>
-          </div>
-          <h3>PRODUCTS</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-products`} />
-            </svg>
-          </div>
-          <h3>PRODUCTS</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-products`} />
-            </svg>
-          </div>
-          <h3>PRODUCTS</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-products`} />
-            </svg>
-          </div>
-          <h3>PRODUCTS</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span>1000</span>
+          <span className={s.span}>1000</span>
           <div className={s.background}>
             <svg
               className={s.svg}

@@ -11,8 +11,8 @@ function App() {
         <Route index element={<HomeView />} />
         <Route path="example" element={<ExampleView />} />
         <Route path="*" element={<Navigate replace to="/" />} />
+        <Route path="report" element={<Report />} />
       </Route>
-      <Route path="report" element={<Report />} />
     </Routes>
   );
 }

@@ -5,43 +5,67 @@
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 20px;
   margin: 0 auto;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 32px;
-
-  /* підправити */
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
 }
 
 .expenses {
-  width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: #e53935;
 }
 .expenses::after {
   content: '';
   position: absolute;
-  right: 50%;
+  top: 10%;
   left: 50%;
   height: 70.5px;
   border: 1px solid #e0e5eb;
 }
-
 .income {
-  width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   color: #407946;
 }
 .p {
   color: #52555f;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 704px;
+    height: 50px;
+    justify-content: center;
+  }
+  .income {
+    flex-direction: row;
+    margin-left: 19.5px;
+  }
+  .expenses {
+    flex-direction: row;
+    margin-right: 19.5px;
+  }
+  .expenses::after {
+    height: 36px;
+  }
+  .p {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1034px;
+  }
+  .p {
+    margin-right: 20px;
+  }
 }

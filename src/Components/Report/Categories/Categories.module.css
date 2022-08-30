@@ -2,21 +2,27 @@ li {
   list-style-type: none;
 }
 .container {
+  margin: 0 auto;
+  width: 320px;
 }
 
-.list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+@media screen and (min-width: 768px) {
+  .container {
+    width: 704px;
+    padding: 20px 40px;
+    border: 1px solid black;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+  }
 }
-.titleExpenses {
-  margin: 0 15px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.02em;
-  color: #000000;
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1034px;
+    padding: 20px 200px;
+    border: 1px solid black;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+  }
 }
 
 .categories {
@@ -25,6 +31,7 @@ li {
   align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
+  margin-top: 20px;
 }
 .categoriesItem {
   display: flex;
@@ -35,6 +42,7 @@ li {
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
+  text-transform: uppercase;
 }
 .background {
   position: relative;
@@ -53,15 +61,6 @@ li {
   background-color: #ffdac0;
   fill: #ff751d;
 }
-
-/* @media screen and (min-width:768px) {
-    .container {
-        max-width: var(--display-size-tablet);
-    }
+.span {
+  margin-bottom: 5px;
 }
-
-@media screen and (min-width:1200px) {
-    .container {
-        max-width: var(--display-size-desktop);
-    }
-} */
