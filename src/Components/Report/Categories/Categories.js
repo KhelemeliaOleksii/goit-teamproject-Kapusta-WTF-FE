@@ -61,7 +61,7 @@ export default function Categories() {
               <use href={`${sprite}#icon-health`} />
             </svg>
           </div>
-          <h3>health</h3>
+          <h3>Health</h3>
         </li>
         <li className={s.categoriesItem}>
           <span className={s.span}>1000</span>
