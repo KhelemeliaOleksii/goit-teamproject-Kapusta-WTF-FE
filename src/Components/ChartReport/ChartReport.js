@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+// import React from "react";
+
+// import s from "./ChartReport.module.css";
 import { Chart } from "react-chartjs-2";
 import {
   Chart as ChartJS,

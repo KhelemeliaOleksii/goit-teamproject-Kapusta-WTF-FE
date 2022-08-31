@@ -1,3 +1,3 @@
-import KapustaChar from "./CharReport";
+import KapustaChart from "./ChartReport";
 
-export default KapustaChar;
+export default KapustaChart;
