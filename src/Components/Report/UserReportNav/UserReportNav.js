@@ -7,7 +7,7 @@ export default function UserReportNav() {
     <div className={s.container}>
       <div className={s.goBack}>
         <img className={s.img} src={goBack} alt="goBack" />
-        <p>Main page</p>
+        <p className={s.mainPage}>Main page</p>
       </div>
       <div className={s.period}>
         <p className={s.p}>Current period:</p>

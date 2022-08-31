@@ -1,82 +1,43 @@
 import s from './Categories.module.css';
-import sprite from '../../../public/sprite_categories.svg';
 import Switcher from '../Switcher/Switcher';
+import CategoryItem from '../CategoryItem/CategoryItem';
+
+const data = [
+  {
+    id: 2,
+    amount: 1000,
+    category: 'transport',
+    isActive: true,
+    types: [{ amount: 100, description: 'taxi' }],
+  },
+  {
+    id: 3,
+    amount: 1000,
+    category: 'transport',
+    isActive: false,
+    types: [{ amount: 100, description: 'taxi' }],
+  },
+  {
+    id: 4,
+    amount: 1000,
+    category: 'transport',
+    isActive: true,
+    types: [{ amount: 100, description: 'taxi' }],
+  },
+];
 
 export default function Categories() {
   return (
     <div className={s.container}>
       <Switcher title="EXPENSES" />
       <ul className={s.categories}>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-transport`} />
-            </svg>
-          </div>
-          <h3>transport</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-education`} />
-            </svg>
-          </div>
-          <h3>education</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-other`} />
-            </svg>
-          </div>
-          <h3>other</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-health`} />
-            </svg>
-          </div>
-          <h3>Health</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-products`} />
-            </svg>
-          </div>
-          <h3>PRODUCTS</h3>
-        </li>
+        {data.map((item) => (
+          <CategoryItem
+            amount={item.amount}
+            key={item.id}
+            category={item.category}
+          />
+        ))}
       </ul>
     </div>
   );

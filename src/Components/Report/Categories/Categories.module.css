@@ -10,7 +10,6 @@ li {
   .container {
     width: 704px;
     padding: 20px 40px;
-    border: 1px solid black;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     border-radius: 30px;
   }
@@ -19,7 +18,6 @@ li {
   .container {
     width: 1034px;
     padding: 20px 200px;
-    border: 1px solid black;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     border-radius: 30px;
   }
@@ -32,35 +30,4 @@ li {
   flex-wrap: wrap;
   margin: 0 auto;
   margin-top: 20px;
-}
-.categoriesItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 102px;
-  height: 140px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  text-transform: uppercase;
-}
-.background {
-  position: relative;
-  margin: 5px 0;
-  background-color: #f5f6fb;
-  width: 59px;
-  height: 46px;
-  border-radius: 20px;
-}
-.svg {
-  position: absolute;
-  bottom: -3px;
-}
-
-.background:hover {
-  background-color: #ffdac0;
-  fill: #ff751d;
-}
-.span {
-  margin-bottom: 5px;
 }
