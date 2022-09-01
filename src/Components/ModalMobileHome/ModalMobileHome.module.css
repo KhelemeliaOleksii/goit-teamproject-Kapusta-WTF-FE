@@ -1,0 +1,105 @@
+.modalMobileHome {
+  position: relative;
+  height: 258px;
+  background: #f5f6fb;
+  border-bottom-left-radius: 90px;
+}
+.formMobileHome {
+  position: absolute;
+  top:75%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  text-align: center;
+  padding: 0px 20px 0px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.inputMobileHome {
+  border-radius: 16px 16px 0px 0px;
+  width: 280px;
+  height: 42px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16px;
+  letter-spacing: 0.02em;
+  background-color: #f5f6fb;
+  padding: 0px;
+  border: 0;
+  border: 1px solid #ffffff;
+  text-indent: 25px;
+  outline: none;
+}
+.inputMobileHome::placeholder {
+  color: #c7ccdc;
+}
+.SelectMobileHome {
+  border-radius: 0 0 16px 0;
+  width: 280px;
+  height: 42px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  background-color: #f5f6fb;
+  border: 0;
+  border: 2px solid #ffffff;
+  text-indent: 20px;
+  border-top: none;
+  margin-bottom: 32px;
+}
+
+.wrappMobileInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.transactionMobileInput {
+  border: 2px solid #fff;
+  border-right: 0;
+  width: 125px;
+  height: 44px;
+  color: #000;
+  background-color: #f5f6fb;
+  border-radius: 22px 0 0 22px;
+  text-indent: 20px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0px;
+  outline: none;
+}
+.transactionMobileInput::placeholder{
+  color: #000; 
+}
+
+.wrappMobileIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 44px;
+  border: 2px solid #fff;
+  border-radius: 0 22px 22px 0;
+}
+
+.listMobileButton{
+  margin: 0 auto;
+  display: flex;
+  list-style: none;
+}
+
+.listButtonItem{
+  margin-right: 20px;
+}
+
+
