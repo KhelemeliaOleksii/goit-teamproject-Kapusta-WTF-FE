@@ -2,21 +2,33 @@ import PropTypes from 'prop-types';
 import s from './Switcher.module.css';
 import sprite from '../../../public/sprite_categories.svg';
 
-export default function Switcher({ title }) {
+export default function Switcher({ month, year, changeMonth }) {
   return (
     <ul className={s.list}>
       <li>
-        <a href="report">
+        <a
+          href="report"
+          onClick={() => {
+            changeMonth('left');
+          }}
+        >
           <svg width="10" height="15" aria-label="clickLeft">
             <use href={`${sprite}#icon-clickLeft`} />
           </svg>
         </a>
       </li>
       <li>
-        <p className={s.p}>{title}</p>
+        <p className={s.p}>
+          {month} {year}
+        </p>
       </li>
       <li>
-        <a href="report">
+        <a
+          href="report"
+          onClick={() => {
+            changeMonth('rigth');
+          }}
+        >
           <svg width="10" height="15" aria-label="clickRight">
             <use href={`${sprite}#icon-clickRigth`} />
           </svg>
@@ -26,5 +38,7 @@ export default function Switcher({ title }) {
   );
 }
 Switcher.propTypes = {
-  title: PropTypes.string.isRequired,
+  month: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  changeMonth: PropTypes.func.isRequired,
 };
