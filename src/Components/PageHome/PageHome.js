@@ -8,6 +8,7 @@ import useWindowDimensions from '../Hooks';
 import Container from '../Containter';
 import transactionSlice from '../../redux/transaction/transaction-slice';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import Balance from '../Balance';
 
 function PageHome() {
   const [tableExpenenses, setTableExpenenses] = useState(true);
@@ -35,7 +36,8 @@ function PageHome() {
       <Container>
         <div className={s.PageHomeWrapper}>
           <div className={s.BalanseWrapper}>
-            <button type="button" className={s.button}> Балас</button>
+            {/* <button type="button" className={s.button}> Балас</button> */}
+            <Balance balanceValue={100} />
             <Link to="/reports" className={s.linkReport}>
               Reports
             </Link>
