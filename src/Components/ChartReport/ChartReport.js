@@ -13,6 +13,7 @@ import {
   Legend,
   Tooltip,
 } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 ChartJS.register(
   LinearScale,
@@ -21,7 +22,8 @@ ChartJS.register(
   PointElement,
   LineElement,
   Legend,
-  Tooltip
+  Tooltip,
+  ChartDataLabels
 );
 
 export default function KapustaChart({ expences }) {
@@ -29,15 +31,27 @@ export default function KapustaChart({ expences }) {
     <div style={{ width: "50%" }}>
       <Chart
         type="bar"
+        plugins={[ChartDataLabels]}
         options={{
           scales: {
             y: {
               beginAtZero: true,
             },
           },
+          plugins: {
+            datalabels: {
+              color: "#52555F",
+              align: "end",
+              anchor: "end",
+              formatter: (value) => {
+                return `${value} грн`;
+              },
+            },
+          },
         }}
         data={{
           labels: expences.map((item) => item.goods),
+
           datasets: [
             {
               data: expences.map((item) => item.amount),
@@ -45,9 +59,7 @@ export default function KapustaChart({ expences }) {
               backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
               borderWidth: 2,
               borderRadius: 8,
-
-              // borderRadius: Number.MAX_VALUE,
-              borderSkipped: true,
+              borderSkipped: [false],
             },
           ],
         }}
