@@ -1,3 +1,3 @@
-import KapustaChart from "./ChartReport";
+import KapustaChart from './ChartReport';
 
 export default KapustaChart;

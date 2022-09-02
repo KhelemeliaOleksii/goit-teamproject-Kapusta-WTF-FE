@@ -1,3 +1,3 @@
-import ChartReportView from "./ChartReportView";
+import ChartReportView from './ChartReportView';
 
 export default ChartReportView;
