@@ -12,8 +12,7 @@ const transactionSlice = createSlice({
   name: 'transaction',
   initialState,
   // для синхронних операцій, тобто робота тільки зі стейтом
-  reducer: {
-
+  reducers: {
     date: (state, action) => {
       state.date = action.payload;
     },
@@ -40,9 +39,8 @@ const transactionSlice = createSlice({
   //   // }
   // }
 });
-export const transaction = {
-  reducer: transactionSlice.reducer,
-  actions: transactionSlice.actions
-};
-
-export default transactionSlice.reducer;
+// export const transaction = {
+//   reducer: transactionSlice.reducer,
+//   actions: transactionSlice.actions
+// };
+export default transactionSlice;

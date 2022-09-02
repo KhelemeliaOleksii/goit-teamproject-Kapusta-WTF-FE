@@ -1,33 +1,34 @@
 import { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import s from './PageHome.module.css';
 import Summary from '../Summary';
 import WindowTransaction from '../WindowTransaction';
 import useWindowDimensions from '../Hooks';
 import Container from '../Containter';
-// import transactionSelectors from '../../redux/transaction/transaction-selectors';
-// import transactionReduser from '../../redux/transaction/transaction-slice';
-// import { transaction } from '../../redux/transaction/transaction-slice';
+import transactionSlice from '../../redux/transaction/transaction-slice';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
 
 function PageHome() {
   const [tableExpenenses, setTableExpenenses] = useState(true);
   const [tableIncome, setTableIncome] = useState(false);
   const viewPort = useWindowDimensions();
-  // const dispatch = useDispatch();
-  // const typeTransaction = useSelector(transactionSelectors.getType);
-  // console.log(transaction.actions);
-  // console.log(typeTransaction);
+  const dispatch = useDispatch();
+  const typeTransaction = useSelector(transactionSelectors.getType);
+  console.log(typeTransaction);
 
   const toggleTableExpenenses = () => {
-    // dispatch(transactionReduser.)
+    dispatch(transactionSlice.actions.type('expenses'));
     setTableExpenenses(!tableExpenenses);
     setTableIncome(!tableIncome);
   };
+
   const toggleTableIncome = () => {
+    dispatch(transactionSlice.actions.type('income'));
     setTableIncome(!tableIncome);
     setTableExpenenses(!tableExpenenses);
   };
+
   return (
     <section className={s.PageHomeSection}>
       <div className={s.PageHomeBackground} />
