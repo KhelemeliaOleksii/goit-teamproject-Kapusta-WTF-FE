@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import example from './example';
 import authReducer from './auth/auth-slice';
+import transactionReducer from './transaction/transaction-slice';
 
 // якщо вам потрібні якісь налаштування
 // для відображення ваших даних в локал сторедж
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   // //це просто для стейта
   // exampleReducer:example.exampleReducer,
   auth: persistReducer(authPersistConfig, authReducer),
+  transaction: transactionReducer,
 });
 
 export default rootReducer;

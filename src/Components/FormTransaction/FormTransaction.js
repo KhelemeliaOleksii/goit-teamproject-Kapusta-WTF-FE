@@ -66,7 +66,7 @@ function FormTransaction() {
           <Button name="Input" style={{ background: '#FF751D', color: '#ffffff' }} />
         </li>
         <li>
-          <Button name="Clear" />
+          <Button name="Clear" style={{ background: '##FFFFFF', color: '#52555F' }} />
         </li>
       </ul>
     </form>

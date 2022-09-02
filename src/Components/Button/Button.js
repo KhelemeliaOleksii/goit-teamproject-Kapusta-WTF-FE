@@ -12,5 +12,8 @@ export default Button;
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
-  style: PropTypes.string.isRequired,
+  style: PropTypes.shape({
+    color: PropTypes.string.isRequired,
+    background: PropTypes.string.isRequired
+  }).isRequired,
 };
