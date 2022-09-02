@@ -1,4 +1,7 @@
+import Balance from '../../Components/Balance';
+
+console.log('Home');
 export default function HomeView() {
-  console.log('Home');
-  return <div>HomeView</div>;
+  <div>HomeView</div>;
+  return <Balance />;
 }
