@@ -1,21 +1,21 @@
 import s from './Summary.module.css';
 
 const Data = [
-  { prise: 1000, mount: 'November' },
-  { prise: 2000, mount: 'October' },
-  { prise: 3000, mount: 'September' },
-  { prise: 40000, mount: 'August' },
-  { prise: 6000, mount: 'July' },
-  { prise: 4000, mount: 'June' },
+  { prise: 1000, month: 'November' },
+  { prise: 2000, month: 'October' },
+  { prise: 3000, month: 'September' },
+  { prise: 40000, month: 'August' },
+  { prise: 6000, month: 'July' },
+  { prise: 4000, month: 'June' },
 ];
 function Summary() {
   return (
     <div>
       <h3 className={s.summaryTitle}>Summary</h3>
       <ul className={s.summaryList}>
-        {Data.map(({ prise, mount }) => (
-          <li key={s.pise} className={s.summaryItem}>
-            <p className={s.summaryText}>{mount}</p>
+        {Data.map(({ prise, month }) => (
+          <li key={month} className={s.summaryItem}>
+            <p className={s.summaryText}>{month}</p>
             <p className={s.summaryText}>{prise}</p>
           </li>
         ))}
