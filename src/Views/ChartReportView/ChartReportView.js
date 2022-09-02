@@ -1,21 +1,21 @@
-import ChartReport from "../../Components/ChartReport";
+import ChartReport from '../../Components/ChartReport';
 
 const expences = [
   {
     amount: 12,
-    goods: "Говʼядина",
+    goods: 'Говʼядина',
   },
   {
     amount: 7,
-    goods: "Курятина",
+    goods: 'Курятина',
   },
   {
     amount: 5,
-    goods: "Свинина",
+    goods: 'Свинина',
   },
   {
     amount: 5,
-    goods: "Гусятина",
+    goods: 'Гусятина',
   },
 ];
 
