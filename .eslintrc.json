@@ -8,8 +8,7 @@
     "react-app",
     "react-app/jest",
     "airbnb",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended"
   ],
   "overrides": [],
   "parserOptions": {
@@ -17,7 +16,7 @@
     "sourceType": "module",
     "JSX": true
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "comma-dangle": "off",
@@ -26,6 +25,9 @@
     "react/jsx-uses-react": ["off"],
     "react/jsx-props-no-spreading": ["warn"],
     "react/no-unescaped-entities": ["off"],
-    "no-console": "off"
+    "no-console": "off",
+    "no-param-reassign": "off",
+    "no-unused-vars": ["error", { "args": "none" }],
+    "quotes": "off"
   }
 }

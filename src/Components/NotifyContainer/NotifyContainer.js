@@ -1,4 +1,4 @@
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from 'react-toastify';
 
 export default function NotifyContainer() {
   return (

@@ -1,3 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --display-size-mobile: 320px;
+  --display-size-tablet: 768px;
+  --display-size-desktop: 1280px;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
