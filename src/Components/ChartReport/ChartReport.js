@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 // import React from "react";
 
-// import s from "./ChartReport.module.css";
 import { Chart } from 'react-chartjs-2';
+
 import {
   Chart as ChartJS,
   LinearScale,
@@ -14,6 +14,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import s from './ChartReport.module.css';
 
 ChartJS.register(
   LinearScale,
@@ -28,11 +29,13 @@ ChartJS.register(
 
 export default function KapustaChart({ expences }) {
   return (
-    <div style={{ width: '50%' }}>
+    <div className={s.container} style={{ width: '50%' }}>
       <Chart
         type="bar"
         plugins={[ChartDataLabels]}
         options={{
+          responsive: true,
+          // indexAxis: 'y',
           scales: {
             y: {
               beginAtZero: true,
@@ -49,11 +52,10 @@ export default function KapustaChart({ expences }) {
         }}
         data={{
           labels: expences.map((item) => item.goods),
-
           datasets: [
             {
               data: expences.map((item) => item.amount),
-              barThickness: 25,
+              barThickness: 50,
               backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
               borderWidth: 2,
               borderRadius: 8,

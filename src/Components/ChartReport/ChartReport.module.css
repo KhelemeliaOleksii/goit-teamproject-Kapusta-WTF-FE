@@ -3,39 +3,19 @@
     margin: 0 auto;
 }
 
-@media screen and (min-width: 380px) {
-    .chartContainer {
-        width: 100%;
-        padding: 0;
-        margin-bottom: 51px;
-    }
-
+@media screen and (min-width:380px) {
     .container {
         max-width: var(--display-size-mobile);
     }
 }
 
-@media screen and (min-width: 768px) {
-    .chartContainer {
-        padding: 19px;
-        margin-bottom: 76px;
-        background: #ffffff;
-        box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-        border-radius: 30px;
-    }
-
+@media screen and (min-width:768px) {
     .container {
         max-width: var(--display-size-tablet);
     }
 }
 
-@media screen and (min-width: 1280px) {
-    .chartContainer {
-        padding-left: 150px;
-        padding-right: 150px;
-        margin-bottom: 79px;
-    }
-
+@media screen and (min-width:1280px) {
     .container {
         max-width: var(--display-size-desktop);
     }
