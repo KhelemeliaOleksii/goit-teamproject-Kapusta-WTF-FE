@@ -3,15 +3,19 @@ import ChartReport from "../../Components/ChartReport";
 const expences = [
   {
     amount: 12,
-    goods: "Pork",
+    goods: "Говʼядина",
   },
   {
     amount: 7,
-    goods: "Beef",
+    goods: "Курятина",
   },
   {
     amount: 5,
-    goods: "Chicken",
+    goods: "Свинина",
+  },
+  {
+    amount: 5,
+    goods: "Гусятина",
   },
 ];
 

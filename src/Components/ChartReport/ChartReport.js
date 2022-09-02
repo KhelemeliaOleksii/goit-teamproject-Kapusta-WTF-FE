@@ -26,7 +26,7 @@ ChartJS.register(
 
 export default function KapustaChart({ expences }) {
   return (
-    <div>
+    <div style={{ width: "50%" }}>
       <Chart
         type="bar"
         options={{
@@ -42,7 +42,12 @@ export default function KapustaChart({ expences }) {
             {
               data: expences.map((item) => item.amount),
               barThickness: 25,
-              backgroundColor: "darkorange",
+              backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
+              borderWidth: 2,
+              borderRadius: 8,
+
+              // borderRadius: Number.MAX_VALUE,
+              borderSkipped: true,
             },
           ],
         }}
