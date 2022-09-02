@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import notifier from '../../services/notify/notify';
 import balanceSlice from '../../redux/balance';
-
-// import BalanceModal from './BalanceModal';
+import BalanceModal from './BalanceModal';
 import s from './Balance.module.css';
 
 const BALANCELIMIT = {
@@ -14,6 +13,8 @@ const BALANCELIMIT = {
 export default function Balance({ balanceValue = null }) {
   const [balance, setBalance] = useState(null);
   const dispatch = useDispatch();
+  const isBalanceSubmited = useRef(false);
+  const isBalanceActivated = isBalanceSubmited.current || (balanceValue !== null);
 
   const balanceInputHandler = (e) => {
     const { value } = e.target;
@@ -26,6 +27,7 @@ export default function Balance({ balanceValue = null }) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(balanceSlice.balanceOperations.balanceRequest(balance));
+    isBalanceSubmited.current = true;
   };
 
   return (
@@ -36,7 +38,7 @@ export default function Balance({ balanceValue = null }) {
             Баланс:
           </label>
         </div>
-        {balanceValue === null ? (
+        { !isBalanceActivated ? (
           <>
             <input
               onInput={balanceInputHandler}
@@ -50,7 +52,7 @@ export default function Balance({ balanceValue = null }) {
             <button type="submit" className={s.balanceBtn}>
               підтвердити
             </button>
-            {/* <BalanceModal /> */}
+            <BalanceModal />
           </>
         ) : (
           <input
