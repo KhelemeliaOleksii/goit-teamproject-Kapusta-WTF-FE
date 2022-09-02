@@ -43,9 +43,7 @@ export default function KapustaChart({ expences }) {
               color: '#52555F',
               align: 'end',
               anchor: 'end',
-              formatter: (value) => {
-                return `${value} грн`;
-              },
+              formatter: (value) => `${value} грн`,
             },
           },
         }}
