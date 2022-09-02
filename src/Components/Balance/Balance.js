@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import notifier from '../../services/notify/notify';
+import balanceSlice from '../../redux/balance';
+
 // import BalanceModal from './BalanceModal';
 import s from './Balance.module.css';
 
@@ -9,17 +13,24 @@ const BALANCELIMIT = {
 };
 export default function Balance({ balanceValue = null }) {
   const [balance, setBalance] = useState(null);
+  const dispatch = useDispatch();
+
   const balanceInputHandler = (e) => {
     const { value } = e.target;
     if (Number(value) < BALANCELIMIT.min || Number(value) > BALANCELIMIT.max) {
-      // Значення балансу має бути не менше  0 і не більше 1000000
+      notifier.info(`Значення балансу має бути не менше ${BALANCELIMIT.min} і не більше ${BALANCELIMIT.max}`);
       return;
     }
     setBalance(Number(value));
   };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(balanceSlice.balanceOperations.balanceRequest(balance));
+  };
+
   return (
     <div className={s.balanceContainer}>
-      <form className={s.balanceForm}>
+      <form className={s.balanceForm} onSubmit={submitHandler}>
         <div className={s.text}>
           <label htmlFor="balance" className={s.balanceLabel}>
             Баланс:
