@@ -3,10 +3,23 @@ const { default: axios } = require('axios');
 
 const userMount = createAsyncThunk(
   'report/userMount',
-  async (_, { rejectWithValue }) => {
+  async (date, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        'http://localhost:5000/api/v1/report/short-per-month?date=2022-09-02'
+        `http://localhost:5000/api/v1/report/short-per-month?date=${date}`
+      );
+      return data.data.result;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+const transactionType = createAsyncThunk(
+  'report/transactionType',
+  async (date, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:5000/api/v1/report/category-per-month?date=${date}&transactionType=expenses`
       );
       return data.data.result;
     } catch (error) {
@@ -17,6 +30,7 @@ const userMount = createAsyncThunk(
 
 const reportOperations = {
   userMount,
+  transactionType,
 };
 
 export default reportOperations;

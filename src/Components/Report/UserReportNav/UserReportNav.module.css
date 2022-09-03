@@ -58,6 +58,8 @@
   align-items: center;
 }
 .p_period {
+  width: 120px;
+  text-align: center;
   margin: 0 15px;
   font-weight: 700;
   font-size: 14px;

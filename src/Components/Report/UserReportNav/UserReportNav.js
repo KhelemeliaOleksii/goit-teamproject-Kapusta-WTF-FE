@@ -1,8 +1,11 @@
-import { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import s from './UserReportNav.module.css';
 import goBack from '../../../public/goBack.svg';
-// import Switcher from '../Switcher/Switcher';
 import sprite from '../../../public/sprite_categories.svg';
+import { dateUser } from '../../../redux/report/report-slice';
+import reportOperations from '../../../redux/report/report-operations';
 
 export default function UserReportNav() {
   const mouthes = [
@@ -20,10 +23,8 @@ export default function UserReportNav() {
     'січень',
   ];
   const [date, setDate] = useState(new Date());
-
   const changeMonth = (e) => {
     setDate((prevDate) => {
-      console.log(prevDate);
       const newDate = new Date(prevDate.getTime());
       const month = newDate.getMonth();
       newDate.setMonth(e === 'left' ? month - 1 : month + 1);
@@ -32,6 +33,14 @@ export default function UserReportNav() {
   };
   const month = date.getMonth();
   const year = date.getFullYear();
+  const normalizedDate = date.toISOString().slice(0, 10);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(dateUser(normalizedDate));
+    dispatch(reportOperations.userMount(normalizedDate));
+    dispatch(reportOperations.transactionType(normalizedDate));
+  }, [date]);
 
   return (
     <div className={s.container}>

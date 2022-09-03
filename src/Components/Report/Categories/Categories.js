@@ -1,43 +1,27 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import reportOperations from '../../../redux/report/report-operations';
 import s from './Categories.module.css';
-import Switcher from '../Switcher/Switcher';
-import CategoryItem from '../CategoryItem/CategoryItem';
+import UserTypeAmount from '../UserTypeAmount/UserTypeAmount';
 
-const data = [
-  {
-    id: 2,
-    amount: 1000,
-    category: 'salary',
-    isActive: true,
-    types: [{ amount: 100, description: 'taxi' }],
-  },
-  {
-    id: 3,
-    amount: 1000,
-    category: 'transport',
-    isActive: false,
-    types: [{ amount: 100, description: 'taxi' }],
-  },
-  {
-    id: 4,
-    amount: 1000,
-    category: 'transport',
-    isActive: true,
-    types: [{ amount: 100, description: 'taxi' }],
-  },
-];
+// import CategoryItem from '../CategoryItem/CategoryItem';
 
 export default function Categories() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(reportOperations.transactionType());
+  }, [dispatch]);
+  const data = useSelector((state) => state.reportReducer.transaction);
   return (
     <div className={s.container}>
-      <Switcher title="EXPENSES" />
+      <UserTypeAmount />
       <ul className={s.categories}>
-        {data.map((item) => (
-          <CategoryItem
-            amount={item.amount}
-            key={item.id}
-            category={item.category}
-          />
-        ))}
+        {data.map((item) => console.log(item))}
+        {/* <CategoryItem
+          amount={item.amount}
+           ={item.id}
+           category={item.category}
+           /> */}
       </ul>
     </div>
   );

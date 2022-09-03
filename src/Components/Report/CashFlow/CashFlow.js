@@ -1,27 +1,32 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+/* eslint-disable no-underscore-dangle */
+
+import { useSelector } from 'react-redux';
 import s from './CashFlow.module.css';
-import reportOperations from '../../../redux/report/report-operations';
 
 export default function CashFlow() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(reportOperations.userMount());
-  }, [dispatch]);
   const userMount = useSelector((state) => state.reportReducer.userMount);
-  console.log(userMount);
-  // userMount.map((mount) => {
-  //   console.log(mount._id);
-  // });
+  const mounthMount = {
+    expenses: 0,
+    income: 0,
+  };
+  userMount.map((mount) => {
+    if (mount._id === 'expenses') {
+      mounthMount.expenses = mount.totalAmount;
+    } else if (mount._id === 'income') {
+      mounthMount.income = mount.totalAmount;
+    }
+    return mounthMount;
+  });
+
   return (
     <div className={s.container}>
       <div className={s.expenses}>
         <p className={s.p}>Expenses:</p>
-        <span>- грн.</span>
+        <span>- {mounthMount.expenses}грн.</span>
       </div>
       <div className={s.income}>
         <p className={s.p}>Income:</p>
-        <span>+ грн.</span>
+        <span>+ {mounthMount.income}грн.</span>
       </div>
     </div>
   );

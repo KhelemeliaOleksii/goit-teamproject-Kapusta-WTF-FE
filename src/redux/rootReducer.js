@@ -24,12 +24,16 @@ const transactionPersistConfig = {
   key: 'transaction',
   storage,
 };
+const reportPersistConfig = {
+  key: 'report',
+  storage,
+  whitelist: ['date'],
+};
 
 const rootReducer = combineReducers({
   // це для локал сторедж
   exampleReducer: persistReducer(examplePersistConfig, example.exampleReducer),
-  // reportReducer: persistReducer(examplePersistConfig, report.reportReducer),
-  reportReducer: report.reportReducer,
+  reportReducer: persistReducer(reportPersistConfig, report.reportReducer),
   // //це просто для стейта
   // exampleReducer:example.exampleReducer,
   auth: persistReducer(authPersistConfig, authReducer),
