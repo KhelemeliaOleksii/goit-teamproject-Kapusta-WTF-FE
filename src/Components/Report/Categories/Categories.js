@@ -1,82 +1,27 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import reportOperations from '../../../redux/report/report-operations';
 import s from './Categories.module.css';
-import sprite from '../../../public/sprite_categories.svg';
-import Switcher from '../Switcher/Switcher';
+import UserTypeAmount from '../UserTypeAmount/UserTypeAmount';
+
+// import CategoryItem from '../CategoryItem/CategoryItem';
 
 export default function Categories() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(reportOperations.transactionType());
+  }, [dispatch]);
+  const data = useSelector((state) => state.reportReducer.transaction);
   return (
     <div className={s.container}>
-      <Switcher title="EXPENSES" />
+      <UserTypeAmount />
       <ul className={s.categories}>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-transport`} />
-            </svg>
-          </div>
-          <h3>transport</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-education`} />
-            </svg>
-          </div>
-          <h3>education</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-other`} />
-            </svg>
-          </div>
-          <h3>other</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-health`} />
-            </svg>
-          </div>
-          <h3>Health</h3>
-        </li>
-        <li className={s.categoriesItem}>
-          <span className={s.span}>1000</span>
-          <div className={s.background}>
-            <svg
-              className={s.svg}
-              width="63"
-              height="56"
-              aria-label="clickLeft"
-            >
-              <use href={`${sprite}#icon-products`} />
-            </svg>
-          </div>
-          <h3>PRODUCTS</h3>
-        </li>
+        {data.map((item) => console.log(item))}
+        {/* <CategoryItem
+          amount={item.amount}
+           ={item.id}
+           category={item.category}
+           /> */}
       </ul>
     </div>
   );

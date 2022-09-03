@@ -4,6 +4,8 @@
   align-items: center;
 }
 .p {
+  width: 120px;
+  text-align: center;
   margin: 0 15px;
   font-weight: 700;
   font-size: 14px;

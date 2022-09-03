@@ -2,19 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+
+  margin: 0 auto;
+  width: 320px;
   margin-bottom: 45px;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   color: rgba(82, 85, 95, 0.7);
 }
-.goBack {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.mainPage {
+  display: none;
 }
-.img {
-  margin-right: 18px;
+.goBack {
+  margin: 22px auto 22px 22px;
 }
 .period {
   display: flex;
@@ -24,4 +26,45 @@
 }
 .p {
   margin-bottom: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 704px;
+    flex-direction: row;
+  }
+  .mainPage {
+    display: block;
+  }
+  .goBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img {
+    margin-right: 18px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1034px;
+  }
+}
+
+/* переключення періоду */
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p_period {
+  width: 120px;
+  text-align: center;
+  margin: 0 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  text-transform: uppercase;
 }
