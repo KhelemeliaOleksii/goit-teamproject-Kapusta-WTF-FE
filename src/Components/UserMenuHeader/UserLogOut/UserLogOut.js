@@ -10,7 +10,7 @@ import styles from './UserLogOut.module.css';
 
 function UserLogOut() {
   const dispatch = useDispatch();
-  const name = useSelector(authSelectors.getUserName);
+  const name = useSelector(authSelectors.getUserEmail);
 
   const [setModalOpen, setShowModal] = useState(false);
 
@@ -29,7 +29,6 @@ function UserLogOut() {
     <div className={styles.userWrapper}>
       <Avatar
         name={name}
-        // name="User"
         size="32"
         color={Avatar.getRandomColor('sitebase', [
           'red',
@@ -45,7 +44,6 @@ function UserLogOut() {
       {viewPort.width >= 768 && (
         <>
           <p className={styles.userName}>{name}</p>
-          {/* <p className={styles.userName}>UserName8768947</p> */}
           <button
             type="button"
             onClick={toggleModal}
