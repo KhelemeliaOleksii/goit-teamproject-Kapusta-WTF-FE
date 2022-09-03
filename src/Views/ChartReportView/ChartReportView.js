@@ -20,5 +20,5 @@ const expences = [
 ];
 
 export default function CharReportView() {
-  return <ChartReport expences={expences} />;
+  return <ChartReport transactions={expences} />;
 }
