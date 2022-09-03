@@ -9,6 +9,7 @@ import Container from '../Containter';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import transactionSlice from '../../redux/transaction/transaction-slice';
 import transactionOperations from '../../redux/transaction/transaction-operations';
+import Balance from '../Balance';
 
 function PageHome() {
   const viewPort = useWindowDimensions();
@@ -29,6 +30,8 @@ function PageHome() {
         <div className={s.PageHomeWrapper}>
           <div className={s.BalanseWrapper}>
             <button type="button" className={s.button}>{balance}</button>
+            {/* <button type="button" className={s.button}> Балас</button> */}
+            <Balance balanceValue={100} />
             <Link to="/reports" className={s.linkReport}>
               Reports
             </Link>
