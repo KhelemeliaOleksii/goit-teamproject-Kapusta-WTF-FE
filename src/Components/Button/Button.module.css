@@ -1,0 +1,31 @@
+.button {
+  width: 130px;
+  height: 44px;
+  background: #f5f6fb;
+  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .button {
+    width: 125px;
+  }
+  
+}
+@media screen and (min-width: 1280px) {
+  .button {
+    width: 136px;
+  }
+  
+}

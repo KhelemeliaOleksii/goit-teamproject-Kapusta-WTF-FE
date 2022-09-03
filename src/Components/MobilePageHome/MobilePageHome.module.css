@@ -1,0 +1,47 @@
+  .wrapperMobileSection {
+    position: relative;
+    padding: 47px 0px 40px 0px;
+    background: #f5f6fb;
+    border-bottom-left-radius: 90px;
+  }
+  
+  .boxMobileBalanse {
+    text-align: center;
+  }
+  
+  .linkReport {
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 43px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16px;
+    letter-spacing: 0.04em;
+    color: rgba(82, 85, 95, 0.7);
+  }
+  
+  .wrapperMobileButton {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .buttonMobile {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.16px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #000000;
+    width: 50%;
+    height: 53px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #fff;
+  }
+  .buttonMobile:hover {
+    background: #ff751d;
+    color: #ffffff;
+  }
+ 
