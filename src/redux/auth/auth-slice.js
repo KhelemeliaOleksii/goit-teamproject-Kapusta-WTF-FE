@@ -14,7 +14,6 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     googleLogIn: (state, action) => {
-      state.user.name = action.payload.name;
       state.user.email = action.payload.email;
       state.token = action.payload.token;
       state.isLoggedIn = true;

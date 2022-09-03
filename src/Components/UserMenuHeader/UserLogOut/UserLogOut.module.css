@@ -18,6 +18,7 @@ button {
 }
 
 .userName {
+  font-family: 'Roboto Flex', sans-serif;
   border-right: 1px solid #e0e5eb;
 }
 
