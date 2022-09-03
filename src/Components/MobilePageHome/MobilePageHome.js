@@ -5,6 +5,7 @@ import CalendarForm from '../CalendarForm';
 import ModalMobileHome from '../ModalMobileHome';
 import Container from '../Containter';
 import useWindowDimensions from '../Hooks';
+import Balance from '../Balance';
 
 function MobilePageHome() {
   const [modalExpenenses, setModalExpenenses] = useState(false);
@@ -28,6 +29,7 @@ function MobilePageHome() {
             </Link>
             <CalendarForm data={calendarValue} />
           </div>
+          <Balance balanceValue={null} />
           <ul />
         </Container>
         <div className={s.wrapperMobileButton}>

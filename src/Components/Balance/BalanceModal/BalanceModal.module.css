@@ -1,0 +1,56 @@
+.modalСontainer {
+    position: relative;
+    max-height: 163px;
+    max-width: 280px;
+    border-radius: 30px;
+    padding: 30px 25px;
+    background: linear-gradient(117.84deg, #1D346A 2.84%, #031634 67.28%);
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+.modalСontainer::before {
+    content: '';
+    position: absolute;
+    background-color: #1D346A;
+    width: 30px;
+    height: 15px;
+    left: 69px;
+    top: -10px;
+    transform: rotate(45deg);
+}
+
+.modalText {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.modalSecondText {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+@media screen and (min-width: 768px) {
+    .modalContainer {
+        position: absolute;
+        left: 140px;
+        max-height: 163px;
+        max-width: 288px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .modalContainer {
+        position: absolute;
+        left: 549px;
+        top: 143px;
+        max-height: 163px;
+        max-width: 288px;
+    }
+}
