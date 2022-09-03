@@ -6,7 +6,7 @@ const data = [
   {
     id: 2,
     amount: 1000,
-    category: 'transport',
+    category: 'salary',
     isActive: true,
     types: [{ amount: 100, description: 'taxi' }],
   },

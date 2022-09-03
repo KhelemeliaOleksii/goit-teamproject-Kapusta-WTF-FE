@@ -27,6 +27,7 @@
     "react/no-unescaped-entities": ["off"],
     "no-console": "off",
     "no-param-reassign": "off",
-    "no-unused-vars": ["error", { "args": "none" }]
+    "no-unused-vars": ["error", { "args": "none" }],
+    "no-underscore-dangle": "off"
   }
 }

@@ -50,3 +50,19 @@
     width: 1034px;
   }
 }
+
+/* переключення періоду */
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p_period {
+  margin: 0 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  text-transform: uppercase;
+}
