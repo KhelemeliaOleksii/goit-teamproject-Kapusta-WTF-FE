@@ -1,0 +1,12 @@
+.customInput {
+    background: transparent;
+    border: none;
+    width: 75px;
+    height: 40px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #52555f;
+    padding: 0;
+    cursor: pointer;
+    text-align: end;
+}

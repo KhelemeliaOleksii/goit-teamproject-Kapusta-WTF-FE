@@ -1,40 +1,48 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { AiFillDelete } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
 import Summary from '../Summary';
 import useWindowDimensions from '../Hooks';
 import s from './Table.module.css';
+// import transactionOperations from '../../redux/transaction/transaction-operations';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
 
-const transactions = [
-  {
-    id: '630aa92d7fbba3001d117dc2',
-    type: 'income',
-    date: '28.8.2022',
-    category: 'Заработная плата',
-    subCategory: 'fdsfds',
-    sum: 12000,
-    month: '8',
-    year: '2022',
-    owner: '6307ccfba7599a001d3cf925',
-  },
-  {
-    id: '630aa92d7fbba3001d117dc',
-    type: 'income',
-    date: '27.7.2021',
-    category: 'Заработная плата',
-    subCategory: 'Биткоин',
-    sum: 11,
-    month: '7',
-    year: '2021',
-    owner: '6307ccfba7599a001d3cf925',
-  },
+// const transactions = [
+//   {
+//     id: '630aa92d7fbba3001d117dc2',
+//     type: 'income',
+//     date: '28.8.2022',
+//     category: 'Заработная плата',
+//     subCategory: 'fdsfds',
+//     sum: 12000,
+//     month: '8',
+//     year: '2022',
+//     owner: '6307ccfba7599a001d3cf925',
+//   },
+//   {
+//     id: '630aa92d7fbba3001d117dc',
+//     type: 'income',
+//     date: '27.7.2021',
+//     category: 'Заработная плата',
+//     subCategory: 'Биткоин',
+//     sum: 11,
+//     month: '7',
+//     year: '2021',
+//     owner: '6307ccfba7599a001d3cf925',
+//   },
 
-];
+// ];
 
 function Table({ category }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // dispatch(transactionOperations.getTransaction());
+  }, [dispatch]);
+  const transactions = useSelector(transactionSelectors.getTransactionList);
   const viewPort = useWindowDimensions();
   return (
     <div className={s.tableContainer}>
-      <h2>{category}</h2>
       <table className={s.table}>
         <thead>
           <tr className={s.tableHeder}>
