@@ -1,0 +1,12 @@
+.calendarFormWrapp {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-right: 44px;
+}
+
+@media screen and (min-width: 1280px) {
+    .calendarFormWrapp {
+        margin-right: 0px;
+    }
+}

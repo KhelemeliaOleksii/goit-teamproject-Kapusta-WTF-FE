@@ -1,0 +1,124 @@
+.balanceContainer {
+    position: relative;
+    margin-top: 40px;
+}
+
+.balanceForm {
+    display: block;
+    text-align: center;
+}
+
+.balanceLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    color: rgba(82, 85, 95, 0.7);
+}
+
+.balanceInput {
+    position: relative;
+    width: 140px;
+    height: 44px;
+    padding: 0px 16px 0px 0px;
+    text-align: right;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid #ffffff;
+    border-right: none;
+    border-radius: 22px 0 0 22px;
+    outline: none;
+    background-color: transparent;
+    color: #000000;
+}
+
+.balanceBtn {
+    background-color: transparent;
+    align-items: center;
+    width: 142px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0;
+    text-transform: uppercase;
+    border: 2px solid #ffffff;
+    border-radius: 0 22px 22px 0;
+    outline: none;
+    cursor: pointer;
+    color: rgba(82, 85, 95, 0.7);
+}
+
+.balanceBtn:hover,
+.balanceBtn:focus {
+    background-color: #FF751D;
+    color: #FFFFFF;
+    border-color: #FF751D;
+}
+
+@media screen and (min-width: 768px) {
+    .balanceContainer {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .balanceForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .balanceLabel {
+        margin: 0px 20px 0px auto;
+    }
+
+    .balanceInput {
+        width: 125px;
+        padding: 0px 20px 0px 0px;
+        margin-top: 0px;
+        border-radius: 16px;
+        border: 2px solid #ffffff;
+    }
+
+    .balanceBtn {
+        width: 125px;
+        background-color: transparent;
+        border-radius: 16px;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .balanceContainer {
+        justify-content: center;
+    }
+
+    .balanceLabel {
+        align-items: center;
+        text-align: right;
+    }
+
+    .balanceInput {
+
+        max-width: 125px;
+        color: black;
+        background-color: transparent;
+        border-radius: 16px;
+    }
+
+    .balanceBtn {
+        background-color: transparent;
+        border-radius: 16px;
+        margin-left: 15px;
+
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
