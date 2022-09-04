@@ -1,36 +1,59 @@
 const { createAsyncThunk } = require('@reduxjs/toolkit');
-const { default: axios } = require('axios');
+const axios = require('axios');
 
-const testRequest = createAsyncThunk('test/request', async (credentials, thunkAPI) => {
-  // Для прикладу
-  // const state = thunkAPI.getState();
-  // const testValue = state.example.filter;
+axios.defaults.baseURL = 'https://kapusta-wtf.herokuapp.com/';
 
+const getBalance = createAsyncThunk('balance/getBalance', async () => {
   try {
-    const { data } = await axios.get('/test');
+    const { data } = await axios.get('/api/v1/balance');
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return error.message;
   }
 });
-// const date = (state, action) => {
-//   state.date = action.payload;
-// };
-// const balence = (state, action) => {
-//   state.balence = action.payload;
-// };
-// const type = (state, action) => {
-//   state.type = action.payload;
-// };
-// const transactionList = (state, action) => {
-//   state.transactionList = [...action.payload];
-// };
 
-// const transactionOperations = {
-//   date,
-//   balence,
-//   type,
-//   transactionList
-// };
+const addBalance = createAsyncThunk('balance/addBalance', async (balance) => {
+  try {
+    const { data } = await axios.post('/api/v1/balance', balance);
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+});
 
-export default testRequest;
+const getTransaction = createAsyncThunk('transaction/getTransaction', async (date) => {
+  try {
+    const { data } = await axios.get(`api/v1/report/all-in-day?date=${date}`);
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
+const addTransaction = createAsyncThunk('transaction/addTransaction', async (transaction) => {
+  try {
+    const { data } = await axios.post('/api/v1/transactions', transaction);
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
+const deleteTransaction = createAsyncThunk('transaction/delete', async (id) => {
+  try {
+    await axios.delete(`/api/v1/transactions/${id}`);
+    return id;
+  } catch (error) {
+    return error.message;
+  }
+});
+
+const transactionOperations = {
+  getBalance,
+  addBalance,
+  getTransaction,
+  addTransaction,
+  deleteTransaction,
+};
+
+export default transactionOperations;

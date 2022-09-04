@@ -1,0 +1,26 @@
+.goBack {
+  margin: 22px auto 22px 22px;
+  background-color: #fff;
+}
+.period {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.mainPage {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .mainPage {
+    display: block;
+  }
+  .goBack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img {
+    margin-right: 18px;
+  }
+}

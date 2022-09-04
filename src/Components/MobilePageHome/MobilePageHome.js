@@ -1,16 +1,20 @@
 import { useState } from 'react';
+import { useSelector, } from 'react-redux';
 import { Link } from 'react-router-dom';
 import s from './MobilePageHome.module.css';
 import CalendarForm from '../CalendarForm';
 import ModalMobileHome from '../ModalMobileHome';
 import Container from '../Containter';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import useWindowDimensions from '../Hooks';
 import Balance from '../Balance';
+import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
 
 function MobilePageHome() {
   const [modalExpenenses, setModalExpenenses] = useState(false);
   const [modalIncome, setModalIncome] = useState(false);
   const [calendarValue] = useState(new Date());
+  const balance = useSelector(transactionSelectors.getBalance);
   const viewPort = useWindowDimensions();
   const toggleModalExpenenses = () => {
     setModalExpenenses(!modalExpenenses);
@@ -21,45 +25,45 @@ function MobilePageHome() {
   return (
     <section>
       {!modalExpenenses && !modalIncome && (
-      <div className={s.wrapperMobileSection}>
-        <Container>
-          <div className={s.boxMobileBalanse}>
-            <Link to="/reports" className={s.linkReport}>
-              Reports
-            </Link>
+        <div className={s.wrapperMobileSection}>
+          <Container>
+            <div className={s.boxMobileBalanse}>
+              <Link to="/reports" className={s.linkReport}>
+                Reports
+                <Vector className={s.vector} />
+              </Link>
+            </div>
+            <Balance balanceValue={balance} />
             <CalendarForm data={calendarValue} />
+          </Container>
+          <div className={s.wrapperMobileButton}>
+            <button
+              type="button"
+              className={s.buttonMobile}
+              onClick={toggleModalExpenenses}
+            >Expenses
+            </button>
+            <button
+              type="button"
+              className={s.buttonMobile}
+              onClick={toggleModalIncome}
+            >
+              income
+            </button>
           </div>
-          <Balance balanceValue={null} />
-          <ul />
-        </Container>
-        <div className={s.wrapperMobileButton}>
-          <button
-            type="button"
-            className={s.buttonMobile}
-            onClick={toggleModalExpenenses}
-          >Expenses
-          </button>
-          <button
-            type="button"
-            className={s.buttonMobile}
-            onClick={toggleModalIncome}
-          >
-            income
-          </button>
         </div>
-      </div>
       )}
       {modalExpenenses && viewPort.width < 768 && (
-      <ModalMobileHome
-        closeModal={toggleModalExpenenses}
-        category="Product "
-      />
+        <ModalMobileHome
+          closeModal={toggleModalExpenenses}
+          category="Product "
+        />
       )}
       {modalIncome && (
-      <ModalMobileHome
-        closeModal={toggleModalIncome}
-        category="Income "
-      />
+        <ModalMobileHome
+          closeModal={toggleModalIncome}
+          category="Income "
+        />
       )}
     </section>
   );

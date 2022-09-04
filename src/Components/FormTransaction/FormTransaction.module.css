@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .wrapperImputForm {
@@ -16,7 +16,6 @@
   border-radius: 16px 0px 0px 0px;
   height: 100%;
   width: 183px;
-  ;
   font-style: normal;
   color: #c7ccdc;
   font-weight: 400;
@@ -47,6 +46,7 @@
   border: 2px solid #f5f6fb;
   text-indent: 20px;
   border-right: none;
+  outline: none;
 }
 
 .transactionMoneyinput {
@@ -57,13 +57,14 @@
   background: #ffffff;
   border-radius: 0px 16px 16px 0px;
   border: 2px solid #f5f6fb;
-  text-indent: 36px;
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  padding: 0 40px 0 30px;
+  outline: none;
 }
 
 .transactionMoneyinput::placeholder {
@@ -111,5 +112,6 @@
 
   .formTransaction {
     justify-content: space-between;
+    margin-bottom: 32px;
   }
 }

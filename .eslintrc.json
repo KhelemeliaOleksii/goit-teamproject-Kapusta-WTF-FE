@@ -16,50 +16,32 @@
     "sourceType": "module",
     "JSX": true
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "comma-dangle": "off",
     "react/jsx-one-expression-per-line": "off",
-    "react/react-in-jsx-scope": [
-      "off"
-    ],
-    "react/jsx-uses-react": [
-      "off"
-    ],
+    "react/react-in-jsx-scope": ["off"],
+    "react/jsx-uses-react": ["off"],
     "jsx-a11y/label-has-associated-control": [
       2,
       {
-        "labelComponents": [
-          "Label"
-        ],
-        "labelAttributes": [
-          "label"
-        ],
-        "controlComponents": [
-          "Input"
-        ],
+        "labelComponents": ["Label"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["Input"],
         "depth": 3
       }
     ],
-    "react/jsx-props-no-spreading": [
-      "warn"
-    ],
-    "react/no-unescaped-entities": [
-      "off"
-    ],
+    "react/jsx-props-no-spreading": ["warn"],
+    "react/no-unescaped-entities": ["off"],
     "no-console": "off",
     "no-param-reassign": "off",
+
     "no-unused-vars": [
       "error",
       {

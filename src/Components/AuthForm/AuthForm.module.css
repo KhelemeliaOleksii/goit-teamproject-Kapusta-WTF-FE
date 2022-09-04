@@ -1,0 +1,169 @@
+.authForm {
+    width: 280px;
+    /* height: 496px; */
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 40px  20px 40px 20px ;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 30px;
+}
+
+.authGoogleText {
+    margin-bottom: 16px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+.authText {
+    margin-bottom: 24px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+}
+
+.emailBlock,
+.passwordBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.emailBlock,
+.passwordBlock {
+    margin-bottom: 10px;
+}
+
+.emailBlock label {
+    margin-bottom: 12px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.04em;
+}
+
+.passwordBlock label {
+    margin-bottom: 12px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.04em;
+}
+
+.emailBlock input {
+    font-size: 14px;
+    min-height: 52px;
+    margin: 0;
+    padding: 0 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #F6F7FB;
+    width: 100%;
+}
+
+.passwordBlock input {
+    font-size: 14px;
+    min-height: 52px;
+    margin: 0;
+    padding: 0 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #F6F7FB;
+    width: 100%;
+}
+
+.emailBlock input::placeholder,
+.passwordBlock input::placeholder {
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    color: #A6ABB9;
+}
+
+.emailError,
+.passwordError {
+    margin-left: 5px;
+    font-size: 10px;
+    color: #EB5757;
+    height: 10px;
+    padding-top: 3px;
+    padding-bottom: 7px;
+}
+
+.passwordError {
+    margin-bottom: 20px;
+}
+
+.buttonsBlock {
+    display: flex;
+    justify-content: center;
+}
+
+.loginButton,
+.registrationButton {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 116px;
+    min-height: 44px;
+    border: none;
+    border-radius: 16px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    box-shadow: 0 3px 3px rgba(170, 178, 197, 0.4);
+}
+
+.loginButton {
+    margin-right: 8px;
+    background-color: #F5F6FB;
+    color: #52555F;
+
+
+}
+
+.loginButton:hover,
+.loginButton:focus {
+    background-color: #FF751D;
+    color: #FFFFFF;
+}
+
+.registrationButton {
+    background-color: #F5F6FB;
+    color: #52555F;
+}
+
+.registrationButton:hover,
+.registrationButton:focus {
+    background-color: #FF751D;
+    color: #FFFFFF;
+}
+
+ @media screen and (min-width: 768px) {
+    .authForm {
+        width: 426px;
+        height: 552px;
+        padding: 56px 84px 56px;
+        }
+    }
+    
+@media screen and (min-width: 1280px) {}

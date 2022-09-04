@@ -1,22 +1,26 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import s from './Summary.module.css';
+import summaryOperations from '../../redux/summary/summary-operations';
+import summarySelectors from '../../redux/summary/summary-selectors';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import getMonth from '../../helpers/getMonth/getMonth';
 
-const Data = [
-  { prise: 1000, month: 'November' },
-  { prise: 2000, month: 'October' },
-  { prise: 3000, month: 'September' },
-  { prise: 40000, month: 'August' },
-  { prise: 6000, month: 'July' },
-  { prise: 4000, month: 'June' },
-];
 function Summary() {
+  const dispatch = useDispatch();
+  const type = useSelector(transactionSelectors.getType);
+  useEffect(() => {
+    dispatch(summaryOperations.getTransactionPerMouth(type));
+  }, [dispatch, type]);
+  const mounth = useSelector(summarySelectors.getSummary);
   return (
     <div>
-      <h3 className={s.summaryTitle}>Summary</h3>
+      <h3 className={s.summaryTitle}>Зведення</h3>
       <ul className={s.summaryList}>
-        {Data.map(({ prise, month }) => (
-          <li key={month} className={s.summaryItem}>
-            <p className={s.summaryText}>{month}</p>
-            <p className={s.summaryText}>{prise}</p>
+        {mounth.map(({ totalAmount, _id }) => (
+          <li key={_id} className={s.summaryItem}>
+            <p className={s.summaryText}>{getMonth(_id)}</p>
+            <p className={s.summaryText}>{totalAmount}</p>
           </li>
         ))}
       </ul>
