@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
 import { authOperations } from '../../redux/auth';
 
 import styles from './GoogleAuth.module.css';
@@ -20,7 +20,8 @@ function GoogleAuth() {
 
   return (
     <div>
-      <GoogleLogin
+      {/* <GoogleLogin */}
+      <div>
         clientId={clientId}
         render={(renderProps) => (
           <button
@@ -36,11 +37,12 @@ function GoogleAuth() {
             />
             Google
           </button>
-        )}
+      )}
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
-      />
+      </div>
+      {/* /> */}
     </div>
   );
 }
