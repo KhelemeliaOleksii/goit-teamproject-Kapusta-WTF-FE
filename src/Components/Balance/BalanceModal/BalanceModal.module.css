@@ -1,5 +1,6 @@
-.modalСontainer {
+.modalContainer {
     position: relative;
+    top: 8px;
     max-height: 163px;
     max-width: 280px;
     border-radius: 30px;
@@ -10,16 +11,17 @@
     z-index: 1;
 }
 
-.modalСontainer::before {
+.modalContainer::after {
     content: '';
     position: absolute;
-    background-color: #1D346A;
-    width: 30px;
-    height: 15px;
+    border: 11px solid transparent;
+    border-bottom-color: #1D346A;
+    top: 0;
+    border-top: 0;
     left: 69px;
-    top: -10px;
-    transform: rotate(45deg);
+    margin-top: -10px;
 }
+
 
 .modalText {
     font-size: 14px;
@@ -29,6 +31,7 @@
     color: #FFFFFF;
 }
 
+
 .modalSecondText {
     font-size: 12px;
     line-height: 16px;
@@ -36,16 +39,17 @@
     color: #FFFFFF;
 }
 
+
 @media screen and (min-width: 768px) {
     .modalContainer {
         position: absolute;
-        left: 140px;
-        max-height: 163px;
+        top: 52px;
+        left: 46px;
         max-width: 288px;
     }
 }
 
-@media screen and (min-width: 1280px) {
+/* @media screen and (min-width: 1280px) {
     .modalContainer {
         position: absolute;
         left: 549px;
@@ -53,4 +57,7 @@
         max-height: 163px;
         max-width: 288px;
     }
+} */
+.hnot {
+    display: none;
 }

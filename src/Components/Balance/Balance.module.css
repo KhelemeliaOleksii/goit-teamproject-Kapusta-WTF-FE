@@ -1,6 +1,6 @@
 .balanceContainer {
     position: relative;
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 .balanceForm {
@@ -24,6 +24,7 @@
     width: 140px;
     height: 44px;
     padding: 0px 16px 0px 0px;
+    margin: 0;
     text-align: right;
     align-items: center;
     font-size: 12px;
@@ -31,6 +32,23 @@
     border: 2px solid #ffffff;
     border-right: none;
     border-radius: 22px 0 0 22px;
+    outline: none;
+    background-color: transparent;
+    color: #000000;
+}
+
+.inputDisabled {
+    position: relative;
+    width: 140px;
+    height: 44px;
+    padding: 16px;
+    margin: 0;
+    text-align: right;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid #ffffff;
+    border-radius: 22px;
     outline: none;
     background-color: transparent;
     color: #000000;
