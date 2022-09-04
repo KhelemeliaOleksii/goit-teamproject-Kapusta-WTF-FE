@@ -27,11 +27,18 @@ function CalendarForm() {
     <div className={s.calendarFormWrapp}>
       <Calendar />
       <DatePicker
-        customInput={<CustomInput value="" onClick={() => {}} />}
+        customInput={<CustomInput value="" onClick={() => { }} />}
         minDate={new Date('01-01-2021')}
         maxDate={new Date()}
         selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        onChange={(date) => {
+          setStartDate(date);
+          // dispatch(addDate({
+          //   year: `${startDate.getFullYear()}`,
+          //   month: (`${startDate.getMonth() + 1}`).slice(-2),
+          //   day: (`${startDate.getDate()}`).slice(-2)
+          // }));
+        }}
         dateFormat="dd.MM.yyyy"
       />
     </div>
