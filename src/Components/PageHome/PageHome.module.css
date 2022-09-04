@@ -1,7 +1,9 @@
+
   .PageHomeBackground {
       position: absolute;
+      left: 0;
       z-index: -1;
-      width: 100%;
+      width: 100vw;
       height: 526px;
       background: #f5f6fb;
       border-bottom-left-radius: 90px;
@@ -11,27 +13,33 @@
       width: 704px;
       margin: 0 auto;
       margin-bottom: 40px;
-
+      padding-top: 40px;
   }
 
   .BalanseWrapper {
       display: flex;
       justify-content: space-between;
-      padding-top: 60px;
       align-items: center;
-      margin-bottom: 99px;
+      margin-bottom: 60px;
+      padding-left: 40px;
+
   }
 
   .linkReport {
       text-decoration: none;
       display: inline-block;
-      margin-bottom: 43px;
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
       line-height: 1.16px;
       letter-spacing: 0.04em;
       color: rgba(82, 85, 95, 0.7);
+      justify-content: end;
+      margin-right: 20px;
+  }
+
+  .vector {
+      margin-left: 20px;
   }
 
   .PageHomebutton {
@@ -47,10 +55,10 @@
       border-style: none;
       background: #FAFBFD;
       cursor: pointer;
-  } 
+  }
 
-  .active{
-    color: #FF751D;
+  .active {
+      color: #FF751D;
   }
 
 
@@ -85,4 +93,24 @@
           display: none;
       }
 
+      .BalanseWrapper {
+          justify-content: flex-end;
+          margin-bottom: 8px;
+      }
+
+      .wrapperlinkReport {
+          margin-left: 440px;
+      }
+      .PageHomeBackgroundImg{
+        z-index: -2;
+        position: fixed;
+        height: 308px;
+        width: 100vw;
+        left: 0;
+        bottom: 0;
+        background-size: contain;
+        background-image: url(/src/images/svg/BgBottom.svg);
+        background-repeat: no-repeat;
+        background-position: right 10% bottom;
+      }
   }

@@ -1,15 +1,15 @@
 .modalMobileHome {
-  position: relative;
+  position: absolute;
   height: 258px;
   background: #f5f6fb;
   border-bottom-left-radius: 90px;
+  width: 100%;
+  left: 0;
+  padding-top: 56px;
 }
 .formMobileHome {
-  position: absolute;
-  top:75%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  text-align: center;
+  width: 320px;
+  margin: 0 auto;
   padding: 0px 20px 0px 20px;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
 .inputMobileHome {
   border-radius: 16px 16px 0px 0px;
   width: 280px;
-  height: 42px;
+  height: 44px;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -38,7 +38,7 @@
 .SelectMobileHome {
   border-radius: 0 0 16px 0;
   width: 280px;
-  height: 42px;
+  height: 44px;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

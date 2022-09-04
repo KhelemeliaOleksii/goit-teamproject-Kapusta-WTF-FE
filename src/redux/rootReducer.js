@@ -6,6 +6,7 @@ import report from './report';
 
 import authReducer from './auth/auth-slice';
 import transactionSlice from './transaction/transaction-slice';
+import summarySlice from './summary/summary-slice';
 
 // якщо вам потрібні якісь налаштування
 // для відображення ваших даних в локал сторедж
@@ -24,6 +25,11 @@ const transactionPersistConfig = {
   key: 'transaction',
   storage,
 };
+
+const summaryPersistConfig = {
+  key: 'summary',
+  storage,
+};
 const reportPersistConfig = {
   key: 'report',
   storage,
@@ -37,10 +43,8 @@ const rootReducer = combineReducers({
   // //це просто для стейта
   // exampleReducer:example.exampleReducer,
   auth: persistReducer(authPersistConfig, authReducer),
-  transaction: persistReducer(
-    transactionPersistConfig,
-    transactionSlice.reducer
-  ),
+  transaction: persistReducer(transactionPersistConfig, transactionSlice.reducer),
+  summary: persistReducer(summaryPersistConfig, summarySlice.reducer),
 });
 
 export default rootReducer;

@@ -21,14 +21,15 @@ const addBalance = createAsyncThunk('balance/addBalance', async (balance) => {
   }
 });
 
-const getTransaction = createAsyncThunk('transaction/getTransaction', async () => {
+const getTransaction = createAsyncThunk('transaction/getTransaction', async (date) => {
   try {
-    const { data } = await axios.get('/api/v1/transactions');
+    const { data } = await axios.get(`api/v1/report/all-in-day?date=${date}`);
     return data;
   } catch (error) {
     return error.message;
   }
 });
+
 const addTransaction = createAsyncThunk('transaction/addTransaction', async (transaction) => {
   try {
     const { data } = await axios.post('/api/v1/transactions', transaction);
@@ -52,7 +53,7 @@ const transactionOperations = {
   addBalance,
   getTransaction,
   addTransaction,
-  deleteTransaction
+  deleteTransaction,
 };
 
 export default transactionOperations;
