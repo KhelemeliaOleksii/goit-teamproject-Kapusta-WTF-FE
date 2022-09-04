@@ -14,7 +14,7 @@ li {
     border-radius: 30px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .container {
     width: 1034px;
     padding: 20px 200px;

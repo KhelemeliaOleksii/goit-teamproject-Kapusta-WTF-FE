@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './UserReportNav.module.css';
-import goBack from '../../../public/goBack.svg';
+// import goBack from '../../../public/goBack.svg';
+import GoBack from '../GoBack/GoBack';
 import sprite from '../../../public/sprite_categories.svg';
 import { dateUser } from '../../../redux/report/report-slice';
 import reportOperations from '../../../redux/report/report-operations';
+import transactionSelectors from '../../../redux/transaction/transaction-selectors';
 
 export default function UserReportNav() {
   const mouthes = [
@@ -34,21 +36,25 @@ export default function UserReportNav() {
   const month = date.getMonth();
   const year = date.getFullYear();
   const normalizedDate = date.toISOString().slice(0, 10);
+  const type = useSelector(transactionSelectors.getType);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(dateUser(normalizedDate));
     dispatch(reportOperations.userMount(normalizedDate));
-    dispatch(reportOperations.transactionType(normalizedDate));
   }, [date]);
+  useEffect(() => {
+    dispatch(reportOperations.transactionType({ normalizedDate, type }));
+  }, [date, type]);
 
   return (
     <div className={s.container}>
+      <GoBack />
       {/* goBack */}
-      <div className={s.goBack}>
+      {/* <div className={s.goBack}>
         <img className={s.img} src={goBack} alt="goBack" />
         <p className={s.mainPage}>Main page</p>
-      </div>
+      </div> */}
       <div className={s.period}>
         <p className={s.p}>Current period:</p>
         <ul className={s.list}>
