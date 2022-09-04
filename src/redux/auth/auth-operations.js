@@ -13,7 +13,7 @@ const token = {
 
 const register = createAsyncThunk('/users/signup', async (userData) => {
   try {
-    const { data } = await axios.post('/users/signup', userData);
+    const { data } = await axios.post('api/v1/users/signup', userData);
     token.set(data.token);
     return data;
   } catch (error) {
@@ -23,7 +23,7 @@ const register = createAsyncThunk('/users/signup', async (userData) => {
 
 const logIn = createAsyncThunk('/users/login', async (userData) => {
   try {
-    const { data } = await axios.post('/users/login', userData);
+    const { data } = await axios.post('api/v1/users/login', userData);
     token.set(data.token);
     return data;
   } catch (error) {
@@ -33,7 +33,7 @@ const logIn = createAsyncThunk('/users/login', async (userData) => {
 
 const logOut = createAsyncThunk('/users/logout', async () => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('api/v1/users/logout');
     token.unset();
     return console.log('');
   } catch (error) {
@@ -53,7 +53,7 @@ const fetchCurrentUser = createAsyncThunk(
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('/users/current');
+      const { data } = await axios.get('api/v1/users/current');
       return data;
     } catch (error) {
       return notifier.error(error.message);

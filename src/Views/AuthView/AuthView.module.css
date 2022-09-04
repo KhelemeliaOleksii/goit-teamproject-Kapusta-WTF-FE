@@ -1,12 +1,12 @@
 .section {
   margin: 0 auto;
   padding-top: 86px;
-  padding-bottom: 16px;
+  padding-bottom: 96px;
   background-image: url('../../images/homepage/bg-mob-top.svg'),
     url('../../images/homepage/bg-main.svg'),
     url('../../images/homepage/bg-mob-bottom.svg');
   background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: right 104px, left top -240px, 35px bottom;
+  background-position: right 104px, left top -240px, left 15% bottom;
 }
 
 .kapusta {
@@ -38,7 +38,7 @@
       url('../../images/homepage/bg-main.svg'),
       url('../../images/homepage/bg-desk-bot.svg');
     background-repeat: no-repeat, no-repeat, no-repeat;
-    background-position: left top 28px, left top, left 103px bottom 140px;
+    background-position: left top 28px, left top, left 25% bottom -10px;
   }
 
   .kapusta {
@@ -68,7 +68,7 @@
     max-width: 1280px;
     padding-top: 117px;
     padding-bottom: 117px;
-    background-position: right top 28px, center top, left 20% bottom 120px;
+    background-position: right top 28px, center top, left 20% bottom;
   }
 
   .kapusta {
