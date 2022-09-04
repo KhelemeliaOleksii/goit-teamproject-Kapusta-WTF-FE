@@ -70,7 +70,9 @@ th:nth-of-type(5) {
 }
 
 td {
+  overflow: hidden;
   font-style: normal;
+  text-overflow: ellipsis;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.16px;
@@ -132,3 +134,10 @@ td:nth-of-type(5) {
     width: 128px;
   }
   }
+  
+  .deleteIcon:hover path {
+    color: #ff751d;
+    fill: #ff751d;
+  }
+
+ 

@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .wrapperImputForm {
@@ -112,5 +112,6 @@
 
   .formTransaction {
     justify-content: space-between;
+    margin-bottom: 32px;
   }
 }
