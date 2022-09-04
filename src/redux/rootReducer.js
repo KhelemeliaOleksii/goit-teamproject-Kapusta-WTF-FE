@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import example from './example';
 import authReducer from './auth/auth-slice';
 import transactionSlice from './transaction/transaction-slice';
+import balanceSlice from './balance';
 
 // якщо вам потрібні якісь налаштування
 // для відображення ваших даних в локал сторедж
@@ -22,6 +23,10 @@ const transactionPersistConfig = {
   key: 'transaction',
   storage,
 };
+const balancePersistConfig = {
+  key: 'balance',
+  storage,
+};
 
 const rootReducer = combineReducers({
   // це для локал сторедж
@@ -29,7 +34,8 @@ const rootReducer = combineReducers({
   // //це просто для стейта
   // exampleReducer:example.exampleReducer,
   auth: persistReducer(authPersistConfig, authReducer),
-  transaction: persistReducer(transactionPersistConfig, transactionSlice.reducer)
+  transaction: persistReducer(transactionPersistConfig, transactionSlice.reducer),
+  balance: persistReducer(balancePersistConfig, balanceSlice.balanceReducer)
 });
 
 export default rootReducer;
