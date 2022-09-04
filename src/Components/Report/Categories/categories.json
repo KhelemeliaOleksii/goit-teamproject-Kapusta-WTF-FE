@@ -1,0 +1,106 @@
+[{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b95"
+  },
+  "categoryName": "Транспорт",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b96"
+  },
+  "categoryName": "Продукти",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b97"
+  },
+  "categoryName": "Здоров'я",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b98"
+  },
+  "categoryName": "Алкоголь",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b99"
+  },
+  "categoryName": "Розваги",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b9a"
+  },
+  "categoryName": "Витрати на житло",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b9b"
+  },
+  "categoryName": "Техніка",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b9c"
+  },
+  "categoryName": "Комунальні послуги",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b9d"
+  },
+  "categoryName": "Заняття спортом",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b9e"
+  },
+  "categoryName": "Освіта",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7b9f"
+  },
+  "categoryName": "Домашні улюбленці",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7ba0"
+  },
+  "categoryName": "Благодійність",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7ba1"
+  },
+  "categoryName": "Інше",
+  "imageUrl": "",
+  "categoryType": "expenses"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7ba2"
+  },
+  "categoryName": "Заробітна плата",
+  "imageUrl": "",
+  "categoryType": "income"
+},{
+  "_id": {
+    "$oid": "63121fd1313da79b043d7ba3"
+  },
+  "categoryName": "Дод. дохід",
+  "imageUrl": "",
+  "categoryType": "income"
+}]
