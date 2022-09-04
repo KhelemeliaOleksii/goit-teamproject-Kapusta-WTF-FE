@@ -1,28 +1,32 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import reportOperations from '../../../redux/report/report-operations';
+/* eslint-disable no-underscore-dangle */
+import { useSelector } from 'react-redux';
 import s from './Categories.module.css';
 import UserTypeAmount from '../UserTypeAmount/UserTypeAmount';
-
-// import CategoryItem from '../CategoryItem/CategoryItem';
+import categoriesFilter from './categories.json';
+import CategoryItem from '../CategoryItem/CategoryItem';
 
 export default function Categories() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(reportOperations.transactionType());
-  }, [dispatch]);
   const data = useSelector((state) => state.reportReducer.transaction);
+  const dataItem = data.map((item) => {
+    const category = categoriesFilter.find((filter) => filter._id.$oid === item._id);
+
+    return { ...category, ...item };
+  });
+  console.log(dataItem);
   return (
     <div className={s.container}>
       <UserTypeAmount />
       <ul className={s.categories}>
-        {data.map((item) => console.log(item))}
-        {/* <CategoryItem
-          amount={item.amount}
-           ={item.id}
-           category={item.category}
-           /> */}
+        {dataItem.map((item) => (
+          <CategoryItem
+            totalAmount={item.totalAmount}
+            key={item.id}
+            categoryName={item.categoryName}
+          />
+        ))}
+
       </ul>
     </div>
   );
 }
+// filter._id.$oid === item._id

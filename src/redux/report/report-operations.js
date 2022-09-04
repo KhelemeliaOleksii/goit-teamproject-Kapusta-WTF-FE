@@ -17,9 +17,10 @@ const userMount = createAsyncThunk(
 const transactionType = createAsyncThunk(
   'report/transactionType',
   async (date, { rejectWithValue }) => {
+    const { normalizedDate, type } = date;
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/report/category-per-month?date=${date}&transactionType=expenses`
+        `http://localhost:5000/api/v1/report/category-per-month?date=${normalizedDate}&transactionType=${type}`
       );
       return data.data.result;
     } catch (error) {

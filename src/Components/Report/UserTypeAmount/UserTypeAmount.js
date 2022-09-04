@@ -1,26 +1,48 @@
 // import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import transactionSelectors from '../../../redux/transaction/transaction-selectors';
+import transactionSlice from '../../../redux/transaction/transaction-slice';
 import s from './UserTypeAmount.module.css';
 import sprite from '../../../public/sprite_categories.svg';
 
 export default function UserTypeAmount() {
+  const dispatch = useDispatch();
+  const type = useSelector(transactionSelectors.getType);
+  const toggleType = () => {
+    if (type === 'income') {
+      dispatch(transactionSlice.actions.addType('expenses'));
+    } else {
+      dispatch(transactionSlice.actions.addType('income'));
+    }
+  };
   return (
     <ul className={s.list}>
       <li>
-        <a href="report">
+        <span
+          onClick={toggleType}
+          onKeyPress={toggleType}
+          role="button"
+          tabIndex={0}
+        >
           <svg width="10" height="15" aria-label="clickLeft">
             <use href={`${sprite}#icon-clickLeft`} />
           </svg>
-        </a>
+        </span>
       </li>
       <li>
-        <p className={s.p}>Type</p>
+        <p className={s.p}>{type}</p>
       </li>
       <li>
-        <a href="report">
+        <span
+          onClick={toggleType}
+          onKeyPress={toggleType}
+          role="button"
+          tabIndex={0}
+        >
           <svg width="10" height="15" aria-label="clickRight">
             <use href={`${sprite}#icon-clickRigth`} />
           </svg>
-        </a>
+        </span>
       </li>
     </ul>
   );
