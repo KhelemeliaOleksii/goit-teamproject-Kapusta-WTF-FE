@@ -38,7 +38,10 @@ const transactionSlice = createSlice({
     //     //крутиться якийсь лоадер
     // }
     [transactionOperations.getTransaction.fulfilled](state, action) {
-      // state.addTransactionList = [...action.payload.data.balance];
+      state.transactionList = [...action.payload.data.result];
+    },
+    [transactionOperations.deleteTransaction.fulfilled](state, action) {
+      state.transactionList = state.transactionList.filter(({ id }) => id !== action.payload);
     },
   }
 });

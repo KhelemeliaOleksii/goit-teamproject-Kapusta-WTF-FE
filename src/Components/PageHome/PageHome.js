@@ -10,6 +10,7 @@ import transactionSelectors from '../../redux/transaction/transaction-selectors'
 import transactionSlice from '../../redux/transaction/transaction-slice';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import Balance from '../Balance';
+import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
 
 function PageHome() {
   const viewPort = useWindowDimensions();
@@ -24,17 +25,18 @@ function PageHome() {
     dispatch(addType(`${e.target.name}`));
   };
   return (
-    <section className={s.PageHomeSection}>
+    <section>
       <div className={s.PageHomeBackground} />
       <Container>
         <div className={s.PageHomeWrapper}>
           <div className={s.BalanseWrapper}>
-            <button type="button" className={s.button}>{balance}</button>
-            {/* <button type="button" className={s.button}> Балас</button> */}
-            <Balance balanceValue={100} />
-            <Link to="/reports" className={s.linkReport}>
-              Reports
-            </Link>
+            <Balance balanceValue={balance} />
+            <div className={s.wrapperlinkReport}>
+              <Link to="/reports" className={s.linkReport}>
+                Перейти до звітів
+                <Vector className={s.vector} />
+              </Link>
+            </div>
           </div>
           <ul className={s.PageHomelistButton}>
             <li>
@@ -44,7 +46,7 @@ function PageHome() {
                 className={`${s.PageHomebutton} ${type === 'expenses' && s.active
                 }`}
                 onClick={toggletype}
-              > expenses
+              > Витрати
               </button>
             </li>
             <li>
@@ -54,7 +56,7 @@ function PageHome() {
                 className={`${s.PageHomebutton} ${type === 'income' && s.active
                 }`}
                 onClick={toggletype}
-              > income
+              > Доходы
               </button>
             </li>
           </ul>
@@ -64,6 +66,7 @@ function PageHome() {
           {viewPort.width >= 768 && viewPort.width < 1280 && <Summary />}
         </div>
       </Container>
+      <div className={s.PageHomeBackgroundImg} />
     </section>
   );
 }

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BsFillCalculatorFill } from 'react-icons/bs';
 import CalendarForm from '../CalendarForm';
 import Button from '../Button';
 import s from './FormTransaction.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 
 const options = [
   { category: 'expenses', value: 'Transport', id: '63121fd1313da79b043d7b95' },
@@ -31,6 +31,20 @@ function FormTransaction({ category }) {
   const [InputMoney, setinputMoney] = useState('');
   const calendarDate = useSelector(transactionSelectors.getDate);
   const dispatch = useDispatch();
+  let description;
+  switch (category) {
+    case 'expenses':
+      description = 'товару';
+      break;
+
+    case 'income':
+      description = 'витрат';
+      break;
+
+    default:
+      description = '';
+  }
+
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
   };
@@ -70,7 +84,7 @@ function FormTransaction({ category }) {
           className={s.transactioninput}
           value={inputValue}
           onChange={handleInputChange}
-          placeholder={`${category} description`}
+          placeholder={`опис ${description}`}
         />
         <select
           className={s.transactionSelect}
@@ -78,7 +92,7 @@ function FormTransaction({ category }) {
           onChange={handleSelectedChange}
         >
           <option disabled value="">
-            {`${category} category`}
+            {`категорії ${description}`}
           </option>
           {filterOption.map((option) => (
             <option key={option.id} value={option.id}>
@@ -95,7 +109,7 @@ function FormTransaction({ category }) {
           pattern="^\d+(?:[.]\d+)?(?:\d+(?:[.]\d+)?)*$"
           autoComplete="off"
         />
-        <BsFillCalculatorFill
+        <Calculator
           color="#1D2E4A"
           size={20}
           style={{ position: 'absolute', right: 22, top: 14 }}
@@ -103,10 +117,10 @@ function FormTransaction({ category }) {
       </div>
       <ul className={s.transactionListButton}>
         <li className={s.transactionListButtonItem}>
-          <Button name="Input" type="submit" style={{ background: '#FF751D', color: '#ffffff' }} />
+          <Button name="Прийняти" type="submit" style={{ background: '#FF751D', color: '#ffffff' }} />
         </li>
         <li>
-          <Button name="Clear" type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }} />
+          <Button name="Скинути" type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }} />
         </li>
       </ul>
     </form>
