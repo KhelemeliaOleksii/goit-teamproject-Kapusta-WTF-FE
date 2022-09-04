@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import s from './Switcher.module.css';
+// import PropTypes from 'prop-types';
+import s from './UserTypeAmount.module.css';
 import sprite from '../../../public/sprite_categories.svg';
 
-export default function Switcher({ title }) {
+export default function UserTypeAmount() {
   return (
     <ul className={s.list}>
       <li>
@@ -13,7 +13,7 @@ export default function Switcher({ title }) {
         </a>
       </li>
       <li>
-        <p className={s.p}>{title}</p>
+        <p className={s.p}>Type</p>
       </li>
       <li>
         <a href="report">
@@ -25,6 +25,6 @@ export default function Switcher({ title }) {
     </ul>
   );
 }
-Switcher.propTypes = {
-  title: PropTypes.string.isRequired,
-};
+// UserTypeAmount.propTypes = {
+//   title: PropTypes.string.isRequired,
+// };

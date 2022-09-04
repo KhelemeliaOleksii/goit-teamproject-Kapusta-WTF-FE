@@ -1,0 +1,31 @@
+.categoriesItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 102px;
+  height: 140px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+.span {
+  margin-bottom: 5px;
+}
+.background {
+  position: relative;
+  margin: 5px 0;
+  background-color: #f5f6fb;
+  width: 59px;
+  height: 46px;
+  border-radius: 20px;
+}
+.svg {
+  position: absolute;
+  bottom: -3px;
+}
+
+.background:hover {
+  background-color: #ffdac0;
+  fill: #ff751d;
+}

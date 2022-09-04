@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import exampleOperations from './transaction-operations';
+import transactionOperations from './transaction-operations';
 
 const initialState = {
-  date: new Date().toString(),
-  balence: '',
+  date: '',
+  balance: '',
   type: 'expenses',
   transactionList: []
 };
@@ -13,34 +13,34 @@ const transactionSlice = createSlice({
   initialState,
   // для синхронних операцій, тобто робота тільки зі стейтом
   reducers: {
-    date: (state, action) => {
+    addDate: (state, action) => {
       state.date = action.payload;
     },
-    balence: (state, action) => {
-      state.balence = action.payload;
+    addBalence: (state, action) => {
+      state.balance = action.payload;
     },
-    type: (state, action) => {
+    addType: (state, action) => {
       state.type = action.payload;
     },
-    transactionList: (state, action) => {
+    addTransactionList: (state, action) => {
       state.transactionList = [...action.payload];
     }
   },
   // для асинхронних операцій, передбачає запитит до бази даних
-  // extraReducers: {
-  //   [exampleOperations.testRequest.fulfilled](state, action) {
-  //     state.example = action.payload;
-  //   },
-  //   [exampleOperations.testRequest.rejected](state, _) {
-  //     state.example = [];
-  //   },
-  //   // [exampleOperations.testRequest.pending](state, action) {
-  //   //     //крутиться якийсь лоадер
-  //   // }
-  // }
+  extraReducers: {
+    [transactionOperations.getBalance.fulfilled](state, action) {
+      state.balance = action.payload.data.balance;
+    },
+    [transactionOperations.getBalance.rejected](state, _) {
+      state.balence = '';
+    },
+    // [exampleOperations.testRequest.pending](state, action) {
+    //     //крутиться якийсь лоадер
+    // }
+    [transactionOperations.getTransaction.fulfilled](state, action) {
+      // state.addTransactionList = [...action.payload.data.balance];
+    },
+  }
 });
-// export const transaction = {
-//   reducer: transactionSlice.reducer,
-//   actions: transactionSlice.actions
-// };
+
 export default transactionSlice;
