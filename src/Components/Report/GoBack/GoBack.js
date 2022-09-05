@@ -9,11 +9,11 @@ export default function GoBack() {
       type="button"
       className={s.goBack}
       onClick={() => {
-        navigate('/');
+        navigate('/home');
       }}
     >
       <img className={s.img} src={goBack} alt="goBack" />
-      <p className={s.mainPage}>Main page</p>
+      <p className={s.mainPage}>Головна сторінка</p>
     </button>
   );
 }

@@ -17,16 +17,17 @@ export default function Categories() {
     <div className={s.container}>
       <UserTypeAmount />
       <ul className={s.categories}>
-        {dataItem.map((item) => (
-          <CategoryItem
-            totalAmount={item.totalAmount}
-            key={item.id}
-            categoryName={item.categoryName}
-          />
-        ))}
+        {dataItem === 0
+          ? dataItem.map((item) => (
+            <CategoryItem
+              totalAmount={item.totalAmount}
+              key={item.id}
+              categoryName={item.categoryName}
+            />
+          ))
+          : <div>У цьому місяці не було транзакцій</div>}
 
       </ul>
     </div>
   );
 }
-// filter._id.$oid === item._id
