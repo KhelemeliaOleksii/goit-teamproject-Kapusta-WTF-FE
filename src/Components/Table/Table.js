@@ -10,16 +10,21 @@ import Modal from '../Modal/Modal';
 import getDate from '../../helpers/getData/getDate';
 
 function Table() {
+  const dispatch = useDispatch();
   const [isOpen, setisOpen] = useState(false);
   const [idTransaction, setIdTransaction] = useState(false);
+
+  const type = useSelector(transactionSelectors.getType);
   const calendarDate = useSelector(transactionSelectors.getDate);
+
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
-  const dispatch = useDispatch();
   const transactions = useSelector(transactionSelectors.getTransactionList);
+  const filtertransactions = transactions.filter(({ transactionType }) => transactionType === type);
+
   useEffect(() => {
     dispatch(transactionOperations.getTransaction(startDay));
-  }, [day, dispatch, month, startDay, year, transactions]);
+  }, [dispatch, startDay,]);
 
   const toggleModalIncome = () => {
     setisOpen(!isOpen);
@@ -28,8 +33,10 @@ function Table() {
     toggleModalIncome();
     setIdTransaction(id);
   };
-  const onSubmit = () => {
-    dispatch(transactionOperations.deleteTransaction(idTransaction));
+  const onSubmit = async () => {
+    await dispatch(transactionOperations.deleteTransaction(idTransaction));
+    await dispatch(transactionOperations.getTransaction(startDay));
+    await dispatch(transactionOperations.getBalance());
     setisOpen('');
   };
   const viewPort = useWindowDimensions();
@@ -54,7 +61,7 @@ function Table() {
             </tr>
           </thead>
           <tbody className={s.tbodyTable}>
-            {transactions.map(({
+            {filtertransactions.map(({
               _id, amount, description, categoryId, transactionType,
             }) => (
               <tr key={_id} className={s.trBody}>

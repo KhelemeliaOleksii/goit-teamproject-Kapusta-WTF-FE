@@ -2,7 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import transactionOperations from './transaction-operations';
 
 const initialState = {
-  date: '',
+  date: {
+    year: '',
+    month: '',
+    day: ''
+  },
   balance: '',
   type: 'expenses',
   transactionList: []

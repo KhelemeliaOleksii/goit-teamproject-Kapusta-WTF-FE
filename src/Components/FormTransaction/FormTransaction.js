@@ -6,7 +6,9 @@ import Button from '../Button';
 import s from './FormTransaction.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
+import getDate from '../../helpers/getData/getDate';
 
 const options = [
   { category: 'expenses', value: 'Transport', id: '63121fd1313da79b043d7b95' },
@@ -31,6 +33,9 @@ function FormTransaction({ category }) {
   const [InputMoney, setinputMoney] = useState('');
   const calendarDate = useSelector(transactionSelectors.getDate);
   const dispatch = useDispatch();
+  const { year, month, day } = calendarDate;
+  const startDay = getDate(year, month, day);
+  console.log(InputMoney);
   let description;
   switch (category) {
     case 'expenses':
@@ -59,7 +64,7 @@ function FormTransaction({ category }) {
     setSelected('');
     setinputMoney('');
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       date: calendarDate,
@@ -70,7 +75,9 @@ function FormTransaction({ category }) {
       categoryId: selected,
       amount: Number(InputMoney)
     };
-    dispatch(transactionOperations.addTransaction(data));
+    await dispatch(transactionOperations.addTransaction(data));
+    await dispatch(transactionOperations.getTransaction(startDay));
+    await dispatch(transactionOperations.getBalance());
     reset();
   };
 
@@ -85,11 +92,13 @@ function FormTransaction({ category }) {
           value={inputValue}
           onChange={handleInputChange}
           placeholder={`опис ${description}`}
+          required
         />
         <select
           className={s.transactionSelect}
           value={selected}
           onChange={handleSelectedChange}
+          required
         >
           <option disabled value="">
             {`категорії ${description}`}
@@ -108,6 +117,7 @@ function FormTransaction({ category }) {
           title="Используйте числовой формат"
           pattern="^\d+(?:[.]\d+)?(?:\d+(?:[.]\d+)?)*$"
           autoComplete="off"
+          required
         />
         <Calculator
           color="#1D2E4A"
