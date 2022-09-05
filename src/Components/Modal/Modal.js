@@ -5,7 +5,7 @@ import styles from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-function Modal(
+function Modal({
   modalTitle = 'Ви впевнені, що хочете вийти?',
   handleClickYes,
   handleClickNo,
