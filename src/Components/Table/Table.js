@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Summary from '../Summary';
-import useWindowDimensions from '../Hooks';
-import s from './Table.module.css';
-import transactionOperations from '../../redux/transaction/transaction-operations';
-import transactionSelectors from '../../redux/transaction/transaction-selectors';
-import { ReactComponent as Delete } from '../../images/svg/delete.svg';
-import Modal from '../Modal/Modal';
-import getDate from '../../helpers/getData/getDate';
+/* eslint-disable */
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Summary from "../Summary";
+import useWindowDimensions from "../Hooks";
+import s from "./Table.module.css";
+import transactionOperations from "../../redux/transaction/transaction-operations";
+import transactionSelectors from "../../redux/transaction/transaction-selectors";
+import { ReactComponent as Delete } from "../../images/svg/delete.svg";
+import Modal from "../Modal/Modal";
+import getDate from "../../helpers/getData/getDate";
 
 function Table() {
   const dispatch = useDispatch();
@@ -43,11 +44,12 @@ function Table() {
   return (
     <>
       {isOpen && (
-      <Modal
-        handleClickYes={onSubmit}
-        onClose={toggleModalIncome}
-        handleClickNo={toggleModalIncome}
-      />
+        <Modal
+          handleClickYes={onSubmit}
+          onClose={toggleModalIncome}
+          handleClickNo={toggleModalIncome}
+          message="Ви впевнені?"
+        />
       )}
       <div className={s.tableContainer}>
         <table className={s.table}>
