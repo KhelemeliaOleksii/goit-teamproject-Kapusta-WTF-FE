@@ -15,6 +15,7 @@ const register = createAsyncThunk('/users/signup', async (userData) => {
   try {
     const { data } = await axios.post('api/v1/users/signup', userData);
     token.set(data.token);
+    notifier.success('Реєтрація успішна! Перевірте свою пошту щоб закінчити верифікацію.');
     return data;
   } catch (error) {
     return notifier.error(error.message);

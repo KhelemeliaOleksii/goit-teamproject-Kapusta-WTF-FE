@@ -22,9 +22,7 @@ function AuthForm() {
   };
 
   const validatePassword = (passwordTest) => {
-    const re = /^[0-9a-zA-Z!@#$%^&*].{9,20}$/;
-    console.log(passwordTest);
-    console.log(re.test(passwordTest));
+    const re = /^[0-9a-zA-Z!@#$%^&*]{10,20}$/;
     return re.test(passwordTest);
   };
 
@@ -48,14 +46,15 @@ function AuthForm() {
         setEmailError('');
         break;
       case 'password':
-        if (!validatePassword(password)) {
-          setPasswordError('Пароль введено некоректно.');
-          break;
-        }
         if (!password) {
           setPasswordError('Це обов’язкове поле.');
           break;
         }
+        if (!validatePassword(password)) {
+          setPasswordError('Пароль введено некоректно.');
+          break;
+        }
+        setPasswordError('');
         break;
       default:
     }
@@ -82,7 +81,6 @@ function AuthForm() {
 
     if (validateEmail(email) && validatePassword(password)) {
       dispatch(authOperations.logIn({ email, password }));
-      console.log('Успіх!!!');
       formReset();
       setEmailError('');
       setPasswordError('');
@@ -108,7 +106,6 @@ function AuthForm() {
 
     if (validateEmail(email) && validatePassword(password)) {
       dispatch(authOperations.register({ email, password }));
-      console.log('Успіх!!!');
       formReset();
       setEmailError('');
       setPasswordError('');
