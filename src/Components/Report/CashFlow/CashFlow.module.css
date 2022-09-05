@@ -43,15 +43,14 @@
   .container {
     max-width: 704px;
     height: 50px;
-    justify-content: center;
+    justify-content:center  ;
   }
   .income {
     flex-direction: row;
-    margin-left: 19.5px;
   }
   .expenses {
     flex-direction: row;
-    margin-right: 19.5px;
+    margin-right: 40px;
   }
   .expenses::after {
     height: 36px;

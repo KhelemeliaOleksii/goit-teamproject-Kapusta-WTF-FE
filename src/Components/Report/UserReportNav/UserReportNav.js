@@ -2,12 +2,13 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './UserReportNav.module.css';
-// import goBack from '../../../public/goBack.svg';
 import GoBack from '../GoBack/GoBack';
 import sprite from '../../../public/sprite_categories.svg';
 import { dateUser } from '../../../redux/report/report-slice';
 import reportOperations from '../../../redux/report/report-operations';
 import transactionSelectors from '../../../redux/transaction/transaction-selectors';
+import Balance from '../../Balance';
+import balanceSelectors from '../../../redux/balance/balance-selectors';
 
 export default function UserReportNav() {
   const mouthes = [
@@ -46,20 +47,18 @@ export default function UserReportNav() {
   useEffect(() => {
     dispatch(reportOperations.transactionType({ normalizedDate, type }));
   }, [date, type]);
+  const balance = useSelector(balanceSelectors.getBalance);
 
   return (
     <div className={s.container}>
       <GoBack />
-      {/* goBack */}
-      {/* <div className={s.goBack}>
-        <img className={s.img} src={goBack} alt="goBack" />
-        <p className={s.mainPage}>Main page</p>
-      </div> */}
+      <Balance balanceValue={balance} />
       <div className={s.period}>
-        <p className={s.p}>Current period:</p>
+        <p className={s.p}>Поточний період:</p>
         <ul className={s.list}>
           <li>
             <span
+              className={s.span}
               onClick={() => changeMonth('left')}
               onKeyPress={() => changeMonth('left')}
               role="button"
@@ -77,6 +76,7 @@ export default function UserReportNav() {
           </li>
           <li>
             <span
+              className={s.span}
               onClick={() => changeMonth('rigth')}
               onKeyPress={() => changeMonth('rigth')}
               role="button"

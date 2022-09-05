@@ -21,11 +21,11 @@ export default function CashFlow() {
   return (
     <div className={s.container}>
       <div className={s.expenses}>
-        <p className={s.p}>Expenses:</p>
+        <p className={s.p}>Витрати:</p>
         <span>- {mounthMount.expenses}грн.</span>
       </div>
       <div className={s.income}>
-        <p className={s.p}>Income:</p>
+        <p className={s.p}>Доходи:</p>
         <span>+ {mounthMount.income}грн.</span>
       </div>
     </div>
