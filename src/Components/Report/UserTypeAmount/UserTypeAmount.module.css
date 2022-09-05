@@ -4,7 +4,7 @@
   align-items: center;
 }
 .p {
-  width: 120px;
+  width: 70px;
   text-align: center;
   margin: 0 15px;
   font-weight: 700;
@@ -13,4 +13,9 @@
   letter-spacing: 0.02em;
   color: #000000;
   text-transform: uppercase;
+}
+.span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

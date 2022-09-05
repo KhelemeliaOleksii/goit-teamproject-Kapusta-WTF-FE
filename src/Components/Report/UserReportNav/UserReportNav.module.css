@@ -27,7 +27,28 @@
 .p {
   margin-bottom: 5px;
 }
-
+/* переключення періоду */
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.p_period {
+  width: 125px;
+  text-align: center;
+  margin: 0 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  text-transform: uppercase;
+}
+.span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (min-width: 768px) {
   .container {
     width: 704px;
@@ -49,22 +70,4 @@
   .container {
     width: 1034px;
   }
-}
-
-/* переключення періоду */
-.list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.p_period {
-  width: 120px;
-  text-align: center;
-  margin: 0 15px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.02em;
-  color: #000000;
-  text-transform: uppercase;
 }

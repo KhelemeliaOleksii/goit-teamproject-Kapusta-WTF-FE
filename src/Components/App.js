@@ -46,7 +46,7 @@ function App() {
           )}
           />
           <Route
-            path="/report"
+            path="/reports"
             element={(
               <PrivateRoute redirectTo="/login">
                 <ReportView />

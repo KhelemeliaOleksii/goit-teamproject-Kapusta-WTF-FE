@@ -15,10 +15,12 @@ export default function UserTypeAmount() {
       dispatch(transactionSlice.actions.addType('income'));
     }
   };
+  const typeUA = type === 'income' ? 'Доходи' : 'Витрати';
   return (
     <ul className={s.list}>
       <li>
         <span
+          className={s.span}
           onClick={toggleType}
           onKeyPress={toggleType}
           role="button"
@@ -30,10 +32,11 @@ export default function UserTypeAmount() {
         </span>
       </li>
       <li>
-        <p className={s.p}>{type}</p>
+        <p className={s.p}>{typeUA}</p>
       </li>
       <li>
         <span
+          className={s.span}
           onClick={toggleType}
           onKeyPress={toggleType}
           role="button"
@@ -47,6 +50,3 @@ export default function UserTypeAmount() {
     </ul>
   );
 }
-// UserTypeAmount.propTypes = {
-//   title: PropTypes.string.isRequired,
-// };
