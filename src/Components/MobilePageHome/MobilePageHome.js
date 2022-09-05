@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import s from "./MobilePageHome.module.css";
-import CalendarForm from "../CalendarForm";
-import ModalMobileHome from "../ModalMobileHome";
-import Container from "../Containter";
-import transactionSelectors from "../../redux/transaction/transaction-selectors";
-import useWindowDimensions from "../Hooks";
-import Balance from "../Balance";
-import MobileTable from "../MobileTable";
-import { ReactComponent as Vector } from "../../images/svg/Vector.svg";
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import s from './MobilePageHome.module.css';
+import CalendarForm from '../CalendarForm';
+import ModalMobileHome from '../ModalMobileHome';
+import Container from '../Containter';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import useWindowDimensions from '../Hooks';
+import Balance from '../Balance';
+import MobileTable from '../MobileTable';
+import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
 
 function MobilePageHome() {
   const [modalExpenenses, setModalExpenenses] = useState(false);
