@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Summary from '../Summary';
-import useWindowDimensions from '../Hooks';
-import s from './Table.module.css';
-import transactionOperations from '../../redux/transaction/transaction-operations';
-import transactionSelectors from '../../redux/transaction/transaction-selectors';
-import { ReactComponent as Delete } from '../../images/svg/delete.svg';
-import Modal from '../Modal/Modal';
-import getDate from '../../helpers/getData/getDate';
+/* eslint-disable */
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Summary from "../Summary";
+import useWindowDimensions from "../Hooks";
+import s from "./Table.module.css";
+import transactionOperations from "../../redux/transaction/transaction-operations";
+import transactionSelectors from "../../redux/transaction/transaction-selectors";
+import { ReactComponent as Delete } from "../../images/svg/delete.svg";
+import Modal from "../Modal/Modal";
+import getDate from "../../helpers/getData/getDate";
 
 function Table() {
   const [isOpen, setisOpen] = useState(false);
@@ -30,17 +31,18 @@ function Table() {
   };
   const onSubmit = () => {
     dispatch(transactionOperations.deleteTransaction(idTransaction));
-    setisOpen('');
+    setisOpen("");
   };
   const viewPort = useWindowDimensions();
   return (
     <>
       {isOpen && (
-      <Modal
-        handleClickYes={onSubmit}
-        onClose={toggleModalIncome}
-        handleClickNo={toggleModalIncome}
-      />
+        <Modal
+          handleClickYes={onSubmit}
+          onClose={toggleModalIncome}
+          handleClickNo={toggleModalIncome}
+          message="Ви впевнені?"
+        />
       )}
       <div className={s.tableContainer}>
         <table className={s.table}>
@@ -54,21 +56,31 @@ function Table() {
             </tr>
           </thead>
           <tbody className={s.tbodyTable}>
-            {transactions.map(({
-              _id, amount, description, categoryId, transactionType,
-            }) => (
-              <tr key={_id} className={s.trBody}>
-                <td>{startDay}</td>
-                <td>{description.descriptionName}</td>
-                <td> </td>
-                <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: 'gren' }}>{amount}</td>
-                <td><Delete
-                  onClick={() => handleDeteteClick(_id)}
-                  className={s.deleteIcon}
-                />
-                </td>
-              </tr>
-            ))}
+            {transactions.map(
+              ({ _id, amount, description, categoryId, transactionType }) => (
+                <tr key={_id} className={s.trBody}>
+                  <td>{startDay}</td>
+                  <td>{description.descriptionName}</td>
+                  <td> </td>
+                  <td
+                    className={s.sumtable}
+                    style={
+                      transactionType === "expenses"
+                        ? { color: "#E7192E" }
+                        : { color: "gren" }
+                    }
+                  >
+                    {amount}
+                  </td>
+                  <td>
+                    <Delete
+                      onClick={() => handleDeteteClick(_id)}
+                      className={s.deleteIcon}
+                    />
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
         {viewPort.width >= 1280 && <Summary />}
