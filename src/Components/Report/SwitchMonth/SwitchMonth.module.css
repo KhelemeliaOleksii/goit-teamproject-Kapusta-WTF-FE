@@ -7,7 +7,6 @@
   line-height: 14px;
   color: rgba(82, 85, 95, 0.7);
 }
-
 .mainPage {
   display: none;
 }
@@ -19,6 +18,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 32px;
 }
 .p {
   margin-bottom: 5px;
@@ -64,6 +64,9 @@
   }
   .img {
     margin-right: 18px;
+  }
+  .period {
+    margin: 0;
   }
 }
 @media screen and (min-width: 1280px) {

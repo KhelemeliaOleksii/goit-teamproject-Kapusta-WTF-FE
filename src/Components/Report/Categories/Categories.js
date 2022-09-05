@@ -7,8 +7,11 @@ import CategoryItem from '../CategoryItem/CategoryItem';
 
 export default function Categories() {
   const data = useSelector((state) => state.reportReducer.transaction);
+  console.log(data);
   const dataItem = data.map((item) => {
-    const category = categoriesFilter.find((filter) => filter._id.$oid === item._id);
+    const category = categoriesFilter.find(
+      (filter) => filter._id.$oid === item._id
+    );
 
     return { ...category, ...item };
   });
@@ -17,16 +20,13 @@ export default function Categories() {
     <div className={s.container}>
       <UserTypeAmount />
       <ul className={s.categories}>
-        {dataItem === 0
-          ? dataItem.map((item) => (
-            <CategoryItem
-              totalAmount={item.totalAmount}
-              key={item.id}
-              categoryName={item.categoryName}
-            />
-          ))
-          : <div>У цьому місяці не було транзакцій</div>}
-
+        {dataItem.map((item) => (
+          <CategoryItem
+            totalAmount={item.totalAmount}
+            key={item.id}
+            categoryName={item.categoryName}
+          />
+        ))}
       </ul>
     </div>
   );

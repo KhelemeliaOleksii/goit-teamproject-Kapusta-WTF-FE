@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// import React from "react";
 
 import { Chart } from 'react-chartjs-2';
 import {
@@ -14,6 +13,7 @@ import {
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import useWindowDimensions from '../Hooks';
+import s from './ChartReport.module.css';
 
 ChartJS.register(
   LinearScale,
@@ -128,10 +128,10 @@ export default function KapustaChart({ transactions }) {
   const viewPort = useWindowDimensions();
 
   return (
-    <>
+    <div className={s.container}>
       {viewPort.width < 768 && <ChartMobile transactions={transactions} />}
       {viewPort.width >= 768 && <ChartDesktop transactions={transactions} />}
-    </>
+    </div>
   );
 }
 
