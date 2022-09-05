@@ -1,6 +1,5 @@
 .balanceContainer {
     position: relative;
-    /* margin-top: 40px; */
 }
 
 .balanceForm {
@@ -39,9 +38,9 @@
 
 .inputDisabled {
     position: relative;
-    width: 140px;
+    width: 183px;
     height: 44px;
-    padding: 16px;
+    padding: 15px 29px;
     margin: 0;
     text-align: right;
     align-items: center;
@@ -101,6 +100,11 @@
         border: 2px solid #ffffff;
     }
 
+    .inputDisabled {
+        width: 140px;
+        padding: 0px 16px 0px 0px;
+    }
+
     .balanceBtn {
         width: 125px;
         background-color: transparent;
@@ -133,10 +137,4 @@
         margin-left: 15px;
 
     }
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
