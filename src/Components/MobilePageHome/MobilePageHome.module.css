@@ -1,6 +1,7 @@
   .wrapperMobileSection {
     position: absolute;
-    padding: 47px 0px 45px 0px;
+    max-height: 300px;
+    padding: 47px 0px;
     background: #f5f6fb;
     border-bottom-left-radius: 90px;
     left: 0;
