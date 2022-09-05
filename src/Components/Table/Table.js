@@ -11,16 +11,21 @@ import Modal from "../Modal/Modal";
 import getDate from "../../helpers/getData/getDate";
 
 function Table() {
+  const dispatch = useDispatch();
   const [isOpen, setisOpen] = useState(false);
   const [idTransaction, setIdTransaction] = useState(false);
+
+  const type = useSelector(transactionSelectors.getType);
   const calendarDate = useSelector(transactionSelectors.getDate);
+
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
-  const dispatch = useDispatch();
   const transactions = useSelector(transactionSelectors.getTransactionList);
+  const filtertransactions = transactions.filter(({ transactionType }) => transactionType === type);
+
   useEffect(() => {
     dispatch(transactionOperations.getTransaction(startDay));
-  }, [day, dispatch, month, startDay, year, transactions]);
+  }, [dispatch, startDay,]);
 
   const toggleModalIncome = () => {
     setisOpen(!isOpen);
@@ -29,9 +34,11 @@ function Table() {
     toggleModalIncome();
     setIdTransaction(id);
   };
-  const onSubmit = () => {
-    dispatch(transactionOperations.deleteTransaction(idTransaction));
-    setisOpen("");
+  const onSubmit = async () => {
+    await dispatch(transactionOperations.deleteTransaction(idTransaction));
+    await dispatch(transactionOperations.getTransaction(startDay));
+    await dispatch(transactionOperations.getBalance());
+    setisOpen('');
   };
   const viewPort = useWindowDimensions();
   return (
@@ -56,31 +63,21 @@ function Table() {
             </tr>
           </thead>
           <tbody className={s.tbodyTable}>
-            {transactions.map(
-              ({ _id, amount, description, categoryId, transactionType }) => (
-                <tr key={_id} className={s.trBody}>
-                  <td>{startDay}</td>
-                  <td>{description.descriptionName}</td>
-                  <td> </td>
-                  <td
-                    className={s.sumtable}
-                    style={
-                      transactionType === "expenses"
-                        ? { color: "#E7192E" }
-                        : { color: "gren" }
-                    }
-                  >
-                    {amount}
-                  </td>
-                  <td>
-                    <Delete
-                      onClick={() => handleDeteteClick(_id)}
-                      className={s.deleteIcon}
-                    />
-                  </td>
-                </tr>
-              )
-            )}
+            {filtertransactions.map(({
+              _id, amount, description, categoryId, transactionType,
+            }) => (
+              <tr key={_id} className={s.trBody}>
+                <td>{startDay}</td>
+                <td>{description.descriptionName}</td>
+                <td> </td>
+                <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: 'gren' }}>{amount}</td>
+                <td><Delete
+                  onClick={() => handleDeteteClick(_id)}
+                  className={s.deleteIcon}
+                />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
         {viewPort.width >= 1280 && <Summary />}

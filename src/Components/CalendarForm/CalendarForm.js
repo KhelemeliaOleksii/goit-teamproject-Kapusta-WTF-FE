@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect, } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import DatePicker, { registerLocale, } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -7,15 +7,18 @@ import s from './CalendarForm.module.css';
 import './Data.css';
 import CustomInput from '../CustomInput';
 import transactionSlice from '../../redux/transaction/transaction-slice';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import { ReactComponent as Calendar } from '../../images/svg/calendar.svg';
 
 registerLocale('ru', ru);
 
 function CalendarForm() {
-  const [startDate, setStartDate] = useState(new Date());
+  const dateNow = useSelector(transactionSelectors.getDate);
+  const [startDate, setStartDate] = useState(
+    dateNow.day ? new Date(dateNow.year, dateNow.month, dateNow.day) : new Date()
+  );
   const dispatch = useDispatch();
   const { addDate } = transactionSlice.actions;
-  console.log(startDate.fo);
   useEffect(() => {
     dispatch(addDate({
       year: `${startDate.getFullYear()}`,
@@ -30,15 +33,8 @@ function CalendarForm() {
         customInput={<CustomInput value="" onClick={() => { }} />}
         minDate={new Date('01-01-2021')}
         maxDate={new Date()}
-        selected={startDate}
-        onChange={(date) => {
-          setStartDate(date);
-          // dispatch(addDate({
-          //   year: `${startDate.getFullYear()}`,
-          //   month: (`${startDate.getMonth() + 1}`).slice(-2),
-          //   day: (`${startDate.getDate()}`).slice(-2)
-          // }));
-        }}
+        selected={dateNow.day ? startDate : new Date()}
+        onChange={(date) => { setStartDate(date); }}
         dateFormat="dd.MM.yyyy"
       />
     </div>

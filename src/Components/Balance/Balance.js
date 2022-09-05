@@ -35,9 +35,9 @@ export default function Balance({ balanceValue = null }) {
     dispatch(balanceSlice.balanceOperations.balanceRequest({ currentBalance: balance }));
     isBalanceSubmited.current = true;
     setIsBalanceActivated(isBalanceSubmited.current || (balanceValue !== null));
-    console.log('Значення балансу при сабміті', isBalanceActivated);
+    // console.log('Значення балансу при сабміті', isBalanceActivated);
   };
-  console.log('Значення балансу', isBalanceActivated);
+  // console.log('Значення балансу', isBalanceActivated);
   return (
     <div className={s.balanceContainer}>
       <form className={s.balanceForm} onSubmit={submitHandler}>
