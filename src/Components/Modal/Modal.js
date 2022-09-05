@@ -5,7 +5,12 @@ import styles from "./Modal.module.css";
 
 const modalRoot = document.querySelector("#modal-root");
 
-function Modal({ handleClickYes, handleClickNo, onClose, message }) {
+function Modal({
+  modalTitle = 'Ви впевнені, що хочете вийти?',
+  handleClickYes,
+  handleClickNo,
+  onClose,
+}) {
   const handleKeyDown = (e) => {
     if (e.code === "Escape") {
       onClose();
@@ -44,7 +49,7 @@ function Modal({ handleClickYes, handleClickNo, onClose, message }) {
         </span>
 
         <div className={styles.title}>
-          <p>{message}</p>
+          <p>{ modalTitle }</p>
         </div>
 
         <div className={styles.buttons}>
