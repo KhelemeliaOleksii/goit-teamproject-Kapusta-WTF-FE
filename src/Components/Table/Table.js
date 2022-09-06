@@ -6,9 +6,11 @@ import useWindowDimensions from "../Hooks";
 import s from "./Table.module.css";
 import transactionOperations from "../../redux/transaction/transaction-operations";
 import transactionSelectors from "../../redux/transaction/transaction-selectors";
+import summaryOperations from '../../redux/summary/summary-operations';
 import { ReactComponent as Delete } from "../../images/svg/delete.svg";
 import Modal from "../Modal/Modal";
 import getDate from "../../helpers/getData/getDate";
+import getTableDate from "helpers/getTableDate/getTableDate";
 
 function Table() {
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ function Table() {
     await dispatch(transactionOperations.deleteTransaction(idTransaction));
     await dispatch(transactionOperations.getTransaction(startDay));
     await dispatch(transactionOperations.getBalance());
+    await dispatch(summaryOperations.getTransactionPerMouth(type))
     setisOpen('');
   };
   const viewPort = useWindowDimensions();
@@ -45,6 +48,7 @@ function Table() {
     <>
       {isOpen && (
         <Modal
+          modalTitle={'Ви впевненi?'}
           handleClickYes={onSubmit}
           onClose={toggleModalIncome}
           handleClickNo={toggleModalIncome}
@@ -63,14 +67,14 @@ function Table() {
             </tr>
           </thead>
           <tbody className={s.tbodyTable}>
-            {filtertransactions.map(({
+            {filtertransactions.reverse().map(({
               _id, amount, description, categoryId, transactionType,
             }) => (
               <tr key={_id} className={s.trBody}>
-                <td>{startDay}</td>
+                <td>{getTableDate(startDay)}</td>
                 <td>{description.descriptionName}</td>
                 <td> </td>
-                <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: 'gren' }}>{amount}</td>
+                <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: '#407946' }}>{transactionType === 'expenses' ? `-${amount}.00 грн.`: `+${amount}.00 грн.`}</td>
                 <td><Delete
                   onClick={() => handleDeteteClick(_id)}
                   className={s.deleteIcon}
