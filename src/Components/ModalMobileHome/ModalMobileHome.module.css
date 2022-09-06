@@ -8,6 +8,8 @@
   padding-top: 56px;
 }
 .formMobileHome {
+  display: flex;
+  flex-direction: column;
   width: 320px;
   margin: 0 auto;
   padding: 0px 20px 0px 20px;
@@ -29,13 +31,13 @@
   padding: 0px;
   border: 0;
   border: 1px solid #ffffff;
-  text-indent: 25px;
+  text-indent: 20px;
   outline: none;
 }
 .inputMobileHome::placeholder {
   color: #c7ccdc;
 }
-.SelectMobileHome {
+/* .SelectMobileHome {
   border-radius: 0 0 16px 0;
   width: 280px;
   height: 44px;
@@ -51,7 +53,7 @@
   text-indent: 20px;
   border-top: none;
   margin-bottom: 32px;
-}
+} */
 
 .wrappMobileInput {
   display: flex;

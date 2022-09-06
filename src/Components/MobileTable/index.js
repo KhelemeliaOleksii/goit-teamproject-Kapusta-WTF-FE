@@ -1,3 +1,3 @@
-// import MobileTable from './MobileTable';
+import MobileTable from './MobileTable';
 
-// export default MobileTable;
+export default MobileTable;

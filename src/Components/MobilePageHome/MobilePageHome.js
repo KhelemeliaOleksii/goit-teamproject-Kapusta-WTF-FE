@@ -59,11 +59,11 @@ function MobilePageHome() {
       {modalExpenenses && viewPort.width < 768 && (
         <ModalMobileHome
           closeModal={toggleModalExpenenses}
-          category="Product "
+          category="Expenses"
         />
       )}
       {modalIncome && (
-        <ModalMobileHome closeModal={toggleModalIncome} category="Income " />
+        <ModalMobileHome closeModal={toggleModalIncome} category="Income" />
       )}
     </section>
   );
