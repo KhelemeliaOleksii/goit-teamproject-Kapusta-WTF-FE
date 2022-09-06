@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// import React from "react";
 
 import { Chart } from 'react-chartjs-2';
 import {
@@ -13,6 +12,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import s from './ChartReport.module.css';
 import useWindowDimensions from '../Hooks';
 
 ChartJS.register(
@@ -23,7 +23,7 @@ ChartJS.register(
   LineElement,
   Legend,
   Tooltip,
-  ChartDataLabels,
+  ChartDataLabels
 );
 
 function ChartDesktop({ transactions = [] }) {
@@ -134,10 +134,10 @@ export default function KapustaChart({ transactions }) {
   const viewPort = useWindowDimensions();
 
   return (
-    <>
+    <div className={s.container}>
       {viewPort.width < 768 && <ChartMobile transactions={transactions} />}
       {viewPort.width >= 768 && <ChartDesktop transactions={transactions} />}
-    </>
+    </div>
   );
 }
 

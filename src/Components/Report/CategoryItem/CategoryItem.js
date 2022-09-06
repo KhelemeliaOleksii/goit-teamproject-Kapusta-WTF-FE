@@ -11,7 +11,7 @@ export default function CategoryItem({ totalAmount, categoryName }) {
           <use href={`${sprite}#icon-${categoryName || 'default'}`} />
         </svg>
       </div>
-      <h3>{categoryName}</h3>
+      <h3 className={s.categoryName}>{categoryName || 'no name'}</h3>
     </li>
   );
 }
