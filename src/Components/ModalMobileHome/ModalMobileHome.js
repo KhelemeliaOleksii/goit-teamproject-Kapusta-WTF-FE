@@ -50,6 +50,7 @@ function ModalMobileHome({ closeModal, category, text }) {
     await dispatch(transactionOperations.getBalance());
     toast.success('Операцiя пройшла успiшно');
     reset();
+    closeModal();
   };
 
   return (

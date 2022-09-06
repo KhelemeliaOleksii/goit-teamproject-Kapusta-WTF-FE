@@ -27,7 +27,6 @@ function Table() {
   const transactions = useSelector(transactionSelectors.getTransactionList);
   const filtertransactions = transactions.filter(({ transactionType }) => transactionType === type);
   const categories = type === 'expenses' ? expensesOptions : incomeOptions
- console.log(categories);
 
   useEffect(() => {
     dispatch(transactionOperations.getTransaction(startDay));
