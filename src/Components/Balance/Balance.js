@@ -69,7 +69,7 @@ export default function Balance({ balanceValue = null }) {
           </>
         ) : (
           <NumberFormat
-            className={s.balanceInput}
+            className={s.inputDisabled}
             name="balance"
             value={balanceValue}
             thousandSeparator=" "
