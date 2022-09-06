@@ -3,21 +3,26 @@ const axios = require('axios');
 
 axios.defaults.baseURL = 'https://kapusta-wtf.herokuapp.com/';
 
-const balanceRequest = createAsyncThunk('balance/request', async (credentials, thunkAPI) => {
-  // Для прикладу
-  // const state = thunkAPI.getState();
-  // const testValue = state.example.filter;
-
+const getBalance = createAsyncThunk('balance/getBalance', async () => {
   try {
-    const { data } = await axios.post('api/v1/balance', credentials);
-    return data.data.balance;
+    const { data } = await axios.get('/api/v1/balance');
+    return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return error.message;
   }
 });
 
+const addBalance = createAsyncThunk('balance/addBalance', async (balance) => {
+  try {
+    const { data } = await axios.post('/api/v1/balance', balance);
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+});
 const balanceOperations = {
-  balanceRequest,
+  getBalance,
+  addBalance
 };
 
 export default balanceOperations;

@@ -25,6 +25,7 @@ const authPersistConfig = {
 const transactionPersistConfig = {
   key: 'transaction',
   storage,
+  blacklist: ['isLoading']
 };
 const balancePersistConfig = {
   key: 'balance',

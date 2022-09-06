@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import balanceOperations from './balance-operations';
 
 const initialState = {
-  balance: null,
+  balance: '',
 };
 
 const balanceSlice = createSlice({
@@ -13,15 +13,15 @@ const balanceSlice = createSlice({
   },
   // для асинхронних операцій, передбачає запитит до бази даних
   extraReducers: {
-    [balanceOperations.balanceRequest.fulfilled](state, action) {
-      state.balance = action.payload;
+    [balanceOperations.getBalance.fulfilled](state, action) {
+      state.balance = action.payload.data.balance;
     },
-    [balanceOperations.balanceRequest.rejected](state, _) {
-      state.balance = [];
+    [balanceOperations.getBalance.rejected](state, _) {
+      state.balance = '';
     },
-    // [exampleOperations.testRequest.pending](state, action) {
-    //     //крутиться якийсь лоадер
-    // }
+    [balanceOperations.addBalance.fulfilled](state, action) {
+      state.balance = action.payload.data.balance;
+    },
   }
 });
 

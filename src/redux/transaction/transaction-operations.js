@@ -3,24 +3,6 @@ const axios = require('axios');
 
 axios.defaults.baseURL = 'https://kapusta-wtf.herokuapp.com/';
 
-const getBalance = createAsyncThunk('balance/getBalance', async () => {
-  try {
-    const { data } = await axios.get('/api/v1/balance');
-    return data;
-  } catch (error) {
-    return error.message;
-  }
-});
-
-const addBalance = createAsyncThunk('balance/addBalance', async (balance) => {
-  try {
-    const { data } = await axios.post('/api/v1/balance', balance);
-    return data;
-  } catch (error) {
-    return error.message;
-  }
-});
-
 const getTransaction = createAsyncThunk('transaction/getTransaction', async (date) => {
   try {
     const { data } = await axios.get(`api/v1/report/all-in-day?date=${date}`);
@@ -49,8 +31,6 @@ const deleteTransaction = createAsyncThunk('transaction/delete', async (id) => {
 });
 
 const transactionOperations = {
-  getBalance,
-  addBalance,
   getTransaction,
   addTransaction,
   deleteTransaction,

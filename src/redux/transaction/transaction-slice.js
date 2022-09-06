@@ -7,9 +7,9 @@ const initialState = {
     month: '',
     day: ''
   },
-  balance: '',
   type: 'expenses',
-  transactionList: []
+  transactionList: [],
+  isLoading: false,
 };
 
 const transactionSlice = createSlice({
@@ -20,9 +20,6 @@ const transactionSlice = createSlice({
     addDate: (state, action) => {
       state.date = action.payload;
     },
-    addBalence: (state, action) => {
-      state.balance = action.payload;
-    },
     addType: (state, action) => {
       state.type = action.payload;
     },
@@ -32,20 +29,22 @@ const transactionSlice = createSlice({
   },
   // для асинхронних операцій, передбачає запитит до бази даних
   extraReducers: {
-    [transactionOperations.getBalance.fulfilled](state, action) {
-      state.balance = action.payload.data.balance;
-    },
-    [transactionOperations.getBalance.rejected](state, _) {
-      state.balence = '';
-    },
-    // [exampleOperations.testRequest.pending](state, action) {
-    //     //крутиться якийсь лоадер
-    // }
     [transactionOperations.getTransaction.fulfilled](state, action) {
       state.transactionList = [...action.payload.data.result];
+      // state.isLoading = false;
+    },
+    [transactionOperations.getTransaction.pending](state,) {
+      // state.isLoading = true;
+    },
+    [transactionOperations.addTransaction.pending](state,) {
+      // state.isLoading = true;
     },
     [transactionOperations.deleteTransaction.fulfilled](state, action) {
       state.transactionList = state.transactionList.filter(({ id }) => id !== action.payload);
+      // state.isLoading = false;
+    },
+    [transactionOperations.deleteTransaction.pending](state,) {
+      // state.isLoading = true;
     },
   }
 });

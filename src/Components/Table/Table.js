@@ -11,6 +11,8 @@ import { ReactComponent as Delete } from "../../images/svg/delete.svg";
 import Modal from "../Modal/Modal";
 import getDate from "../../helpers/getData/getDate";
 import getTableDate from "helpers/getTableDate/getTableDate";
+import expensesOptions from './expenses.json';
+import incomeOptions from './income.json';
 
 function Table() {
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ function Table() {
   const startDay = getDate(year, month, day);
   const transactions = useSelector(transactionSelectors.getTransactionList);
   const filtertransactions = transactions.filter(({ transactionType }) => transactionType === type);
+  const categories = type === 'expenses' ? expensesOptions : incomeOptions
 
   useEffect(() => {
     dispatch(transactionOperations.getTransaction(startDay));
@@ -74,7 +77,7 @@ function Table() {
               <tr key={_id} className={s.trBody}>
                 <td>{getTableDate(startDay)}</td>
                 <td>{description.descriptionName}</td>
-                <td> </td>
+                <td>{categories.map(category=>category.id === categoryId && category.value)}</td>
                 <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: '#407946' }}>{transactionType === 'expenses' ? `-${amount}.00 ₴.`: `+${amount}.00 грн.`}</td>
                 <td><Delete
                   onClick={() => handleDeteteClick(_id)}

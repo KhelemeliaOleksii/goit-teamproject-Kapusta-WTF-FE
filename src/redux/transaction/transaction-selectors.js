@@ -1,13 +1,13 @@
-const getBalance = (state) => state.transaction.balance;
 const getType = (state) => state.transaction.type;
 const getTransactionList = (state) => state.transaction.transactionList;
 const getDate = (state) => state.transaction.date;
+const getLoading = (state) => state.transaction.isLoading;
 
 const transactionSelectors = {
-  getBalance,
   getType,
   getTransactionList,
-  getDate
+  getDate,
+  getLoading
 };
 
 export default transactionSelectors;
