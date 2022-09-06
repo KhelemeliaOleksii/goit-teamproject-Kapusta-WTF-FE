@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { createPortal } from "react-dom";
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
-import styles from "./Modal.module.css";
+import styles from './Modal.module.css';
 
-const modalRoot = document.querySelector("#modal-root");
+const modalRoot = document.querySelector('#modal-root');
 
 function Modal({
   modalTitle = 'Ви впевнені, що хочете вийти?',
@@ -12,24 +12,24 @@ function Modal({
   onClose,
 }) {
   const handleKeyDown = (e) => {
-    if (e.code === "Escape") {
+    if (e.code === 'Escape') {
       onClose();
     }
   };
 
   const handleOverlayClick = (e) => {
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
     if (e.currentTarget === e.target) {
       onClose();
     }
   };
 
   useEffect(() => {
-    window.document.body.style.overflowY = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
+    window.document.body.style.overflowY = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.document.body.style.overflowY = "visible";
+      window.removeEventListener('keydown', handleKeyDown);
+      window.document.body.style.overflowY = 'visible';
     };
   });
 
