@@ -13,11 +13,12 @@ import Balance from '../Balance';
 import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
 
 function PageHome() {
+  const dispatch = useDispatch();
   const viewPort = useWindowDimensions();
   const type = useSelector(transactionSelectors.getType);
   const balance = useSelector(transactionSelectors.getBalance);
-  const dispatch = useDispatch();
   const { addType } = transactionSlice.actions;
+
   useEffect(() => {
     dispatch(transactionOperations.getBalance());
   }, [dispatch]);

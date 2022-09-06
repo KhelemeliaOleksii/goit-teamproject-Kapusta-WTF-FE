@@ -7,6 +7,7 @@
 }
 
 .wrapperImputForm {
+  display: flex;
   position: relative;
   min-width: 480px;
   height: 46px;
@@ -32,7 +33,7 @@
 .transactioninput::placeholder {
   color: #c7ccdc;
 }
-
+/* 
 .transactionSelect {
   width: 185px;
   height: 100%;
@@ -47,7 +48,7 @@
   text-indent: 20px;
   border-right: none;
   outline: none;
-}
+} */
 
 .transactionMoneyinput {
   border-right: 0;
@@ -79,6 +80,22 @@
 
 .transactionListButtonItem {
   margin-right: 15px;
+}
+.transactionButton {
+  width: 125px;
+  height: 44px;
+  background: #f5f6fb;
+  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  
 }
 
 
@@ -114,4 +131,9 @@
     justify-content: space-between;
     margin-bottom: 32px;
   }
+  .transactionButton{
+    width: 136px;
+  }
 }
+
+

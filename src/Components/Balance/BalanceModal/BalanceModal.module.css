@@ -48,16 +48,3 @@
         max-width: 288px;
     }
 }
-
-/* @media screen and (min-width: 1280px) {
-    .modalContainer {
-        position: absolute;
-        left: 549px;
-        top: 143px;
-        max-height: 163px;
-        max-width: 288px;
-    }
-} */
-.hnot {
-    display: none;
-}
