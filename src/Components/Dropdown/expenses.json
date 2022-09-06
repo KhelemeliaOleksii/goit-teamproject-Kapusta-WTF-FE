@@ -1,0 +1,57 @@
+[
+    {
+        "category": "expenses",
+        "value": "Транспорт",
+        "id": "63121fd1313da79b043d7b95"
+    },
+    {
+        "category": "expenses",
+        "value": "Здоров'я",
+        "id": "63121fd1313da79b043d7b97"
+    },
+    {
+        "category": "expenses",
+        "value": "Алкоголь",
+        "id": "63121fd1313da79b043d7b98"
+    },
+    {
+        "category": "expenses",
+        "value": "Житло",
+        "id": "63121fd1313da79b043d7b9a"
+    },
+    {
+        "category": "expenses",
+        "value": "Техніка",
+        "id": "63121fd1313da79b043d7b9b"
+    },
+    {
+        "category": "expenses",
+        "value": "Комунікації",
+        "id": "63121fd1313da79b043d7b9c"
+    },
+    {
+        "category": "expenses",
+        "value": "Хоббі",
+        "id": "63121fd1313da79b043d7b9d"
+    },
+    {
+        "category": "expenses",
+        "value": "Освіта",
+        "id": "63121fd1313da79b043d7b9e"
+    },
+    {
+        "category": "expenses",
+        "value": "Домашні тварини",
+        "id": "63121fd1313da79b043d7b9f"
+    },
+    {
+        "category": "expenses",
+        "value": "Благодійність",
+        "id": "63121fd1313da79b043d7ba0"
+    },
+    {
+        "category": "expenses",
+        "value": "Інше",
+        "id": "63121fd1313da79b043d7ba1"
+    }
+]

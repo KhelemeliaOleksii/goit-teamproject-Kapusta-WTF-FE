@@ -2,46 +2,47 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button';
+import Dropdown from '../Dropdown';
 import s from './ModalMobileHome.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import { ReactComponent as Arrow } from '../../images/svg/arrow.svg';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 
-const options = [
-  { category: 'expenses', value: 'Transport', id: '63121fd1313da79b043d7b95' },
-  { category: 'expenses', value: 'Products', id: '63121fd1313da79b043d7b96' },
-  { category: 'expenses', value: 'Health', id: '63121fd1313da79b043d7b97' },
-  { category: 'expenses', value: 'Алкоголь', id: '63121fd1313da79b043d7b98' },
-  { category: 'expenses', value: 'Housing', id: '63121fd1313da79b043d7b9a' },
-  { category: 'expenses', value: 'Technique', id: '63121fd1313da79b043d7b9b' },
-  {
-    category: 'expenses',
-    value: 'Communal, communication',
-    id: '63121fd1313da79b043d7b9c',
-  },
-  {
-    category: 'expenses',
-    value: 'Sports, hobbies',
-    id: '63121fd1313da79b043d7b9d',
-  },
-  { category: 'expenses', value: 'Education', id: '63121fd1313da79b043d7b9e' },
-  {
-    category: 'expenses',
-    value: 'Домашні улюбленці',
-    id: '63121fd1313da79b043d7b9f',
-  },
-  {
-    category: 'expenses',
-    value: 'Благодійність',
-    id: '63121fd1313da79b043d7ba0',
-  },
-  { category: 'expenses', value: 'Інше', id: '63121fd1313da79b043d7ba1' },
-  { category: 'income', value: 'Salary', id: '63121fd1313da79b043d7ba2' },
-  { category: 'income', value: 'Дод. дохід"', id: '63121fd1313da79b043d7ba3' },
-];
+// const options = [
+//   { category: 'expenses', value: 'Transport', id: '63121fd1313da79b043d7b95' },
+//   { category: 'expenses', value: 'Products', id: '63121fd1313da79b043d7b96' },
+//   { category: 'expenses', value: 'Health', id: '63121fd1313da79b043d7b97' },
+//   { category: 'expenses', value: 'Алкоголь', id: '63121fd1313da79b043d7b98' },
+//   { category: 'expenses', value: 'Housing', id: '63121fd1313da79b043d7b9a' },
+//   { category: 'expenses', value: 'Technique', id: '63121fd1313da79b043d7b9b' },
+//   {
+//     category: 'expenses',
+//     value: 'Communal, communication',
+//     id: '63121fd1313da79b043d7b9c',
+//   },
+//   {
+//     category: 'expenses',
+//     value: 'Sports, hobbies',
+//     id: '63121fd1313da79b043d7b9d',
+//   },
+//   { category: 'expenses', value: 'Education', id: '63121fd1313da79b043d7b9e' },
+//   {
+//     category: 'expenses',
+//     value: 'Домашні улюбленці',
+//     id: '63121fd1313da79b043d7b9f',
+//   },
+//   {
+//     category: 'expenses',
+//     value: 'Благодійність',
+//     id: '63121fd1313da79b043d7ba0',
+//   },
+//   { category: 'expenses', value: 'Інше', id: '63121fd1313da79b043d7ba1' },
+//   { category: 'income', value: 'Salary', id: '63121fd1313da79b043d7ba2' },
+//   { category: 'income', value: 'Дод. дохід"', id: '63121fd1313da79b043d7ba3' },
+// ];
 
-function ModalExpenenses({ closeModal, category }) {
+function ModalExpenenses({ closeModal, category, text }) {
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState('');
   const [InputMoney, setinputMoney] = useState('');
@@ -50,9 +51,9 @@ function ModalExpenenses({ closeModal, category }) {
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
   };
-  const handleSelectedChange = (event) => {
-    setSelected(event.target.value);
-  };
+  // const handleSelectedChange = (event) => {
+  //   setSelected(event.target.value);
+  // };
 
   const handleInputMoneyChange = (e) => {
     setinputMoney(e.currentTarget.value);
@@ -88,10 +89,11 @@ function ModalExpenenses({ closeModal, category }) {
           className={s.inputMobileHome}
           value={inputValue}
           onChange={handleInputChange}
-          placeholder={`${category} description`}
+          placeholder={`Опис ${text}`}
         />
+        <Dropdown category={category} selected={selected} setSelected={setSelected} />
 
-        <select
+        {/* <select
           className={s.SelectMobileHome}
           value={selected}
           onChange={handleSelectedChange}
@@ -104,7 +106,7 @@ function ModalExpenenses({ closeModal, category }) {
               {option.value}
             </option>
           ))}
-        </select>
+        </select> */}
         <div className={s.wrappMobileInput}>
           <input
             className={s.transactionMobileInput}
@@ -146,4 +148,5 @@ export default ModalExpenenses;
 ModalExpenenses.propTypes = {
   closeModal: PropTypes.func.isRequired,
   category: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
