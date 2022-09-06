@@ -1,0 +1,29 @@
+.PageHomeBackground {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 286px;
+  background: #f5f6fb;
+  border-bottom-left-radius: 90px;
+}
+@media screen and (min-width: 768px) {
+  .PageHomeBackground {
+    height: 527px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .PageHomeBackgroundImg {
+    z-index: -2;
+    position: fixed;
+    height: 308px;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    background-size: contain;
+    background-image: url(../../images/mainpage/BgBottom.svg);
+    background-repeat: no-repeat;
+    background-position: right 10% bottom;
+  }
+}

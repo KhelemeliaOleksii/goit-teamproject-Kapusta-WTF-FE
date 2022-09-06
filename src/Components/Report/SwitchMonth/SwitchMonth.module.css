@@ -18,6 +18,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 32px;
 }
 .p {
   margin-bottom: 5px;
@@ -46,11 +47,12 @@
 }
 @media screen and (min-width: 768px) {
   .container {
-    width: 704px;
-    flex-direction: row;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+    width: 704px;
+    flex-direction: row;
   }
   .mainPage {
     display: block;
@@ -62,6 +64,9 @@
   }
   .img {
     margin-right: 18px;
+  }
+  .period {
+    margin: 0;
   }
 }
 @media screen and (min-width: 1280px) {

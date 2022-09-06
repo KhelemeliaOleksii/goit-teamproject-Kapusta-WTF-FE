@@ -8,6 +8,7 @@
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 .span {
   margin-bottom: 5px;
@@ -28,4 +29,16 @@
 .background:hover {
   background-color: #ffdac0;
   fill: #ff751d;
+}
+.categoryName {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #52555f;
+  margin-top: 5px;
+  text-align: center;
 }

@@ -1,94 +1,48 @@
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './UserReportNav.module.css';
 import GoBack from '../GoBack/GoBack';
-import sprite from '../../../public/sprite_categories.svg';
-import { dateUser } from '../../../redux/report/report-slice';
 import reportOperations from '../../../redux/report/report-operations';
 import transactionSelectors from '../../../redux/transaction/transaction-selectors';
+import transactionOperations from '../../../redux/transaction/transaction-operations';
 import Balance from '../../Balance';
-import balanceSelectors from '../../../redux/balance/balance-selectors';
+// import balanceSelectors from '../../../redux/balance/balance-selectors';
+import SwitchMonth from '../SwitchMonth/SwitchMonth';
+import useWindowDimensions from '../../Hooks';
 
 export default function UserReportNav() {
-  const mouthes = [
-    'грудень',
-    'лютий',
-    'березень',
-    'квітень',
-    'травень',
-    'червень',
-    'липень',
-    'серпень',
-    'вересень',
-    'жовтень',
-    'листопад',
-    'січень',
-  ];
-  const [date, setDate] = useState(new Date());
-  const changeMonth = (e) => {
-    setDate((prevDate) => {
-      const newDate = new Date(prevDate.getTime());
-      const month = newDate.getMonth();
-      newDate.setMonth(e === 'left' ? month - 1 : month + 1);
-      return newDate;
-    });
-  };
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  const normalizedDate = date.toISOString().slice(0, 10);
+  const viewPort = useWindowDimensions();
   const type = useSelector(transactionSelectors.getType);
+  const normalizedDate = useSelector((state) => state.reportReducer.date);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(dateUser(normalizedDate));
-    dispatch(reportOperations.userMount(normalizedDate));
-  }, [date]);
+    dispatch(transactionOperations.getBalance());
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(reportOperations.transactionType({ normalizedDate, type }));
-  }, [date, type]);
-  const balance = useSelector(balanceSelectors.getBalance);
+  }, [normalizedDate, type]);
+  const balance = useSelector(transactionSelectors.getBalance);
 
   return (
     <div className={s.container}>
-      <GoBack />
-      <Balance balanceValue={balance} />
-      <div className={s.period}>
-        <p className={s.p}>Поточний період:</p>
-        <ul className={s.list}>
-          <li>
-            <span
-              className={s.span}
-              onClick={() => changeMonth('left')}
-              onKeyPress={() => changeMonth('left')}
-              role="button"
-              tabIndex={0}
-            >
-              <svg width="10" height="15" aria-label="clickLeft">
-                <use href={`${sprite}#icon-clickLeft`} />
-              </svg>
-            </span>
-          </li>
-          <li>
-            <p className={s.p_period}>
-              {mouthes[month]} {year}
-            </p>
-          </li>
-          <li>
-            <span
-              className={s.span}
-              onClick={() => changeMonth('rigth')}
-              onKeyPress={() => changeMonth('rigth')}
-              role="button"
-              tabIndex={0}
-            >
-              <svg width="10" height="15" aria-label="clickRight">
-                <use href={`${sprite}#icon-clickRigth`} />
-              </svg>
-            </span>
-          </li>
-        </ul>
-      </div>
+      {viewPort.width < 768 && (
+        <>
+          <GoBack />
+          <SwitchMonth />
+          <Balance balanceValue={balance} />
+        </>
+      )}
+      {viewPort.width >= 768 && (
+        <>
+          <GoBack />
+          <Balance balanceValue={balance} />
+          <SwitchMonth />
+        </>
+      )}
     </div>
   );
 }
