@@ -13,6 +13,7 @@ export default function Categories() {
     );
     return { ...category, ...item };
   });
+
   return (
     <div className={s.container}>
       <UserTypeAmount />
@@ -20,7 +21,7 @@ export default function Categories() {
         {dataItem.map((item) => (
           <CategoryItem
             totalAmount={item.totalAmount}
-            key={item.id}
+            key={item._id}
             categoryName={item.categoryName}
           />
         ))}

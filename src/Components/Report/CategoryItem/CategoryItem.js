@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import PropTypes from 'prop-types';
 import s from './CategoryItem.module.css';
 import sprite from '../../../public/sprite_categories.svg';
@@ -18,5 +19,5 @@ export default function CategoryItem({ totalAmount, categoryName }) {
 
 CategoryItem.propTypes = {
   totalAmount: PropTypes.number.isRequired,
-  categoryName: PropTypes.string.isRequired,
+  categoryName: PropTypes.string,
 };

@@ -25,7 +25,7 @@ export default function UserReportNav() {
   useEffect(() => {
     dispatch(reportOperations.transactionType({ normalizedDate, type }));
   }, [normalizedDate, type]);
-  const balance = useSelector((state) => state.transaction.balance);
+  const balance = useSelector(transactionSelectors.getBalance);
 
   return (
     <div className={s.container}>
