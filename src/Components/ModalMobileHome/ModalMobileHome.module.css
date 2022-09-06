@@ -94,14 +94,28 @@
   border-radius: 0 22px 22px 0;
 }
 
-.listMobileButton{
+.mobilelist{
   margin: 0 auto;
   display: flex;
   list-style: none;
 }
 
-.listButtonItem{
+.mobileItem{
   margin-right: 20px;
 }
-
+.mobileButton{
+  width: 130px;
+  height: 44px;
+  background: #f5f6fb;
+  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
 

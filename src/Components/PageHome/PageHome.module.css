@@ -79,11 +79,15 @@
   }
 
   .containerSummary {
-      margin: 0 auto;
-      width: 704px;
-      padding-bottom: 57px;
-  }
-
+    margin: 0 auto;
+    width: 704px;
+    padding-bottom: 57px;
+    background-image: url(/src/images/mainpage/Bgtablet.svg);
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 70%;
+}
+  
   @media screen and (min-width: 1280px) {
       .PageHomeWrapper {
           width: 1098px;
@@ -99,7 +103,7 @@
       }
 
       .wrapperlinkReport {
-          margin-left: 440px;
+          margin-left: 390px;
       }
       .PageHomeBackgroundImg{
         z-index: -2;
@@ -109,7 +113,7 @@
         left: 0;
         bottom: 0;
         background-size: contain;
-        background-image: url(/src/images/svg/BgBottom.svg);
+        background-image: url(/src/images/mainpage/BgBottom.svg);
         background-repeat: no-repeat;
         background-position: right 10% bottom;
       }

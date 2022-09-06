@@ -1,31 +1,36 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import s from './MobilePageHome.module.css';
 import CalendarForm from '../CalendarForm';
 import ModalMobileHome from '../ModalMobileHome';
 import Container from '../Containter';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import transactionOperations from '../../redux/transaction/transaction-operations';
 import useWindowDimensions from '../Hooks';
 import Balance from '../Balance';
 import MobileTable from '../MobileTable';
 import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
 
 function MobilePageHome() {
-  const [modalExpenenses, setModalExpenenses] = useState(false);
-  const [modalIncome, setModalIncome] = useState(false);
+  const dispatch = useDispatch();
+  const [isOpen, setisOpen] = useState(false);
+  const [type, setType] = useState('');
   const [calendarValue] = useState(new Date());
+
   const balance = useSelector(transactionSelectors.getBalance);
   const viewPort = useWindowDimensions();
-  const toggleModalExpenenses = () => {
-    setModalExpenenses(!modalExpenenses);
-  };
-  const toggleModalIncome = () => {
-    setModalIncome(!modalIncome);
+
+  useEffect(() => {
+    dispatch(transactionOperations.getBalance());
+  }, [dispatch]);
+  const toggleModal = (e) => {
+    setType(e.currentTarget.value);
+    setisOpen(!isOpen);
   };
   return (
     <section>
-      {!modalExpenenses && !modalIncome && (
+      {!isOpen && (
         <div className={s.wrapperMobileSection}>
           <Container>
             <div className={s.boxMobileBalanse}>
@@ -40,31 +45,30 @@ function MobilePageHome() {
           </Container>
           <div className={s.wrapperMobileButton}>
             <button
+              value="expenses"
               type="button"
               className={s.buttonMobile}
-              onClick={toggleModalExpenenses}
+              onClick={toggleModal}
             >
-              Expenses
+              expenses
             </button>
             <button
+              value="income"
               type="button"
               className={s.buttonMobile}
-              onClick={toggleModalIncome}
+              onClick={toggleModal}
             >
               income
             </button>
           </div>
         </div>
       )}
-      {modalExpenenses && viewPort.width < 768 && (
+      {isOpen && viewPort.width < 768 && (
         <ModalMobileHome
-          closeModal={toggleModalExpenenses}
-          category="expenses"
+          closeModal={toggleModal}
+          category={type}
           text="товару"
         />
-      )}
-      {modalIncome && (
-        <ModalMobileHome closeModal={toggleModalIncome} category="income" text="доходу" />
       )}
     </section>
   );

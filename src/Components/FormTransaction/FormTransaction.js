@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CalendarForm from '../CalendarForm';
-import Button from '../Button';
 import Dropdown from '../Dropdown';
 import s from './FormTransaction.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
+import summaryOperations from '../../redux/summary/summary-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
@@ -36,7 +36,7 @@ function FormTransaction({ category }) {
   const dispatch = useDispatch();
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
-  console.log(InputMoney);
+  const type = useSelector(transactionSelectors.getType);
   let description;
   switch (category) {
     case 'expenses':
@@ -79,6 +79,7 @@ function FormTransaction({ category }) {
     await dispatch(transactionOperations.addTransaction(data));
     await dispatch(transactionOperations.getTransaction(startDay));
     await dispatch(transactionOperations.getBalance());
+    await dispatch(summaryOperations.getTransactionPerMouth(type));
     reset();
   };
 
@@ -129,10 +130,10 @@ function FormTransaction({ category }) {
       </div>
       <ul className={s.transactionListButton}>
         <li className={s.transactionListButtonItem}>
-          <Button name="Прийняти" type="submit" style={{ background: '#FF751D', color: '#ffffff' }} />
+          <button className={s.transactionButton} type="submit" style={{ background: '#FF751D', color: '#ffffff' }}>Прийняти</button>
         </li>
         <li>
-          <Button name="Скинути" type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }} />
+          <button className={s.transactionButton} type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }}>Скинути</button>
         </li>
       </ul>
     </form>
