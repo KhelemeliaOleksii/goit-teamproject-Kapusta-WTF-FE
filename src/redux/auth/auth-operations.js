@@ -11,34 +11,34 @@ const token = {
   },
 };
 
-const register = createAsyncThunk('/users/signup', async (userData) => {
+const register = createAsyncThunk('/users/signup', async (userData, thunkAPI) => {
   try {
     const { data } = await axios.post('api/v1/users/signup', userData);
     token.set(data.token);
     notifier.success('Реєтрація успішна! Перевірте свою пошту щоб закінчити верифікацію.');
     return data;
   } catch (error) {
-    return notifier.error(error.message);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 
-const logIn = createAsyncThunk('/users/login', async (userData) => {
+const logIn = createAsyncThunk('/users/login', async (userData, thunkAPI) => {
   try {
     const { data } = await axios.post('api/v1/users/login', userData);
     token.set(data.token);
     return data;
   } catch (error) {
-    return notifier.error(error.message);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 
-const logOut = createAsyncThunk('/users/logout', async () => {
+const logOut = createAsyncThunk('/users/logout', async (_, thunkAPI) => {
   try {
     await axios.post('api/v1/users/logout');
     token.unset();
     return console.log('');
   } catch (error) {
-    return notifier.error(error.message);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 
@@ -57,7 +57,7 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('api/v1/users/current');
       return data;
     } catch (error) {
-      return notifier.error(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
