@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import s from './PageHome.module.css';
@@ -6,6 +6,7 @@ import Summary from '../Summary';
 import WindowTransaction from '../WindowTransaction';
 import useWindowDimensions from '../Hooks';
 import Container from '../Containter';
+
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import transactionSlice from '../../redux/transaction/transaction-slice';
 import transactionOperations from '../../redux/transaction/transaction-operations';
@@ -22,6 +23,7 @@ function PageHome() {
   useEffect(() => {
     dispatch(transactionOperations.getBalance());
   }, [dispatch]);
+
   const toggletype = (e) => {
     dispatch(addType(`${e.target.name}`));
   };
@@ -47,7 +49,7 @@ function PageHome() {
                 className={`${s.PageHomebutton} ${type === 'expenses' && s.active
                 }`}
                 onClick={toggletype}
-              > Витрати
+              > Витраты
               </button>
             </li>
             <li>
@@ -57,7 +59,7 @@ function PageHome() {
                 className={`${s.PageHomebutton} ${type === 'income' && s.active
                 }`}
                 onClick={toggletype}
-              > Доходы
+              > Доходи
               </button>
             </li>
           </ul>
