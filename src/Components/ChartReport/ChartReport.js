@@ -76,6 +76,9 @@ function ChartDesktop({ transactions }) {
 }
 
 function ChartMobile({ transactions }) {
+  if (transactions.length === 0) {
+    return null;
+  }
   return (
     <div style={{ width: '100%' }}>
       <Chart
