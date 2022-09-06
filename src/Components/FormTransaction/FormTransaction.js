@@ -8,20 +8,23 @@ import s from './FormTransaction.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import summaryOperations from '../../redux/summary/summary-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+// import balanceSelectors from '../../redux/balance/balance-selectors';
+import balanceOperations from '../../redux/balance/balance-operations';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
 import 'react-toastify/dist/ReactToastify.css';
 
 function FormTransaction({ category }) {
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState('');
   const [InputMoney, setinputMoney] = useState('');
+
   const calendarDate = useSelector(transactionSelectors.getDate);
-  const dispatch = useDispatch();
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
   const type = useSelector(transactionSelectors.getType);
-
+  // const balance = useSelector(balanceSelectors.getBalance);
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
   };
@@ -33,6 +36,7 @@ function FormTransaction({ category }) {
     setSelected('');
     setinputMoney('');
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
@@ -46,9 +50,9 @@ function FormTransaction({ category }) {
     };
     await dispatch(transactionOperations.addTransaction(data));
     await dispatch(transactionOperations.getTransaction(startDay));
-    await dispatch(transactionOperations.getBalance());
+    await dispatch(balanceOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
-    toast.success('Операцiя пройшла успiшно');
+    toast.success('Операцiя пройшла успiшно', { theme: 'dark' });
     reset();
   };
 
@@ -77,7 +81,12 @@ function FormTransaction({ category }) {
         <Calculator
           color="#1D2E4A"
           size={20}
-          style={{ position: 'absolute', right: 22, top: 14 }}
+          style={{
+            position: 'absolute',
+            right: 22,
+            top: 14,
+            marginRight: 5
+          }}
         />
       </div>
       <ul className={s.transactionListButton}>

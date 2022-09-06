@@ -1,4 +1,4 @@
-import { toast, ToastContainer } from 'react-toastify';
+import { toast, } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
@@ -6,21 +6,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from '../Dropdown';
 import s from './ModalMobileHome.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
+import balanceOperations from '../../redux/balance/balance-operations';
+import balanceSelectors from '../../redux/balance/balance-selectors';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import { ReactComponent as Arrow } from '../../images/svg/arrow.svg';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
 
-  <ToastContainer theme="dark" />;
-
 function ModalMobileHome({ closeModal, category, text }) {
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState('');
   const [InputMoney, setinputMoney] = useState('');
+
   const calendarDate = useSelector(transactionSelectors.getDate);
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
-  const dispatch = useDispatch();
+  const balance = useSelector(balanceSelectors.getBalance);
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
   };
@@ -36,6 +38,10 @@ function ModalMobileHome({ closeModal, category, text }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (category === 'expenses' && balance < InputMoney) {
+      toast.error('У вас не хватае грошей');
+      return;
+    }
     const data = {
       date: calendarDate,
       description: {
@@ -45,12 +51,12 @@ function ModalMobileHome({ closeModal, category, text }) {
       categoryId: selected,
       amount: Number(InputMoney),
     };
+    closeModal();
     await dispatch(transactionOperations.addTransaction(data));
     await dispatch(transactionOperations.getTransaction(startDay));
-    await dispatch(transactionOperations.getBalance());
-    toast.success('Операцiя пройшла успiшно');
+    await dispatch(balanceOperations.getBalance());
+    toast.success('Операцiя пройшла успiшно', { theme: 'dark' });
     reset();
-    closeModal();
   };
 
   return (
