@@ -24,8 +24,11 @@ function MobilePageHome() {
   useEffect(() => {
     dispatch(balanceOperations.getBalance());
   }, [dispatch]);
+
   const toggleModal = (e) => {
-    setType(e.currentTarget.value);
+    if (e) {
+      setType(e.currentTarget.value);
+    }
     setisOpen(!isOpen);
   };
   return (

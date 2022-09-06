@@ -33,7 +33,7 @@ export default function Balance({ balanceValue = null }) {
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch(balanceSlice.balanceOperations.balanceRequest({ currentBalance: balance }));
-    dispatch(balanceSlice.balanceOperations.getBalance({ currentBalance: balance }));
+    dispatch(balanceSlice.balanceOperations.addBalance({ currentBalance: balance }));
     isBalanceSubmited.current = true;
     setIsBalanceActivated(isBalanceSubmited.current || (balanceValue !== null));
     // console.log('Значення балансу при сабміті', isBalanceActivated);
