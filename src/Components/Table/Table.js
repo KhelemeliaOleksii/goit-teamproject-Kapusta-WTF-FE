@@ -75,6 +75,7 @@ function Table() {
                 <td>{description.descriptionName}</td>
                 <td> </td>
                 <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: '#407946' }}>{transactionType === 'expenses' ? `-${amount}.00 грн.`: `+${amount}.00 грн.`}</td>
+                <td className={s.sumtable} style={transactionType === 'expenses' ? {color: "#E7192E"} : {color: "#407946"}}>{amount}</td>
                 <td><Delete
                   onClick={() => handleDeteteClick(_id)}
                   className={s.deleteIcon}

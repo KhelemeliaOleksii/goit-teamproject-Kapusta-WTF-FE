@@ -49,12 +49,12 @@ function ModalExpenenses({ closeModal, category }) {
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
   const dispatch = useDispatch();
-
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
   };
   const handleSelectedChange = (event) => {
     setSelected(event.currentTarget.value);
+    setSelected(event.target.value);
   };
 
   const handleInputMoneyChange = (e) => {
@@ -65,6 +65,7 @@ function ModalExpenenses({ closeModal, category }) {
     setSelected('');
     setinputMoney('');
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
@@ -81,6 +82,7 @@ function ModalExpenenses({ closeModal, category }) {
     await dispatch(transactionOperations.getBalance());
     reset();
   };
+
   let description;
   switch (category) {
     case 'expenses':
@@ -119,6 +121,9 @@ function ModalExpenenses({ closeModal, category }) {
           <option disabled value="">
             {`категорії ${description}`}
           </option>
+          <option disabled value="">
+            {`${category} description`}
+          </option>
           {options.map((option) => (
             <option key={option.id} value={option.value}>
               {option.value}
@@ -134,6 +139,7 @@ function ModalExpenenses({ closeModal, category }) {
             pattern="^\d+(?:[.]\d+)?(?:\d+(?:[.]\d+)?)*$"
             autoComplete="off"
             required
+            title="Используйте числовой формат"
           />
           <div className={s.wrappMobileIcon}>
             <Calculator />
