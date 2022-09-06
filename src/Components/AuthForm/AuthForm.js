@@ -80,7 +80,7 @@ function AuthForm() {
     }
 
     if (validateEmail(email) && validatePassword(password)) {
-      dispatch(authOperations.logIn({ email, password }));
+      dispatch(authOperations.logIn({ email: email.toLowerCase(), password }));
       formReset();
       setEmailError('');
       setPasswordError('');
@@ -105,7 +105,7 @@ function AuthForm() {
     }
 
     if (validateEmail(email) && validatePassword(password)) {
-      dispatch(authOperations.register({ email, password }));
+      dispatch(authOperations.register({ email: email.toLowerCase(), password }));
       formReset();
       setEmailError('');
       setPasswordError('');
