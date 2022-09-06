@@ -75,7 +75,7 @@ function ChartDesktop({ transactions }) {
   );
 }
 
-function ChartMobile({ transactions }) {
+function ChartMobile({ transactions = [] }) {
   if (transactions.length === 0) {
     return null;
   }
