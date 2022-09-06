@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../redux/auth';
 import PrivateRoute from '../routes/PrivatRoute/PrivatRoute';
 import PublicRoute from '../routes/PublicRoute/PublicRoute';
+import Loader from './Loader/Loader';
 
 import Layout from './Layout';
 
@@ -24,11 +25,11 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => { dispatch(authOperations.fetchCurrentUser()); }, [dispatch]);
-  // const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
-  useSelector(authSelectors.getIsFetchingCurrent);
-  const isFetchingCurrentUser = false;
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+  // useSelector(authSelectors.getIsFetchingCurrent);
+  // const isFetchingCurrentUser = false;
   return !isFetchingCurrentUser && (
-    <Suspense fallback={<div>'Loading...'</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
