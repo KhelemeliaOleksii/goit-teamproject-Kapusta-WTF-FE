@@ -87,8 +87,8 @@ function MobileTable() {
                     }
                   >
                     {transactionType === 'expenses'
-                      ? `-${amount}.00 грн.`
-                      : `${amount}.00 грн.`}
+                      ? `- ₴${Number(amount).toFixed(2)}`
+                      : `₴${Number(amount).toFixed(2)}`}
                   </p>
                 </div>
                 <Delete onClick={() => onDelete(_id)} className={s.icon} />

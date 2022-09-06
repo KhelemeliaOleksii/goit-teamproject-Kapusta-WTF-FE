@@ -42,7 +42,7 @@ import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 //   { category: 'income', value: 'Дод. дохід"', id: '63121fd1313da79b043d7ba3' },
 // ];
 
-function ModalExpenenses({ closeModal, category }) {
+function ModalExpenenses({ closeModal, category, text }) {
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState('');
   const [InputMoney, setinputMoney] = useState('');
@@ -89,7 +89,7 @@ function ModalExpenenses({ closeModal, category }) {
           className={s.inputMobileHome}
           value={inputValue}
           onChange={handleInputChange}
-          placeholder={`${category} description`}
+          placeholder={`Опис ${text}`}
         />
         <Dropdown category={category} selected={selected} setSelected={setSelected} />
 
@@ -148,4 +148,5 @@ export default ModalExpenenses;
 ModalExpenenses.propTypes = {
   closeModal: PropTypes.func.isRequired,
   category: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

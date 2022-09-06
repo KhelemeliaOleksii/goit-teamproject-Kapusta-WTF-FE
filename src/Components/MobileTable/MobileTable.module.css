@@ -27,11 +27,10 @@ align-items: center;
 .item__wrapper {
     display: flex;
     flex-direction: column;
-    width: 160px;
+    width: 170px;
 }
 
  .font {
-font-family: Roboto;
 font-style: normal;
 letter-spacing: 0.04em;
 color: #52555F;
@@ -65,7 +64,7 @@ margin-right: 20px;
 
 .item__category {
 composes: item__date;
-width: 70px;
+width: 90px;
 }
 
 .item__amountWrapper {
