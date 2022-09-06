@@ -43,7 +43,6 @@ th:nth-of-type(4) {
 }
 
 th:nth-of-type(5) {
-  width: 90px;
   border-top-right-radius: 20px;
 }
 
@@ -126,10 +125,6 @@ td:nth-of-type(5) {
   td:nth-of-type(4),
   th:nth-of-type(4) {
     width: 129px;
-  }
-  td:nth-of-type(5),
-  th:nth-of-type(5) {
-    width: 128px;
   }
   }
   
