@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import notifier from '../../services/notify/notify';
-import balanceSlice from '../../redux/balance';
+// import balanceSlice from '../../redux/balance';
 import BalanceModal from './BalanceModal';
 import s from './Balance.module.css';
 
@@ -11,20 +11,19 @@ const BALANCELIMIT = {
   min: 0,
   max: 1000000
 };
-export default function Balance({ balanceValue = null }) {
+export default function Balance({ balanceValue = null, onBalanceSubmit }) {
   const [balance, setBalance] = useState(null);
   const isBalanceSubmited = useRef(false);
   const [isBalanceActivated, setIsBalanceActivated] = useState(
     isBalanceSubmited.current || (balanceValue !== null)
   );
-  const dispatch = useDispatch();
-  // const isBalanceActivated = isBalanceSubmited.current || (balanceValue !== null);
+  // const dispatch = useDispatch();
 
   const balanceInputHandler = (e) => {
     const { value } = e.target;
     const valueToNumber = Number.parseFloat(value);
-    const isBalanceValide = valueToNumber < BALANCELIMIT.min || valueToNumber > BALANCELIMIT.max;
-    if (isBalanceValide) {
+    const isBalanceValid = valueToNumber < BALANCELIMIT.min || valueToNumber > BALANCELIMIT.max;
+    if (isBalanceValid) {
       notifier.info(`Значення балансу має бути не менше ${BALANCELIMIT.min} і не більше ${BALANCELIMIT.max}`);
       return;
     }
@@ -32,13 +31,12 @@ export default function Balance({ balanceValue = null }) {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch(balanceSlice.balanceOperations.balanceRequest({ currentBalance: balance }));
-    dispatch(balanceSlice.balanceOperations.addBalance({ currentBalance: balance }));
+    // dispatch(balanceSlice.balanceOperations.addBalance({ currentBalance: balance }));
     isBalanceSubmited.current = true;
     setIsBalanceActivated(isBalanceSubmited.current || (balanceValue !== null));
-    // console.log('Значення балансу при сабміті', isBalanceActivated);
+    onBalanceSubmit(balance);
   };
-  // console.log('Значення балансу', isBalanceActivated);
+
   return (
     <div className={s.balanceContainer}>
       <form className={s.balanceForm} onSubmit={submitHandler}>
@@ -47,13 +45,12 @@ export default function Balance({ balanceValue = null }) {
             Баланс:
           </label>
         </div>
-        { !isBalanceActivated ? (
+        {!isBalanceActivated ? (
           <>
             <NumberFormat
               className={s.balanceInput}
               onChange={balanceInputHandler}
               name="balance"
-              thousandSeparator=" "
               decimalSeparator="."
               decimalScale={2}
               fixedDecimalScale
@@ -90,5 +87,6 @@ export default function Balance({ balanceValue = null }) {
 }
 
 Balance.propTypes = {
-  balanceValue: PropTypes.oneOfType([null, PropTypes.number]).isRequired
+  balanceValue: PropTypes.oneOfType([null, PropTypes.number]).isRequired,
+  onBalanceSubmit: PropTypes.func.isRequired,
 };

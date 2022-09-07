@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import balanceOperations from './balance-operations';
 
 const initialState = {
-  balance: '',
+  balance: null,
 };
 
 const balanceSlice = createSlice({
