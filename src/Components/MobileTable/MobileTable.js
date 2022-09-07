@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import balanceOperations from '../../redux/balance/balance-operations';
 import getDate from '../../helpers/getData/getDate';
 import Modal from '../Modal';
 import Section from '../Section';
@@ -36,6 +37,7 @@ function MobileTable() {
     setDeletionModal(false);
     await dispatch(transactionOperations.deleteTransaction(transaction));
     await dispatch(transactionOperations.getTransaction(date));
+    await dispatch(balanceOperations.getBalance());
     setTransaction('');
   };
 
@@ -46,8 +48,6 @@ function MobileTable() {
       : incomeOptions.find((option) => option.id === categoryId);
     return { ...item, ...value };
   });
-
-  console.log(editedTransactions);
 
   return (
     <Section>
