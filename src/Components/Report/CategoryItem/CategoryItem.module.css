@@ -25,11 +25,6 @@
   position: absolute;
   bottom: -3px;
 }
-
-.background:hover {
-  background-color: #ffdac0;
-  fill: #ff751d;
-}
 .categoryName {
   font-family: 'Roboto';
   font-style: normal;
@@ -41,4 +36,20 @@
   color: #52555f;
   margin-top: 5px;
   text-align: center;
+}
+.active {
+  background-color: #ffdac0;
+  fill: #ff751d;
+}
+.noActive {
+  fill: #52555f;
+}
+
+.background:hover {
+  background-color: #ffdac0;
+  fill: #ff751d;
+}
+.background:active {
+  background-color: #ffdac0;
+  fill: #ff751d;
 }

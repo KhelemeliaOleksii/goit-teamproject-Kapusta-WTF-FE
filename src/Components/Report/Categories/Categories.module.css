@@ -32,3 +32,10 @@ li {
   margin: 0 auto;
   margin-top: 20px;
 }
+.p {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 14px;
+}

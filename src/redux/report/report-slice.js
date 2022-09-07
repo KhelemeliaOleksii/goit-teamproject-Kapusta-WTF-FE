@@ -5,29 +5,34 @@ const initialState = {
   date: null,
   userMount: [],
   transaction: [],
+  transactionDesc: [],
+  activeCategory: '',
 };
 
 const reportSlice = createSlice({
   name: 'report',
   initialState,
-  // для синхронних операцій, тобто робота тільки зі стейтом
   reducers: {
     dateUser: (state, { payload }) => {
       state.date = payload;
     },
+    toggleActiveCategory: (state, { payload }) => {
+      state.activeCategory = payload;
+    },
   },
-  // для асинхронних операцій, передбачає запитит до бази даних
   extraReducers: {
     // [reportOperations.userMount.pending](state, { payload }) {},
     [reportOperations.userMount.fulfilled](state, { payload }) {
       state.userMount = payload;
     },
-    // [reportOperations.userMount.rejected](state, { payload }) {},
+    [reportOperations.transactionDesc.fulfilled](state, { payload }) {
+      state.transactionDesc = payload;
+    },
     [reportOperations.transactionType.fulfilled](state, { payload }) {
       state.transaction = payload;
     },
   },
 });
 
-export const { dateUser } = reportSlice.actions;
+export const { dateUser, toggleActiveCategory } = reportSlice.actions;
 export default reportSlice.reducer;
