@@ -7,6 +7,7 @@ import s from "./Table.module.css";
 import transactionOperations from "../../redux/transaction/transaction-operations";
 import transactionSelectors from "../../redux/transaction/transaction-selectors";
 import summaryOperations from '../../redux/summary/summary-operations';
+import balanceOperations from "../../redux/balance/balance-operations";
 import { ReactComponent as Delete } from "../../images/svg/delete.svg";
 import Modal from "../Modal/Modal";
 import getDate from "../../helpers/getData/getDate";
@@ -17,14 +18,15 @@ import incomeOptions from './income.json';
 function Table() {
   const dispatch = useDispatch();
   const [isOpen, setisOpen] = useState(false);
+  
   const [idTransaction, setIdTransaction] = useState(false);
-
+  const transactions = useSelector(transactionSelectors.getTransactionList);
   const type = useSelector(transactionSelectors.getType);
   const calendarDate = useSelector(transactionSelectors.getDate);
 
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
-  const transactions = useSelector(transactionSelectors.getTransactionList);
+ 
   const filtertransactions = transactions.filter(({ transactionType }) => transactionType === type);
   const categories = type === 'expenses' ? expensesOptions : incomeOptions
 
@@ -42,7 +44,7 @@ function Table() {
   const onSubmit = async () => {
     await dispatch(transactionOperations.deleteTransaction(idTransaction));
     await dispatch(transactionOperations.getTransaction(startDay));
-    await dispatch(transactionOperations.getBalance());
+    await dispatch(balanceOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type))
     toast.success('Операцiя пройшла успiшно');
     setisOpen('');

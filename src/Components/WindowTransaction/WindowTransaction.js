@@ -1,4 +1,3 @@
-// import { GoCalendar } from 'react-icons/go';
 import { useSelector } from 'react-redux';
 import Table from '../Table';
 import FormTransaction from '../FormTransaction';

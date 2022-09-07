@@ -19,9 +19,6 @@ const SummarySlice = createSlice({
     [summaryOperations.getTransactionPerMouth.rejected](state, _) {
       state.SummaryList = [];
     },
-    // [exampleOperations.testRequest.pending](state, action) {
-    //     //крутиться якийсь лоадер
-    // }
   }
 });
 

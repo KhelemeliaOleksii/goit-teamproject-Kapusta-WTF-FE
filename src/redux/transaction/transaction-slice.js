@@ -9,7 +9,6 @@ const initialState = {
   },
   type: 'expenses',
   transactionList: [],
-  isLoading: false,
 };
 
 const transactionSlice = createSlice({
@@ -23,28 +22,14 @@ const transactionSlice = createSlice({
     addType: (state, action) => {
       state.type = action.payload;
     },
-    addTransactionList: (state, action) => {
-      state.transactionList = [...action.payload];
-    }
   },
   // для асинхронних операцій, передбачає запитит до бази даних
   extraReducers: {
     [transactionOperations.getTransaction.fulfilled](state, action) {
       state.transactionList = [...action.payload.data.result];
-      // state.isLoading = false;
-    },
-    [transactionOperations.getTransaction.pending](state,) {
-      // state.isLoading = true;
-    },
-    [transactionOperations.addTransaction.pending](state,) {
-      // state.isLoading = true;
     },
     [transactionOperations.deleteTransaction.fulfilled](state, action) {
       state.transactionList = state.transactionList.filter(({ id }) => id !== action.payload);
-      // state.isLoading = false;
-    },
-    [transactionOperations.deleteTransaction.pending](state,) {
-      // state.isLoading = true;
     },
   }
 });
