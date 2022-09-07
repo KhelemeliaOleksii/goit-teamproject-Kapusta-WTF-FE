@@ -1,10 +1,11 @@
-// import exampleOperations from './transaction-operations';
+import transactionOperations from './transaction-operations';
 import transactionReducer from './transaction-slice';
 import transactionSelectors from './transaction-selectors';
 
 const example = {
   transactionReducer,
-  transactionSelectors
+  transactionSelectors,
+  transactionOperations
 };
 
 export default example;

@@ -8,7 +8,7 @@ import s from './FormTransaction.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import summaryOperations from '../../redux/summary/summary-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
-// import balanceSelectors from '../../redux/balance/balance-selectors';
+import balanceSelectors from '../../redux/balance/balance-selectors';
 import balanceOperations from '../../redux/balance/balance-operations';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
@@ -24,13 +24,16 @@ function FormTransaction({ category }) {
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
   const type = useSelector(transactionSelectors.getType);
-  // const balance = useSelector(balanceSelectors.getBalance);
+  const balance = useSelector(balanceSelectors.getBalance);
+
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
   };
+
   const handleInputMoneyChange = (e) => {
     setinputMoney(e.currentTarget.value);
   };
+
   const reset = () => {
     setInputValue('');
     setSelected('');
@@ -39,6 +42,10 @@ function FormTransaction({ category }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (category === 'expenses' && balance < InputMoney) {
+      toast.error('У вас не хватае грошей');
+      return;
+    }
     const data = {
       date: calendarDate,
       description: {

@@ -13,7 +13,7 @@ import { ReactComponent as Arrow } from '../../images/svg/arrow.svg';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
 
-function ModalMobileHome({ closeModal, category, text }) {
+function ModalMobileHome({ closeModal, category, }) {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState('');
@@ -30,6 +30,7 @@ function ModalMobileHome({ closeModal, category, text }) {
   const handleInputMoneyChange = (e) => {
     setinputMoney(e.currentTarget.value);
   };
+
   const reset = () => {
     setInputValue('');
     setSelected('');
@@ -51,6 +52,7 @@ function ModalMobileHome({ closeModal, category, text }) {
       categoryId: selected,
       amount: Number(InputMoney),
     };
+
     closeModal();
     await dispatch(transactionOperations.addTransaction(data));
     await dispatch(transactionOperations.getTransaction(startDay));
@@ -108,5 +110,4 @@ export default ModalMobileHome;
 ModalMobileHome.propTypes = {
   closeModal: PropTypes.func.isRequired,
   category: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
 };

@@ -62,7 +62,7 @@ function PageHome() {
               </button>
             </li>
           </ul>
-          <WindowTransaction type={type} />
+          <WindowTransaction />
         </div>
         <div className={s.containerSummary}>
           {viewPort.width >= 768 && viewPort.width < 1280 && <Summary />}

@@ -70,7 +70,6 @@ function MobilePageHome() {
         <ModalMobileHome
           closeModal={toggleModal}
           category={type}
-          text="товару"
         />
       )}
     </section>
