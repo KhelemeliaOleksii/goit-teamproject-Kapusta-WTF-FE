@@ -58,7 +58,7 @@ function PageHome() {
                 className={`${s.PageHomebutton} ${type === 'income' && s.active
                 }`}
                 onClick={toggletype}
-              > Доходы
+              > Доходи
               </button>
             </li>
           </ul>
