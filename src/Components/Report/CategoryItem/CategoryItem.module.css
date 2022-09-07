@@ -13,14 +13,7 @@
 .span {
   margin-bottom: 5px;
 }
-.background {
-  position: relative;
-  margin: 5px 0;
-  background-color: #f5f6fb;
-  width: 59px;
-  height: 46px;
-  border-radius: 20px;
-}
+
 .svg {
   position: absolute;
   bottom: -3px;
@@ -40,16 +33,26 @@
 .active {
   background-color: #ffdac0;
   fill: #ff751d;
+  position: relative;
+    margin: 5px 0;
+    width: 59px;
+    height: 46px;
+    border-radius: 20px;
 }
 .noActive {
-  fill: #52555f;
+  position: relative;
+    margin: 5px 0;
+    background-color: #f5f6fb;
+    width: 59px;
+    height: 46px;
+    border-radius: 20px;
 }
 
-.background:hover {
+.noActive:hover {
   background-color: #ffdac0;
   fill: #ff751d;
 }
-.background:active {
+.noActive:active {
   background-color: #ffdac0;
   fill: #ff751d;
 }

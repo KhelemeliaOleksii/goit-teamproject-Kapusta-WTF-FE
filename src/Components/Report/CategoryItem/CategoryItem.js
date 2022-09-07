@@ -22,9 +22,12 @@ export default function CategoryItem({
   //   // dispatch(reportOperations.transactionDesc({ normalizedDate, categoryId }));
   // };
   return (
-    <li className={[s[style]]} onClick={() => onActiveItemClick(categoryId)}>
+    <li
+      className={s.categoriesItem}
+      onClick={() => onActiveItemClick(categoryId)}
+    >
       <span className={s.span}>{totalAmount}</span>
-      <div className={s.background}>
+      <div className={[s[style]]}>
         <svg className={s.svg} width="63" height="56" aria-label="clickLeft">
           <use href={`${sprite}#icon-${categoryName || 'default'}`} />
         </svg>
