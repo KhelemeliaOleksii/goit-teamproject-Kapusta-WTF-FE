@@ -47,8 +47,6 @@ function MobileTable() {
     return { ...item, ...value };
   });
 
-  console.log(editedTransactions);
-
   return (
     <Section>
       {deletionModal && (
