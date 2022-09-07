@@ -14,7 +14,7 @@ import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
 import 'react-toastify/dist/ReactToastify.css';
 
-function FormTransaction({ category }) {
+function FormTransaction({ category, onTransactionPerform }) {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState('');
@@ -43,7 +43,7 @@ function FormTransaction({ category }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'expenses' && balance < InputMoney) {
-      toast.error('У вас не хватае грошей');
+      toast.error('У вас не достатньо коштів');
       return;
     }
     if (category === 'income' && (balance + InputMoney > 1000000)) {
@@ -64,6 +64,7 @@ function FormTransaction({ category }) {
     await dispatch(balanceOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
     toast.success('Операцiя пройшла успiшно', { theme: 'dark' });
+    // onTransactionPerform(balanceSelectors.getBalance);
     reset();
   };
 
@@ -115,4 +116,5 @@ export default FormTransaction;
 
 FormTransaction.propTypes = {
   category: PropTypes.string.isRequired,
+  onTransactionPerform: PropTypes.func.isRequired,
 };
