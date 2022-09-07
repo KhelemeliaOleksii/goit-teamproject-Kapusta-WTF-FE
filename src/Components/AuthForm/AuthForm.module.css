@@ -17,6 +17,7 @@
     line-height: 14px;
     text-align: center;
     letter-spacing: 0.04em;
+    color: #52555F;
 }
 
 .authText {
@@ -27,6 +28,7 @@
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.04em;
+    color: #52555F;
 }
 
 .emailBlock,
@@ -48,6 +50,7 @@
     font-size: 10px;
     line-height: 12px;
     letter-spacing: 0.04em;
+    color: #000000;
 }
 
 .passwordBlock label {
@@ -58,10 +61,16 @@
     font-size: 10px;
     line-height: 12px;
     letter-spacing: 0.04em;
+    color: #000000;
 }
 
 .emailBlock input {
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
     min-height: 52px;
     margin: 0;
     padding: 0 20px;
@@ -72,7 +81,12 @@
 }
 
 .passwordBlock input {
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
     min-height: 52px;
     margin: 0;
     padding: 0 20px;
@@ -131,20 +145,14 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     box-shadow: 0 3px 3px rgba(170, 178, 197, 0.4);
+    cursor: pointer;
+    transition: all 250ms linear;
 }
 
 .loginButton {
     margin-right: 8px;
     background-color: #F5F6FB;
     color: #52555F;
-
-
-}
-
-.loginButton:hover,
-.loginButton:focus {
-    background-color: #FF751D;
-    color: #FFFFFF;
 }
 
 .registrationButton {
@@ -152,10 +160,18 @@
     color: #52555F;
 }
 
+.loginButton:hover,
+.loginButton:focus {
+    background-color: #FF751D;
+    color: #FFFFFF;
+    transition: all 250ms linear;
+}
+
 .registrationButton:hover,
 .registrationButton:focus {
     background-color: #FF751D;
     color: #FFFFFF;
+    transition: all 250ms linear;
 }
 
  @media screen and (min-width: 768px) {
@@ -164,6 +180,35 @@
         height: 552px;
         padding: 56px 84px 56px;
         }
+
+    .emailBlock label {
+        margin-bottom: 12px;
+        font-family: 'Roboto Flex', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.04em;
+
     }
     
-@media screen and (min-width: 1280px) {}
+    .passwordBlock label {
+        margin-bottom: 12px;
+        font-family: 'Roboto Flex', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.04em;
+    }
+
+    .loginButton,
+    .registrationButton {
+        width: 122px;
+            
+    }
+
+    .loginButton {
+        margin-right: 15px;
+    }
+}

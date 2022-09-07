@@ -25,19 +25,22 @@
   text-align: right;
   padding-right: 20px;
   padding-top: 20px;
+  color: #52555F;
+  transition: all 250ms linear;
 }
 
 .closeButton:hover,
 .closeButton:focus {
   color: #ff751d;
   font-weight: bolder;
+  transition: all 250ms linear;
 }
 
 .title {
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 20px;
-  font-family: 'Roboto';
+  margin-bottom: 30px;
+  font-family: 'Roboto Flex', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -56,8 +59,8 @@
   border: 2px solid #f5f6fb;
   width: 125px;
   height: 44px;
-  font-family: Roboto;
-  font-weight: bold;
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 700;
   font-size: 12px;
   line-height: 14px;
   align-items: center;
@@ -66,12 +69,14 @@
   text-transform: uppercase;
   color: #52555f;
   cursor: pointer;
+  transition: all 250ms linear;
 }
 
 .buttonStyles:hover,
 .buttonStyles:focus {
   background-color: #ff751d;
   color: #ffffff;
+  transition: all 250ms linear;
 }
 
 .buttonStyles:not(:last-child) {

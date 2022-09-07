@@ -25,11 +25,13 @@ button {
 .logOutIcon {
   color: #cbccd0;
   padding-top: 3px;
+  transition: all 250ms linear;
 }
 
 .logOutIcon:hover,
 .logOutIcon:focus {
   color: #ff751d;
+  transition: all 250ms linear;
 }
 
 @media screen and (min-width: 768px) {
@@ -40,7 +42,7 @@ button {
   .userName {
     display: block;
     padding-right: 20px;
-    font-family: 'Roboto';
+    font-family: 'Roboto Flex', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -62,7 +64,7 @@ button {
     display: block;
     background: none;
     padding-left: 20px;
-    font-family: 'Roboto';
+    font-family: 'Roboto Flex', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -71,10 +73,12 @@ button {
     text-decoration-line: underline;
     color: #52555f;
     cursor: pointer;
+    transition: all 250ms linear;
   }
 
   .logOutButton:hover,
   .logOutButton:focus {
     color: #ff751d;
+    transition: all 250ms linear;
   }
 }
