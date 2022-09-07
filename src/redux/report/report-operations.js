@@ -3,8 +3,6 @@ const axios = require('axios');
 
 axios.defaults.baseURL = 'https://kapusta-wtf.herokuapp.com/';
 
-console.log(axios.defaults.baseURL);
-
 const userMount = createAsyncThunk(
   'report/userMount',
   async (date, { rejectWithValue }) => {
@@ -32,10 +30,26 @@ const transactionType = createAsyncThunk(
     }
   }
 );
+const transactionDesc = createAsyncThunk(
+  'report/transactionDesc',
+  async (date, { rejectWithValue }) => {
+    const { normalizedDate, categoryId } = date;
+    try {
+      const { data } = await axios.get(
+        `api/v1/report/by-name-per-month?date=${normalizedDate}&category=${categoryId}`
+      );
+      console.log(data.data.result);
+      return data.data.result;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 const reportOperations = {
   userMount,
   transactionType,
+  transactionDesc,
 };
 
 export default reportOperations;

@@ -1,4 +1,6 @@
+/* eslint-disable no-underscore-dangle */
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import { Chart } from 'react-chartjs-2';
 import {
@@ -12,6 +14,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import reportSelectors from '../../redux/report/report-selectors';
 import s from './ChartReport.module.css';
 import useWindowDimensions from '../Hooks';
 
@@ -61,10 +64,10 @@ function ChartDesktop({ transactions = [] }) {
           },
         }}
         data={{
-          labels: transactions.map((item) => item.goods),
+          labels: transactions.map((item) => item._id),
           datasets: [
             {
-              data: transactions.map((item) => item.amount),
+              data: transactions.map((item) => item.totalAmount),
               barThickness: 50,
               backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
               borderWidth: 2,
@@ -113,10 +116,10 @@ function ChartMobile({ transactions = [] }) {
           },
         }}
         data={{
-          labels: transactions.map((item) => item.goods),
+          labels: transactions.map((item) => item._id),
           datasets: [
             {
-              data: transactions.map((item) => item.amount),
+              data: transactions.map((item) => item.totalAmount),
               barThickness: 10,
               backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
               borderWidth: 2,
@@ -130,25 +133,38 @@ function ChartMobile({ transactions = [] }) {
   );
 }
 
-export default function KapustaChart({ transactions }) {
+export default function KapustaChart() {
   const viewPort = useWindowDimensions();
+  const category = useSelector(reportSelectors.getActiveCategoryId);
+  const expences = useSelector(reportSelectors.getTransactionDesc);
+  if (expences.length === 0) {
+    return <div />;
+  }
+  if (category === null) {
+    return <div />;
+  }
+  const expencesSort = [...expences].sort(
+    (min, max) => max.totalAmount - min.totalAmount
+  );
 
   return (
-    <div className={s.container}>
-      {viewPort.width < 768 && <ChartMobile transactions={transactions} />}
-      {viewPort.width >= 768 && <ChartDesktop transactions={transactions} />}
-    </div>
+    expencesSort.length > 0 && (
+      <div className={s.container}>
+        {viewPort.width < 768 && <ChartMobile transactions={expencesSort} />}
+        {viewPort.width >= 768 && <ChartDesktop transactions={expencesSort} />}
+      </div>
+    )
   );
 }
 
-KapustaChart.propTypes = {
-  transactions: PropTypes.arrayOf(
-    PropTypes.shape({
-      goods: PropTypes.string.isRequired,
-      amount: PropTypes.number,
-    })
-  ).isRequired,
-};
+// KapustaChart.propTypes = {
+//   transactions: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       goods: PropTypes.string.isRequired,
+//       amount: PropTypes.number,
+//     })
+//   ).isRequired,
+// };
 
 ChartMobile.propTypes = {
   transactions: PropTypes.arrayOf(

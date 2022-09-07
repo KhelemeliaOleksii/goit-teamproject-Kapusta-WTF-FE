@@ -1,13 +1,20 @@
 // import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import transactionSelectors from '../../../redux/transaction/transaction-selectors';
 import transactionSlice from '../../../redux/transaction/transaction-slice';
+import reportOperations from '../../../redux/report/report-operations';
 import s from './UserTypeAmount.module.css';
 import sprite from '../../../public/sprite_categories.svg';
 
 export default function UserTypeAmount() {
   const dispatch = useDispatch();
   const type = useSelector(transactionSelectors.getType);
+  useEffect(() => {
+    dispatch(reportOperations.transactionDesc('', ''));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type]);
+
   const toggleType = () => {
     if (type === 'income') {
       dispatch(transactionSlice.actions.addType('expenses'));
