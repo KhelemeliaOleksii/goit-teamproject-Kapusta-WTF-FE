@@ -35,7 +35,7 @@ function PageHome() {
             <Balance balanceValue={balance} />
             <div className={s.wrapperlinkReport}>
               <Link to="/reports" className={s.linkReport}>
-                Перейти до звітів
+                Звіти
                 <Vector className={s.vector} />
               </Link>
             </div>

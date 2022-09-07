@@ -36,18 +36,18 @@ function FormTransaction({ category }) {
 
   const reset = () => {
     setInputValue('');
-    setSelected('');
+    setSelected(selected);
     setinputMoney('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'expenses' && balance < InputMoney) {
-      toast.error('У вас не хватае грошей');
+      toast.error('Не достатньо коштів');
       return;
     }
     if (category === 'income' && (balance + InputMoney > 1000000)) {
-      toast.error('баланс на рахунку не має перевищувати 1 мільйон');
+      toast.error('Баланс на рахунку не може перевищувати 1 мільйон');
       return;
     }
     const data = {
@@ -63,7 +63,7 @@ function FormTransaction({ category }) {
     await dispatch(transactionOperations.getTransaction(startDay));
     await dispatch(balanceOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
-    toast.success('Операцiя пройшла успiшно', { theme: 'dark' });
+    toast.success('Операцiя успiшна', { theme: 'dark' });
     reset();
   };
 
@@ -75,7 +75,7 @@ function FormTransaction({ category }) {
           className={s.transactioninput}
           value={inputValue}
           onChange={handleInputChange}
-          placeholder={category === 'expenses' ? 'опис товару' : 'опис доходу'}
+          placeholder={category === 'expenses' ? 'Опис товару' : 'Опис доходу'}
           required
         />
         <Dropdown category={category} selected={selected} setSelected={setSelected} />
@@ -84,7 +84,7 @@ function FormTransaction({ category }) {
           value={InputMoney}
           onChange={handleInputMoneyChange}
           placeholder="0,00"
-          title="Используйте числовой формат"
+          title="Використайте числовий формат"
           pattern="^\d+(?:[.]\d+)?(?:\d+(?:[.]\d+)?)*$"
           autoComplete="off"
           required
@@ -102,10 +102,10 @@ function FormTransaction({ category }) {
       </div>
       <ul className={s.transactionListButton}>
         <li className={s.transactionListButtonItem}>
-          <button className={s.transactionButton} type="submit" style={{ background: '#FF751D', color: '#ffffff' }}>Прийняти</button>
+          <button className={s.transactionButton} type="submit" style={{ background: '#FF751D', color: '#ffffff' }}>Додати</button>
         </li>
         <li>
-          <button className={s.transactionButton} type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }}>Скинути</button>
+          <button className={s.transactionButton} type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }}>Очистити</button>
         </li>
       </ul>
     </form>
