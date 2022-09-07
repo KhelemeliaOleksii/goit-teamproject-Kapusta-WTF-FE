@@ -22,7 +22,7 @@ function AuthForm() {
   };
 
   const validatePassword = (passwordTest) => {
-    const re = /^[0-9a-zA-Z!@#$%^&*]{10,20}$/;
+    const re = /^[0-9a-zA-Z,.!@#$%^&*]{10,20}$/;
     return re.test(passwordTest);
   };
 
@@ -51,7 +51,7 @@ function AuthForm() {
           break;
         }
         if (!validatePassword(password)) {
-          setPasswordError('Пароль введено некоректно.');
+          setPasswordError('Пароль має містити тільки цифри, літери та знаки (,.!@#$%^&*). Від 10 до 20 символів');
           break;
         }
         setPasswordError('');
@@ -68,7 +68,7 @@ function AuthForm() {
     }
 
     if (!validatePassword(password)) {
-      setPasswordError('Пароль введено некоректно.');
+      setPasswordError('Пароль має містити тільки цифри, літери та знаки (,.!@#$%^&*). Від 10 до 20 символів');
     }
 
     if (!email) {
@@ -93,7 +93,7 @@ function AuthForm() {
     }
 
     if (!validatePassword(password)) {
-      setPasswordError('Пароль введено некоректно.');
+      setPasswordError('Пароль має містити тільки цифри, літери та знаки (,.!@#$%^&*). Від 10 до 20 символів');
     }
 
     if (!email) {
