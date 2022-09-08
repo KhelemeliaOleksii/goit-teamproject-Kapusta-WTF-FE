@@ -33,14 +33,14 @@ function ModalMobileHome({ closeModal, category, }) {
 
   const reset = () => {
     setInputValue('');
-    setSelected('');
+    setSelected(selected);
     setinputMoney('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'expenses' && balance < InputMoney) {
-      toast.error('У вас не хватае грошей');
+      toast.error('Не достатньо коштів');
       return;
     }
     if (category === 'income' && (balance + InputMoney > 1000000)) {
@@ -61,7 +61,7 @@ function ModalMobileHome({ closeModal, category, }) {
     await dispatch(transactionOperations.addTransaction(data));
     await dispatch(transactionOperations.getTransaction(startDay));
     await dispatch(balanceOperations.getBalance());
-    toast.success('Операцiя пройшла успiшно', { theme: 'dark' });
+    toast.success('Операцiя успiшна', { theme: 'dark' });
     reset();
   };
 
@@ -77,7 +77,7 @@ function ModalMobileHome({ closeModal, category, }) {
           className={s.inputMobileHome}
           value={inputValue}
           onChange={handleInputChange}
-          placeholder={category === 'expenses' ? 'опис товару' : 'опис доходу'}
+          placeholder={category === 'expenses' ? 'Опис товару' : 'Опис доходу'}
           required
         />
         <Dropdown category={category} selected={selected} setSelected={setSelected} />
@@ -89,7 +89,7 @@ function ModalMobileHome({ closeModal, category, }) {
             placeholder="0.00"
             pattern="^\d+(?:[.]\d+)?(?:\d+(?:[.]\d+)?)*$"
             required
-            title="Используйте числовой формат"
+            title="Використайте числовий формат"
             autoComplete="off"
           />
           <div className={s.wrappMobileIcon}>
@@ -98,10 +98,10 @@ function ModalMobileHome({ closeModal, category, }) {
         </div>
         <ul className={s.mobilelist}>
           <li className={s.mobileItem}>
-            <button className={s.mobileButton} type="submit" style={{ background: '#FF751D', color: '#ffffff' }}>Прийняти</button>
+            <button className={s.mobileButton} type="submit" style={{ background: '#FF751D', color: '#ffffff' }}>Додати</button>
           </li>
           <li>
-            <button className={s.mobileButton} type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }}>Скинути</button>
+            <button className={s.mobileButton} type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }}>Очистити</button>
           </li>
         </ul>
       </form>

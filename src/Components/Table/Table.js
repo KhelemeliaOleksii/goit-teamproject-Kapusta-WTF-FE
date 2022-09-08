@@ -47,7 +47,7 @@ function Table() {
     await dispatch(transactionOperations.getTransaction(startDay));
     await dispatch(balanceOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
-    toast.success('Операцiя пройшла успiшно', { theme: 'dark' });
+    toast.success('Операцiя успiшна', { theme: 'dark' });
     setisOpen('');
   };
   const viewPort = useWindowDimensions();
@@ -68,8 +68,8 @@ function Table() {
             <tr className={s.tableHeder}>
               <th>Дата</th>
               <th>Опис</th>
-              <th>Категория</th>
-              <th>Сумма</th>
+              <th>Категорія</th>
+              <th>Сума</th>
               <th> </th>
             </tr>
           </thead>
@@ -82,7 +82,7 @@ function Table() {
                 <td>{description.descriptionName}</td>
                 <td>{categories.map((category) => category.id === categoryId && category.value)}
                 </td>
-                <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: '#407946' }}>{transactionType === 'expenses' ? `-${amount}.00 ₴.` : `+${amount}.00 ₴.`}</td>
+                <td className={s.sumtable} style={transactionType === 'expenses' ? { color: '#E7192E' } : { color: '#407946' }}>{transactionType === 'expenses' ? `- ₴${Number(amount).toFixed(2)}` : `₴${Number(amount).toFixed(2)}`}</td>
                 <td><Delete
                   onClick={() => handleDeteteClick(_id)}
                   className={s.deleteIcon}

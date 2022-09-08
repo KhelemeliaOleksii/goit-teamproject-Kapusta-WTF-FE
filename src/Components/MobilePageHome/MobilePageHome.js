@@ -38,7 +38,7 @@ function MobilePageHome() {
           <Container>
             <div className={s.boxMobileBalanse}>
               <Link to="/reports" className={s.linkReport}>
-                Reports
+                Звіти
                 <Vector className={s.vector} />
               </Link>
             </div>
@@ -53,7 +53,7 @@ function MobilePageHome() {
               className={s.buttonMobile}
               onClick={toggleModal}
             >
-              expenses
+              витрати
             </button>
             <button
               value="income"
@@ -61,7 +61,7 @@ function MobilePageHome() {
               className={s.buttonMobile}
               onClick={toggleModal}
             >
-              income
+              доходи
             </button>
           </div>
         </div>
