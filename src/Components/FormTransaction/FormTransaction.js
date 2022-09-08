@@ -43,7 +43,7 @@ function FormTransaction({ category }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'expenses' && balance < InputMoney) {
-      toast.error('Не достатньо коштів');
+      toast.error('У вас не достатньо коштів');
       return;
     }
     if (category === 'income' && (balance + InputMoney > 1000000)) {
@@ -63,7 +63,7 @@ function FormTransaction({ category }) {
     await dispatch(transactionOperations.getTransaction(startDay));
     await dispatch(balanceOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
-    toast.success('Операцiя успiшна', { theme: 'dark' });
+    toast.success('Операцiя пройшла успішно', { theme: 'dark' });
     reset();
   };
 
