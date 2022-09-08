@@ -6,6 +6,7 @@ import UserTypeAmount from '../UserTypeAmount/UserTypeAmount';
 import CategoryItem from '../CategoryItem/CategoryItem';
 import reportSelectors from '../../../redux/report/report-selectors';
 import reportOperations from '../../../redux/report/report-operations';
+// import { transactionIsActive } from '../../../redux/report/report-slice';
 
 export default function Categories() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function Categories() {
   const data = useSelector(reportSelectors.getTransactionType);
   const onActiveItemClick = (categoryId) => {
     dispatch(reportOperations.transactionDesc({ normalizedDate, categoryId }));
+    // dispatch(transactionIsActive);
   };
 
   return (

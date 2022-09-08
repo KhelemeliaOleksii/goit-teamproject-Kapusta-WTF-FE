@@ -16,13 +16,18 @@ const reportSlice = createSlice({
     dateUser: (state, { payload }) => {
       state.date = payload;
     },
+    transactionIsActive: (state, { payload }) => {
+      const { isActive } = state.transaction.transaction;
+      console.log(isActive);
+      state.transaction.transaction.isActive = !isActive;
+      console.log(isActive);
+    },
   },
   extraReducers: {
     [reportOperations.userMount.fulfilled](state, { payload }) {
       state.userMount = payload;
     },
     [reportOperations.transactionType.fulfilled](state, { payload }) {
-      console.log(payload);
       const dataItem = payload.map((item) => {
         const category = categoriesFilter.find(
           (filter) => filter._id.$oid === item._id
@@ -37,5 +42,5 @@ const reportSlice = createSlice({
   },
 });
 
-export const { dateUser } = reportSlice.actions;
+export const { dateUser, transactionIsActive } = reportSlice.actions;
 export default reportSlice.reducer;
