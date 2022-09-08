@@ -43,6 +43,10 @@ function ModalMobileHome({ closeModal, category, }) {
       toast.error('У вас не хватае грошей');
       return;
     }
+    if (category === 'income' && (balance + InputMoney > 1000000)) {
+      toast.error('баланс на рахунку не має перевищувати 1 мільйон');
+      return;
+    }
     const data = {
       date: calendarDate,
       description: {
