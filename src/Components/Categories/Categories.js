@@ -1,5 +1,3 @@
-/* eslint-disable react/style-prop-object */
-/* eslint-disable no-underscore-dangle */
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import s from './Categories.module.css';
@@ -28,28 +26,28 @@ export default function Categories() {
         {data?.length === 0 ? (
           <p className={s.p}>У цьому місяці транзакцій не було</p>
         ) : (
-          data?.map((item) => {
-            if (item._id === activeCategoryId) {
+          data?.map(({ _id, totalAmount, categoryName }) => {
+            if (_id === activeCategoryId) {
               return (
                 <CategoryItem
-                  totalAmount={item.totalAmount}
-                  key={item._id}
-                  categoryName={item.categoryName}
-                  categoryId={item._id}
+                  totalAmount={totalAmount}
+                  key={_id}
+                  categoryName={categoryName}
+                  categoryId={_id}
                   onActiveItemClick={onActiveItemClick}
-                  style="active"
+                  activeStyle="active"
                 />
               );
             }
 
             return (
               <CategoryItem
-                totalAmount={item.totalAmount}
-                key={item._id}
-                categoryName={item.categoryName}
-                categoryId={item._id}
+                totalAmount={totalAmount}
+                key={_id}
+                categoryName={categoryName}
+                categoryId={_id}
                 onActiveItemClick={onActiveItemClick}
-                style="noActive"
+                activeStyle="noActive"
               />
             );
           })
