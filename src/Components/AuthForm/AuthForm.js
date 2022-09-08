@@ -30,31 +30,15 @@ function AuthForm() {
 
   const changeEmailValue = (event) => {
     setEmail(event.target.value);
-    const { name } = event.target;
-    switch (name) {
-      case 'email':
-        if (!validateEmail(email)) {
-          setEmailError('Імейл введено некоректно.');
-          break;
-        }
-        setEmailError('');
-        break;
-      default:
+    if (validateEmail(event.target.value)) {
+      setEmailError('');
     }
   };
 
   const changePasswordValue = (event) => {
     setPassword(event.target.value);
-    const { name } = event.target;
-    switch (name) {
-      case 'password':
-        if (!validatePassword(password)) {
-          setPasswordError('Пароль має містити тільки цифри, літери та знаки (,.!@#$%^&*). Від 10 до 20 символів');
-          break;
-        }
-        setPasswordError('');
-        break;
-      default:
+    if (validatePassword(event.target.value)) {
+      setPasswordError('');
     }
   };
 

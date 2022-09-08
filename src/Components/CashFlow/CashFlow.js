@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { useSelector } from 'react-redux';
 import s from './CashFlow.module.css';
 
@@ -8,11 +7,11 @@ export default function CashFlow() {
     expenses: 0,
     income: 0,
   };
-  userMount.map((mount) => {
-    if (mount._id === 'expenses') {
-      mounthMount.expenses = mount.totalAmount;
-    } else if (mount._id === 'income') {
-      mounthMount.income = mount.totalAmount;
+  userMount.map(({ _id, totalAmount }) => {
+    if (_id === 'expenses') {
+      mounthMount.expenses = totalAmount;
+    } else if (_id === 'income') {
+      mounthMount.income = totalAmount;
     }
     return mounthMount;
   });
