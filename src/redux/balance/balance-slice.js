@@ -14,6 +14,7 @@ const balanceSlice = createSlice({
   // для асинхронних операцій, передбачає запитит до бази даних
   extraReducers: {
     [balanceOperations.getBalance.fulfilled](state, action) {
+      // console.log('action.payload.data', action.payload.data);
       state.balance = action.payload.data.balance;
     },
     [balanceOperations.getBalance.rejected](state, _) {

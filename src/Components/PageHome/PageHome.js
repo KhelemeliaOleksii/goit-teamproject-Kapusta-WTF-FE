@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+// import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Summary from '../Summary';
@@ -15,16 +16,27 @@ import s from './PageHome.module.css';
 
 function PageHome() {
   const dispatch = useDispatch();
+  dispatch(balanceOperations.getBalance());
+  const [balance, setBalance] = useState(useSelector(balanceSelectors.getBalance));
+
   const viewPort = useWindowDimensions();
   const type = useSelector(transactionSelectors.getType);
   const { addType } = transactionSlice.actions;
-  const balance = useSelector(balanceSelectors.getBalance);
 
-  useEffect(() => {
-    dispatch(balanceOperations.getBalance());
-  }, [dispatch]);
+  // useEffect(() =>  {
+  //   dispatch(balanceOperations.getBalance());
+  // }, [balance]);
   const toggletype = (e) => {
     dispatch(addType(`${e.target.name}`));
+  };
+  const onBalanceSubmit = (firstBallance) => {
+    setBalance(firstBallance);
+    dispatch(balanceOperations.addBalance({ currentBalance: firstBallance }));
+    // dispatch(balanceOperations.getBalance());
+  };
+  const onTransactionPerform = (newBalance) => {
+    // dispatch(balanceOperations.getBalance());
+    setBalance(newBalance);
   };
   return (
     <section>
@@ -32,7 +44,7 @@ function PageHome() {
       <Container>
         <div className={s.PageHomeWrapper}>
           <div className={s.BalanseWrapper}>
-            <Balance balanceValue={balance} />
+            <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} />
             <div className={s.wrapperlinkReport}>
               <Link to="/reports" className={s.linkReport}>
                 Звіти
@@ -58,11 +70,11 @@ function PageHome() {
                 className={`${s.PageHomebutton} ${type === 'income' && s.active
                 }`}
                 onClick={toggletype}
-              > Доходи
+              > Доходы
               </button>
             </li>
           </ul>
-          <WindowTransaction />
+          <WindowTransaction onTransactionPerform={onTransactionPerform} />
         </div>
         <div className={s.containerSummary}>
           {viewPort.width >= 768 && viewPort.width < 1280 && <Summary />}
