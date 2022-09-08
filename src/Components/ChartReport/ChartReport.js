@@ -3,31 +3,13 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 import { Chart } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  LinearScale,
-  CategoryScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Legend,
-  Tooltip,
-} from 'chart.js';
+import { Chart as ChartJS, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import reportSelectors from '../../redux/report/report-selectors';
 import s from './ChartReport.module.css';
 import useWindowDimensions from '../Hooks';
 
-ChartJS.register(
-  LinearScale,
-  CategoryScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Legend,
-  Tooltip,
-  ChartDataLabels
-);
+ChartJS.register(...registerables);
 
 function ChartDesktop({ transactions = [] }) {
   if (transactions.length === 0) {
