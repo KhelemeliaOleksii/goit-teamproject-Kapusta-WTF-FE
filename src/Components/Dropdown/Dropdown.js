@@ -13,7 +13,6 @@ function Dropdown({ category, selected, setSelected }) {
   const options = category === 'expenses' ? expensesOptions : incomeOptions;
 
   const ref = useRef();
-
   useEffect(() => {
     const onClickOutside = (event) => {
       if (!ref?.current?.contains(event.target)) {

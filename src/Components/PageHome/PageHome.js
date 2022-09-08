@@ -36,7 +36,8 @@ function PageHome() {
   };
   const onTransactionPerform = (newBalance) => {
     // dispatch(balanceOperations.getBalance());
-    setBalance(newBalance);
+    // setBalance(newBalance);
+    console.log('fkds');
   };
   return (
     <section>

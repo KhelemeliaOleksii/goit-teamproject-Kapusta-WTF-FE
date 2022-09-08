@@ -43,7 +43,7 @@ function ModalMobileHome({ closeModal, category, }) {
       toast.error('Не достатньо коштів');
       return;
     }
-    if (category === 'income' && (balance + InputMoney > 1000000)) {
+    if (category === 'income' && (balance + Number(InputMoney) > 1000000)) {
       toast.error('баланс на рахунку не має перевищувати 1 мільйон');
       return;
     }

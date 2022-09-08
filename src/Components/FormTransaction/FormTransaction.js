@@ -46,7 +46,7 @@ function FormTransaction({ category, onTransactionPerform }) {
       toast.error('Не достатньо коштів');
       return;
     }
-    if (category === 'income' && (balance + InputMoney > 1000000)) {
+    if (category === 'income' && (balance + Number(InputMoney) > 1000000)) {
       toast.error('Баланс на рахунку не може перевищувати 1 мільйон');
       return;
     }
