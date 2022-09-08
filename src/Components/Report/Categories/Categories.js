@@ -16,6 +16,7 @@ export default function Categories() {
   const isFirstRender = useRef(true);
   const normalizedDate = useSelector(reportSelectors.getReportDate);
   const data = useSelector(reportSelectors.getTransactionType);
+
   if (data.length === 0) {
     return <div />;
   }
@@ -25,12 +26,9 @@ export default function Categories() {
     );
     return { ...category, ...item };
   });
+
   if (isFirstRender.current) {
-    console.log(dataItem[0]._id);
-
     dispatch(toggleActiveCategory(dataItem[0]._id));
-    // setActiveCategoryId((prev) => dataItem[0]._id);
-
     isFirstRender.current = false;
   }
 

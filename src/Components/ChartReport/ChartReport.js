@@ -135,14 +135,8 @@ function ChartMobile({ transactions = [] }) {
 
 export default function KapustaChart() {
   const viewPort = useWindowDimensions();
-  const category = useSelector(reportSelectors.getActiveCategoryId);
   const expences = useSelector(reportSelectors.getTransactionDesc);
-  if (expences.length === 0) {
-    return <div />;
-  }
-  if (category === null) {
-    return <div />;
-  }
+
   const expencesSort = [...expences].sort(
     (min, max) => max.totalAmount - min.totalAmount
   );
@@ -157,20 +151,11 @@ export default function KapustaChart() {
   );
 }
 
-// KapustaChart.propTypes = {
-//   transactions: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       goods: PropTypes.string.isRequired,
-//       amount: PropTypes.number,
-//     })
-//   ).isRequired,
-// };
-
 ChartMobile.propTypes = {
   transactions: PropTypes.arrayOf(
     PropTypes.shape({
-      goods: PropTypes.string.isRequired,
-      amount: PropTypes.number,
+      _id: PropTypes.string.isRequired,
+      totalAmount: PropTypes.number,
     })
   ).isRequired,
 };
@@ -178,8 +163,8 @@ ChartMobile.propTypes = {
 ChartDesktop.propTypes = {
   transactions: PropTypes.arrayOf(
     PropTypes.shape({
-      goods: PropTypes.string.isRequired,
-      amount: PropTypes.number,
+      _id: PropTypes.string.isRequired,
+      totalAmount: PropTypes.number,
     })
   ).isRequired,
 };

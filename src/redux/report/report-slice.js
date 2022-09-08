@@ -4,8 +4,8 @@ import reportOperations from './report-operations';
 const initialState = {
   date: null,
   userMount: [],
-  transaction: [],
-  transactionDesc: [],
+  transaction: { transaction: [], transactionDesc: [] },
+
   activeCategory: '',
 };
 
@@ -21,15 +21,14 @@ const reportSlice = createSlice({
     },
   },
   extraReducers: {
-    // [reportOperations.userMount.pending](state, { payload }) {},
     [reportOperations.userMount.fulfilled](state, { payload }) {
       state.userMount = payload;
     },
-    [reportOperations.transactionDesc.fulfilled](state, { payload }) {
-      state.transactionDesc = payload;
-    },
     [reportOperations.transactionType.fulfilled](state, { payload }) {
-      state.transaction = payload;
+      state.transaction.transaction = payload;
+    },
+    [reportOperations.transactionDesc.fulfilled](state, { payload }) {
+      state.transaction.transactionDesc = payload;
     },
   },
 });

@@ -17,6 +17,7 @@ export default function UserReportNav() {
   const viewPort = useWindowDimensions();
   const type = useSelector(transactionSelectors.getType);
   const normalizedDate = useSelector(reportSelectors.getReportDate);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function UserReportNav() {
   useEffect(() => {
     dispatch(reportOperations.transactionType({ normalizedDate, type }));
   }, [normalizedDate, type]);
+
   const balance = useSelector(balanceSelectors.getBalance);
 
   return (
