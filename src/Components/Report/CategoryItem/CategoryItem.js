@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import PropTypes from 'prop-types';
 // import { useDispatch, useSelector } from 'react-redux';
 import s from './CategoryItem.module.css';
