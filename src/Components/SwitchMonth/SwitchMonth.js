@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import s from './SwitchMonth.module.css';
-import sprite from '../../../public/sprite_categories.svg';
-import { dateUser } from '../../../redux/report/report-slice';
-import reportOperations from '../../../redux/report/report-operations';
+import sprite from '../../images/svg/sprite_categories.svg';
+import { dateUser } from '../../redux/report/report-slice';
+import reportOperations from '../../redux/report/report-operations';
 import monthes from './month';
 
 export default function SwitchMonth() {

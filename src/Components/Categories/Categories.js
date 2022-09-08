@@ -5,10 +5,10 @@ import { useState } from 'react';
 import s from './Categories.module.css';
 import UserTypeAmount from '../UserTypeAmount/UserTypeAmount';
 import CategoryItem from '../CategoryItem/CategoryItem';
-import reportSelectors from '../../../redux/report/report-selectors';
-import reportOperations from '../../../redux/report/report-operations';
+import reportSelectors from '../../redux/report/report-selectors';
+import reportOperations from '../../redux/report/report-operations';
 // import { transactionIsActive } from '../../../redux/report/report-slice';
-import { toggleActiveCategory } from '../../../redux/report/report-slice';
+import { toggleActiveCategory } from '../../redux/report/report-slice';
 
 export default function Categories() {
   const [activeCategoryId, setActiveCategoryId] = useState(null);

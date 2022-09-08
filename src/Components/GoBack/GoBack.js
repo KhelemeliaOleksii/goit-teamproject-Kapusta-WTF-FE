@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import s from './GoBack.module.css';
-import goBack from '../../../public/goBack.svg';
+import goBack from '../../images/svg/goBack.svg';
 
 export default function GoBack() {
   const navigate = useNavigate();
