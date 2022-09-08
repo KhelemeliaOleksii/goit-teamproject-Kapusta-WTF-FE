@@ -13,11 +13,8 @@ function AuthForm() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const changeEmailValue = (event) => setEmail(event.target.value);
-  const changePasswordValue = (event) => setPassword(event.target.value);
-
   const validateEmail = (emailTest) => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^[a-z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
     return re.test(emailTest);
   };
 
@@ -29,6 +26,36 @@ function AuthForm() {
   const formReset = () => {
     setEmail('');
     setPassword('');
+  };
+
+  const changeEmailValue = (event) => {
+    setEmail(event.target.value);
+    const { name } = event.target;
+    switch (name) {
+      case 'email':
+        if (!validateEmail(email)) {
+          setEmailError('Імейл введено некоректно.');
+          break;
+        }
+        setEmailError('');
+        break;
+      default:
+    }
+  };
+
+  const changePasswordValue = (event) => {
+    setPassword(event.target.value);
+    const { name } = event.target;
+    switch (name) {
+      case 'password':
+        if (!validatePassword(password)) {
+          setPasswordError('Пароль має містити тільки цифри, літери та знаки (,.!@#$%^&*). Від 10 до 20 символів');
+          break;
+        }
+        setPasswordError('');
+        break;
+      default:
+    }
   };
 
   const onBlur = (e) => {
@@ -137,7 +164,7 @@ function AuthForm() {
             onBlur={onBlur}
             onChange={changeEmailValue}
             placeholder="your@email.com"
-            title="Електронна пошта може складатися з буквенно-цифрових символів і обов'язкового символу '@'"
+            title="Електронна пошта може складатися з латинських буквенних та цифрових символів і обов'язкового символу '@'"
             required
           />
           <p className={styles.emailError}>{emailError}</p>

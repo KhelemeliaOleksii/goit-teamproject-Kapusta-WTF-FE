@@ -7,6 +7,7 @@ import imgText from '../../images/svg/Kapusta.svg';
 function HomeView() {
   return (
     <section className={styles.section}>
+      <div className={styles.authBackground} />
       <Container>
         <div className={styles.mainWrapper}>
           <div className={styles.textWrapper}>

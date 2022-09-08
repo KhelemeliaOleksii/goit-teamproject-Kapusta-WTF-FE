@@ -2,11 +2,23 @@
   margin: 0 auto;
   padding-top: 86px;
   padding-bottom: 96px;
-  background-image: url('../../images/homepage/bg-mob-top.svg'),
-    url('../../images/homepage/bg-main.svg'),
-    url('../../images/homepage/bg-mob-bottom.svg');
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: right 104px, left top -240px, left 15% bottom;
+  background-image: url('../../images/homepage/bg-mob-bottom.svg');
+  background-repeat: no-repeat;
+  background-position: left 15% bottom;
+}
+
+.authBackground {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 526px;
+  background: #f5f6fb;
+  border-bottom-left-radius: 90px;
+  background-image: url('../../images/homepage/bg-mob-top.svg');
+  background-repeat: no-repeat;
+  background-position: right 104px;
 }
 
 .kapusta {
@@ -31,14 +43,20 @@
 }
 
 @media screen and (min-width: 768px) {
+
+  .authBackground {
+    background-image: url('../../images/homepage/bg-tab-top.svg');
+    background-repeat: no-repeat;
+    background-position: left top 28px;
+    background-size: contain;
+  }
+
   .section {
     padding-top: 90px;
     padding-bottom: 90px;
-    background-image: url('../../images/homepage/bg-desk-top.svg'),
-      url('../../images/homepage/bg-main.svg'),
-      url('../../images/homepage/bg-desk-bot.svg');
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-position: left top 28px, left top, left 25% bottom -10px;
+    background-image: url('../../images/homepage/bg-desk-bot.svg');
+    background-repeat: no-repeat;
+    background-position: left 25% bottom -10px;
   }
 
   .kapusta {
@@ -57,18 +75,21 @@
   .textWrapper {
     padding-left: 171px;
   }
-
-  /* .loginWrapper {
-    margin-bottom: 191px;
-  } */
 }
 
 @media screen and (min-width: 1280px) {
+
+.authBackground {
+  background-image: url('../../images/homepage/bg-desk-top.svg');
+  background-repeat: no-repeat;
+  background-position: right top 40px;
+  background-size: contain;
+  }
+
   .section {
-    max-width: 1280px;
     padding-top: 117px;
     padding-bottom: 117px;
-    background-position: right top 28px, center top, left 20% bottom;
+    background-position: left 20% bottom;
   }
 
   .kapusta {
@@ -83,7 +104,6 @@
   .textWrapper {
     padding-top: 191px;
     padding-left: 229px;
-    /* margin-bottom: 347px; */
   }
 
   .mainWrapper {
