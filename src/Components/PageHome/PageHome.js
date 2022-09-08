@@ -1,5 +1,4 @@
-// import { useEffect, useState } from 'react';
-import { useState } from 'react';
+import { useEffect, } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Summary from '../Summary';
@@ -16,36 +15,31 @@ import s from './PageHome.module.css';
 
 function PageHome() {
   const dispatch = useDispatch();
-  dispatch(balanceOperations.getBalance());
-  const [balance, setBalance] = useState(useSelector(balanceSelectors.getBalance));
+  const balance = useSelector(balanceSelectors.getBalance);
 
   const viewPort = useWindowDimensions();
   const type = useSelector(transactionSelectors.getType);
   const { addType } = transactionSlice.actions;
 
-  // useEffect(() =>  {
-  //   dispatch(balanceOperations.getBalance());
-  // }, [balance]);
+  useEffect(() => {
+    dispatch(balanceOperations.getBalance());
+  },);
   const toggletype = (e) => {
     dispatch(addType(`${e.target.name}`));
   };
-  const onBalanceSubmit = (firstBallance) => {
-    setBalance(firstBallance);
-    dispatch(balanceOperations.addBalance({ currentBalance: firstBallance }));
-    // dispatch(balanceOperations.getBalance());
-  };
-  const onTransactionPerform = (newBalance) => {
-    // dispatch(balanceOperations.getBalance());
-    // setBalance(newBalance);
-    console.log('fkds');
-  };
+  // const onBalanceSubmit = (firstBallance) => {
+  //   setBalance(firstBallance);
+  //   dispatch(balanceOperations.addBalance({ currentBalance: firstBallance }));
+  //   // dispatch(balanceOperations.getBalance());
+  // };
   return (
     <section>
       <div className={s.PageHomeBackground} />
       <Container>
         <div className={s.PageHomeWrapper}>
           <div className={s.BalanseWrapper}>
-            <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} />
+            {/* <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} /> */}
+            <Balance balanceValue={balance} />
             <div className={s.wrapperlinkReport}>
               <Link to="/reports" className={s.linkReport}>
                 Звіти
@@ -71,11 +65,11 @@ function PageHome() {
                 className={`${s.PageHomebutton} ${type === 'income' && s.active
                 }`}
                 onClick={toggletype}
-              > Доходы
+              > Доходи
               </button>
             </li>
           </ul>
-          <WindowTransaction onTransactionPerform={onTransactionPerform} />
+          <WindowTransaction />
         </div>
         <div className={s.containerSummary}>
           {viewPort.width >= 768 && viewPort.width < 1280 && <Summary />}

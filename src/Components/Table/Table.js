@@ -92,6 +92,13 @@ function Table() {
             ))}
           </tbody>
         </table>
+        {filtertransactions.length === 0 && (
+          <p
+            className={s.tableNotify}
+          >
+            За цей день транзакцій немає
+          </p>
+        )}
         {viewPort.width >= 1280 && <Summary />}
       </div>
     </>

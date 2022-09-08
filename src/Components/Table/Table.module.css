@@ -1,3 +1,4 @@
+
 .table {
   width: 624px;
   table-layout: fixed;
@@ -5,6 +6,22 @@
 }
 .tableHeder {
   border: none;
+}
+
+.tableNotify{
+position: absolute;
+top: 75%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: 10px;
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+letter-spacing: 0.04em;
+color: #52555f;;
+text-align: center;
+width: 745px;
+color: #000000;
 }
 
 th {
@@ -44,6 +61,7 @@ th:nth-of-type(4) {
 
 th:nth-of-type(5) {
   border-top-right-radius: 20px;
+  width: 90px;
 }
 
 .tbodyTable {
@@ -53,6 +71,7 @@ th:nth-of-type(5) {
   overflow-y: auto;
   overflow-x: auto;
 }
+
 
 .trBody {
   display: table;
@@ -124,6 +143,12 @@ td:nth-of-type(5) {
   td:nth-of-type(4),
   th:nth-of-type(4) {
     width: 129px;
+  }
+
+  .tableNotify{
+  top: 50%;
+ left: 42%;
+ transform: translate(-50%, -50%);
   }
   }
   
