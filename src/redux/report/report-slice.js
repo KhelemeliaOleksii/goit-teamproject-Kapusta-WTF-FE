@@ -1,5 +1,7 @@
+/* eslint-disable no-underscore-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 import reportOperations from './report-operations';
+import categoriesFilter from './categories.json';
 
 const initialState = {
   date: null,
@@ -20,7 +22,14 @@ const reportSlice = createSlice({
       state.userMount = payload;
     },
     [reportOperations.transactionType.fulfilled](state, { payload }) {
-      state.transaction.transaction = payload;
+      console.log(payload);
+      const dataItem = payload.map((item) => {
+        const category = categoriesFilter.find(
+          (filter) => filter._id.$oid === item._id
+        );
+        return { ...category, ...item, isActive: false };
+      });
+      state.transaction.transaction = dataItem;
     },
     [reportOperations.transactionDesc.fulfilled](state, { payload }) {
       state.transaction.transactionDesc = payload;
