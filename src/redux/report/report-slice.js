@@ -1,12 +1,12 @@
+/* eslint-disable no-underscore-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 import reportOperations from './report-operations';
+import categoriesFilter from './categories.json';
 
 const initialState = {
   date: null,
   userMount: [],
   transaction: { transaction: [], transactionDesc: [] },
-
-  activeCategory: '',
 };
 
 const reportSlice = createSlice({
@@ -16,8 +16,11 @@ const reportSlice = createSlice({
     dateUser: (state, { payload }) => {
       state.date = payload;
     },
-    toggleActiveCategory: (state, { payload }) => {
-      state.activeCategory = payload;
+    transactionIsActive: (state, { payload }) => {
+      const { isActive } = state.transaction.transaction;
+      console.log(isActive);
+      state.transaction.transaction.isActive = !isActive;
+      console.log(isActive);
     },
   },
   extraReducers: {
@@ -25,7 +28,13 @@ const reportSlice = createSlice({
       state.userMount = payload;
     },
     [reportOperations.transactionType.fulfilled](state, { payload }) {
-      state.transaction.transaction = payload;
+      const dataItem = payload.map((item) => {
+        const category = categoriesFilter.find(
+          (filter) => filter._id.$oid === item._id
+        );
+        return { ...category, ...item, isActive: false };
+      });
+      state.transaction.transaction = dataItem;
     },
     [reportOperations.transactionDesc.fulfilled](state, { payload }) {
       state.transaction.transactionDesc = payload;
@@ -33,5 +42,5 @@ const reportSlice = createSlice({
   },
 });
 
-export const { dateUser, toggleActiveCategory } = reportSlice.actions;
+export const { dateUser, transactionIsActive } = reportSlice.actions;
 export default reportSlice.reducer;

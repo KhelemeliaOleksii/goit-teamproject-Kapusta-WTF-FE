@@ -34,25 +34,30 @@
   background-color: #ffdac0;
   fill: #ff751d;
   position: relative;
-    margin: 5px 0;
-    width: 59px;
-    height: 46px;
-    border-radius: 20px;
+  margin: 5px 0;
+  width: 59px;
+  height: 46px;
+  border-radius: 20px;
 }
-.noActive {
+.background {
   position: relative;
-    margin: 5px 0;
-    background-color: #f5f6fb;
-    width: 59px;
-    height: 46px;
-    border-radius: 20px;
+  margin: 5px 0;
+  background-color: #f5f6fb;
+  width: 59px;
+  height: 46px;
+  border-radius: 20px;
 }
 
-.noActive:hover {
+.background:hover {
   background-color: #ffdac0;
   fill: #ff751d;
 }
-.noActive:active {
+.backgroundActive {
+  position: relative;
+  margin: 5px 0;
   background-color: #ffdac0;
+  width: 59px;
+  height: 46px;
+  border-radius: 20px;
   fill: #ff751d;
 }
