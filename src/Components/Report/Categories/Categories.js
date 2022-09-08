@@ -17,8 +17,7 @@ export default function Categories() {
     const category = categoriesFilter.find(
       (filter) => filter._id.$oid === item._id
     );
-    console.log(category);
-    return { ...category, ...item };
+    return { ...category, ...item, isActive: false };
   });
 
   const onActiveItemClick = (categoryId) => {
@@ -39,6 +38,7 @@ export default function Categories() {
               categoryName={item.categoryName}
               categoryId={item._id}
               onActiveItemClick={onActiveItemClick}
+              isActive={item.isActive}
             />
           ))
         )}

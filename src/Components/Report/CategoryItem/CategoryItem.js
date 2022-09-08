@@ -9,6 +9,7 @@ export default function CategoryItem({
   categoryName,
   categoryId,
   onActiveItemClick,
+  isActive,
 }) {
   return (
     <li
@@ -16,7 +17,7 @@ export default function CategoryItem({
       onClick={() => onActiveItemClick(categoryId)}
     >
       <span className={s.span}>{totalAmount}</span>
-      <div className={s.background}>
+      <div className={isActive ? s.backgroundActive : s.background}>
         <svg className={s.svg} width="63" height="56" aria-label="clickLeft">
           <use href={`${sprite}#icon-${categoryName || 'default'}`} />
         </svg>
@@ -31,4 +32,5 @@ CategoryItem.propTypes = {
   categoryName: PropTypes.string.isRequired,
   categoryId: PropTypes.string.isRequired,
   onActiveItemClick: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired,
 };
