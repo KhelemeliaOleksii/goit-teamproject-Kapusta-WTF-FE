@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-
 import { useSelector } from 'react-redux';
 import s from './CashFlow.module.css';
 
