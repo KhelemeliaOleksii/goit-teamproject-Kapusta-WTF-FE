@@ -5,8 +5,6 @@ const initialState = {
   date: null,
   userMount: [],
   transaction: { transaction: [], transactionDesc: [] },
-
-  activeCategory: '',
 };
 
 const reportSlice = createSlice({
@@ -15,9 +13,6 @@ const reportSlice = createSlice({
   reducers: {
     dateUser: (state, { payload }) => {
       state.date = payload;
-    },
-    toggleActiveCategory: (state, { payload }) => {
-      state.activeCategory = payload;
     },
   },
   extraReducers: {
@@ -33,5 +28,5 @@ const reportSlice = createSlice({
   },
 });
 
-export const { dateUser, toggleActiveCategory } = reportSlice.actions;
+export const { dateUser } = reportSlice.actions;
 export default reportSlice.reducer;
