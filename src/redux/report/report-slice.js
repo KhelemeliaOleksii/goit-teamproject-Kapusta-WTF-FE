@@ -21,7 +21,6 @@ const reportSlice = createSlice({
     },
   },
   extraReducers: {
-    // [reportOperations.userMount.pending](state, { payload }) {},
     [reportOperations.userMount.fulfilled](state, { payload }) {
       state.userMount = payload;
     },

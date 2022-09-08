@@ -38,7 +38,6 @@ const transactionDesc = createAsyncThunk(
       const { data } = await axios.get(
         `api/v1/report/by-name-per-month?date=${normalizedDate}&category=${categoryId}`
       );
-      console.log(data.data.result);
       return data.data.result;
     } catch (error) {
       return rejectWithValue(error.message);

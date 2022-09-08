@@ -25,12 +25,10 @@ export default function Categories() {
     );
     return { ...category, ...item };
   });
+
   if (isFirstRender.current) {
-    console.log(dataItem[0]._id);
-
+    // console.log(dataItem[0]._id);
     dispatch(toggleActiveCategory(dataItem[0]._id));
-    // setActiveCategoryId((prev) => dataItem[0]._id);
-
     isFirstRender.current = false;
   }
 
