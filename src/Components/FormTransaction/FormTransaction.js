@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CalendarForm from '../CalendarForm';
 import Dropdown from '../Dropdown';
@@ -14,7 +14,7 @@ import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
 import 'react-toastify/dist/ReactToastify.css';
 
-function FormTransaction({ category, onTransactionPerform }) {
+function FormTransaction({ category }) {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState('');
@@ -36,9 +36,12 @@ function FormTransaction({ category, onTransactionPerform }) {
 
   const reset = () => {
     setInputValue('');
-    setSelected(selected);
+    setSelected('');
     setinputMoney('');
   };
+  useEffect(() => {
+    reset();
+  }, [type]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +67,6 @@ function FormTransaction({ category, onTransactionPerform }) {
     await dispatch(balanceOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
     toast.success('Операцiя успішна', { theme: 'dark' });
-    // onTransactionPerform(balanceSelectors.getBalance);
     reset();
   };
 
@@ -116,5 +118,4 @@ export default FormTransaction;
 
 FormTransaction.propTypes = {
   category: PropTypes.string.isRequired,
-  onTransactionPerform: PropTypes.func.isRequired,
 };
