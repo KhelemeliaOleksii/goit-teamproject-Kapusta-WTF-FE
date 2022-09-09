@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSearchParams, Navigate } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import { authOperations } from '../../redux/auth';
 import { googleLogIn } from '../../redux/auth/auth-slice';
@@ -18,10 +19,16 @@ function AuthForm() {
 
   const [searchParams] = useSearchParams();
   const googleToken = searchParams.get('token');
+
+  useEffect(() => {
+    if (googleToken) {
+      dispatch(googleLogIn(googleToken));
+      // return () => (<Navigate to="/" replace />);
+    }
+  }, [dispatch, googleToken]);
+
   if (googleToken) {
-    console.log('googleToken', googleToken);
-    dispatch(googleLogIn(googleToken));
-    return <Navigate to="/" replace />;
+    return (<Navigate to="/" replace />);
   }
 
   const validateEmail = (emailTest) => {
