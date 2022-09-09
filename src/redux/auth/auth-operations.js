@@ -14,7 +14,7 @@ const token = {
 const register = createAsyncThunk('/users/signup', async (userData, thunkAPI) => {
   try {
     const { data } = await axios.post('api/v1/users/signup', userData);
-    token.set(data.token);
+    // token.set(data.token);
     notifier.success('Реєтрація успішна! Перевірте свою пошту щоб закінчити верифікацію.');
     return data;
   } catch (error) {

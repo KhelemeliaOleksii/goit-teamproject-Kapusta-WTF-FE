@@ -12,20 +12,22 @@ function GoogleRedirectView() {
   const dispatch = useDispatch();
   const location = useLocation();
   const token = new URLSearchParams(location.search).get('token');
-  const email = new URLSearchParams(location.search).get('email');
-  const name = new URLSearchParams(location.search).get('name');
+  // const email = new URLSearchParams(location.search).get('email');
+  // const name = new URLSearchParams(location.search).get('name');
   authOperations.token.set(token);
 
   useEffect(() => {
     const newUser = {
-      email,
+      // email,
       token,
-      name,
+      // name,
     };
     dispatch(googleLogIn(newUser));
-  }, [dispatch, email,
+  }, [dispatch,
+    // email,
     token,
-    name,]);
+    // name,
+  ]);
 
   return (
     <section className={styles.section}>
