@@ -32,7 +32,7 @@ function AuthForm() {
   }
 
   const validateEmail = (emailTest) => {
-    const re = /^[a-z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
+    const re = /^[a-z0-9][a-z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
     return re.test(emailTest);
   };
 

@@ -1,4 +1,4 @@
-import { useEffect, } from 'react';
+import { useEffect, useState, } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Summary from '../Summary';
@@ -15,7 +15,8 @@ import s from './PageHome.module.css';
 
 function PageHome() {
   const dispatch = useDispatch();
-  const balance = useSelector(balanceSelectors.getBalance);
+  const currentBalance = useSelector(balanceSelectors.getBalance);
+  const [balance, setBalance] = useState(currentBalance);
 
   const viewPort = useWindowDimensions();
   const type = useSelector(transactionSelectors.getType);
@@ -23,23 +24,24 @@ function PageHome() {
 
   useEffect(() => {
     dispatch(balanceOperations.getBalance());
-  },);
+    setBalance(currentBalance);
+  }, [dispatch, currentBalance]);
   const toggletype = (e) => {
     dispatch(addType(`${e.target.name}`));
   };
-  // const onBalanceSubmit = (firstBallance) => {
-  //   setBalance(firstBallance);
-  //   dispatch(balanceOperations.addBalance({ currentBalance: firstBallance }));
-  //   // dispatch(balanceOperations.getBalance());
-  // };
+  const onBalanceSubmit = (firstBallance) => {
+    setBalance(firstBallance);
+    dispatch(balanceOperations.addBalance({ currentBalance: firstBallance }));
+    // dispatch(balanceOperations.getBalance());
+  };
   return (
     <section>
       <div className={s.PageHomeBackground} />
       <Container>
         <div className={s.PageHomeWrapper}>
           <div className={s.BalanseWrapper}>
-            {/* <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} /> */}
-            <Balance balanceValue={balance} />
+            <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} />
+            {/* <Balance balanceValue={balance} /> */}
             <div className={s.wrapperlinkReport}>
               <Link to="/reports" className={s.linkReport}>
                 Звіти
