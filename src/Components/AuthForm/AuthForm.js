@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useSearchParams, Navigate } from 'react-router-dom';
+
 import { authOperations } from '../../redux/auth';
+import { googleLogIn } from '../../redux/auth/auth-slice';
 import GoogleAuth from '../GoogleAuth';
 
 import styles from './AuthForm.module.css';
@@ -12,6 +15,14 @@ function AuthForm() {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
+  const [searchParams] = useSearchParams();
+  const googleToken = searchParams.get('token');
+  if (googleToken) {
+    console.log('googleToken', googleToken);
+    dispatch(googleLogIn(googleToken));
+    return <Navigate to="/" replace />;
+  }
 
   const validateEmail = (emailTest) => {
     const re = /^[a-z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
