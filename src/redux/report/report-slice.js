@@ -20,6 +20,7 @@ const reportSlice = createSlice({
     toggleActiveCategory: (state, { payload }) => {
       state.activeCategory = payload;
     },
+    reset: () => initialState,
   },
   extraReducers: {
     [reportOperations.userMount.fulfilled](state, { payload }) {
@@ -30,8 +31,9 @@ const reportSlice = createSlice({
         const category = categoriesFilter.find(
           (filter) => filter._id.$oid === item._id
         );
-        return { ...category, ...item, isActive: false };
+        return { ...category, ...item };
       });
+      console.log(dataItem);
       state.transaction.transaction = dataItem;
     },
     [reportOperations.transactionDesc.fulfilled](state, { payload }) {
@@ -40,5 +42,6 @@ const reportSlice = createSlice({
   },
 });
 
-export const { dateUser, toggleActiveCategory } = reportSlice.actions;
+// eslint-disable-next-line operator-linebreak
+export const { dateUser, toggleActiveCategory, reset } = reportSlice.actions;
 export default reportSlice.reducer;
