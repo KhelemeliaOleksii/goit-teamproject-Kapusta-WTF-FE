@@ -21,9 +21,13 @@ function AuthForm() {
   const googleToken = searchParams.get('token');
 
   useEffect(() => {
-    if (googleToken && !isGoogleLogined) {
-      dispatch(googleLogIn(googleToken));
+    const googleTokenAdd = async (token) => {
+      await dispatch(googleLogIn(token));
       setIsGoogleLogined(true);
+    };
+
+    if (googleToken && !isGoogleLogined) {
+      googleTokenAdd(googleToken);
     }
   }, [dispatch, googleToken, isGoogleLogined]);
 
