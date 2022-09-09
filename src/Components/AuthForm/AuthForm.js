@@ -16,19 +16,20 @@ function AuthForm() {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
+  const [isGoogleLogined, setIsGoogleLogined] = useState(false);
   const [searchParams] = useSearchParams();
   const googleToken = searchParams.get('token');
 
   useEffect(() => {
-    if (googleToken) {
+    if (googleToken && !isGoogleLogined) {
       dispatch(googleLogIn(googleToken));
-      // return () => (<Navigate to="/" replace />);
+      setIsGoogleLogined(true);
     }
-  }, [dispatch, googleToken]);
+  }, [dispatch, googleToken, isGoogleLogined]);
 
-  if (googleToken) {
-    return (<Navigate to="/" replace />);
+  if (isGoogleLogined) {
+    setIsGoogleLogined(false);
+    return (<Navigate to="/home" replace />);
   }
 
   const validateEmail = (emailTest) => {
