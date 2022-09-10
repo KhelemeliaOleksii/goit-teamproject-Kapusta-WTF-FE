@@ -28,6 +28,7 @@ function App() {
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
   // useSelector(authSelectors.getIsFetchingCurrent);
   // const isFetchingCurrentUser = false;
+  console.log('App');
   return !isFetchingCurrentUser && (
     <Suspense fallback={<Loader />}>
       <Routes>

@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import categories from '../../redux/categories/categories-operations';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import authOperations from '../../redux/auth/auth-operations';
 import getDate from '../../helpers/getData/getDate';
+import getTableDate from '../../helpers/getTableDate/getTableDate';
 import Modal from '../Modal';
 import Section from '../Section';
-import expensesOptions from '../Dropdown/expenses.json';
-import incomeOptions from '../Dropdown/income.json';
 import { ReactComponent as Delete } from '../../images/svg/delete.svg';
 import s from './MobileTable.module.css';
 
 function MobileTable() {
   const dispatch = useDispatch();
+  const [options, setOptions] = useState([]);
   const { year, month, day } = useSelector(transactionSelectors.getDate);
   const date = getDate(year, month, day);
   const transactions = useSelector(transactionSelectors.getTransactionList);
@@ -21,6 +23,11 @@ function MobileTable() {
 
   useEffect(() => {
     dispatch(transactionOperations.getTransaction(date));
+    const getOptionsByType = async () => {
+      const items = await categories.getCategories();
+      setOptions(items);
+    };
+    getOptionsByType();
   }, [date, dispatch]);
 
   const onDelete = (id) => {
@@ -42,11 +49,15 @@ function MobileTable() {
   };
 
   const editedTransactions = transactions.map((item) => {
-    const { transactionType, categoryId } = item;
-    const value = transactionType === 'expenses'
-      ? expensesOptions.find((option) => option.id === categoryId)
-      : incomeOptions.find((option) => option.id === categoryId);
-    return { ...item, ...value };
+    const { categoryId } = item;
+    const { categoryName } = () => {
+      try {
+        return options.find(({ _id }) => _id === categoryId);
+      } catch (error) {
+        return error.message;
+      }
+    };
+    return { ...item, categoryName };
   });
 
   return (
@@ -62,7 +73,7 @@ function MobileTable() {
       <ul className={s.list}>
         {editedTransactions.slice().reverse().map((item) => {
           const {
-            _id, description, transactionType, amount, value
+            _id, description, transactionType, amount, categoryName
           } = item;
           return (
             <div key={_id} className={s.wrapper}>
@@ -72,8 +83,8 @@ function MobileTable() {
                     {description.descriptionName}
                   </p>
                   <div className={s.item__subwrapper}>
-                    <p className={s.item__date}>{date}</p>
-                    <p className={s.item__category}>{value}
+                    <p className={s.item__date}>{getTableDate(date)}</p>
+                    <p className={s.item__category}>{categoryName}
                     </p>
                   </div>
                 </div>
@@ -97,6 +108,11 @@ function MobileTable() {
           );
         })}
       </ul>
+      {editedTransactions.length === 0 && (
+        <div className={s.notification}>
+          За цей день транзакцій немає
+        </div>
+      )}
     </Section>
   );
 }
