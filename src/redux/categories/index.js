@@ -1,4 +1,5 @@
 import categoriesOperations from './categories-operations';
+
 const categories = {
   categoriesOperations
 };

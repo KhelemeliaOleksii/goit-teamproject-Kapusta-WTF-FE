@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import categories from '../../redux/categories/categories-operations';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
