@@ -11,14 +11,13 @@ const getIsFetchingCurrent = (state) => state.auth.isFetchingCurrentUser;
 const getBalance = (state) => state.auth.user.balance;
 const getAuthToken = (state) => state.auth.token;
 
-
 const authSelectors = {
   getIsLoggedIn,
   getUserName,
   getCurrentUser,
   getUserEmail,
   getIsFetchingCurrent,
-  getBalance
+  getBalance,
   getAuthToken
 };
 

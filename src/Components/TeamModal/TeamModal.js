@@ -46,12 +46,12 @@ export default function TeamModal({ closeModal }) {
               <ul className={s.socials}>
                 <li className={s.socials__item}>
                   <a href={github} className={s.socials__link}>
-                    <img className={s.socials__icon} alt={github} src="https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/icon-github.png" width="25" height="25" />
+                    <img className={s.socials__icon} alt={github} src="https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/github.png" width="25" height="25" />
                   </a>
                 </li>
                 <li className={s.socials__item}>
                   <a href={linkedin} className={s.socials__link}>
-                    <img className={s.socials__icon} alt={linkedin} src="https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/icon-linkedin.png" width="25" height="25" />
+                    <img className={s.socials__icon} alt={linkedin} src="https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/linkedin.png" width="25" height="25" />
                   </a>
                 </li>
               </ul>

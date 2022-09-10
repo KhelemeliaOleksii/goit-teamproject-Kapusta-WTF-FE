@@ -17,7 +17,6 @@
     width: 280px;
     top: 5%;
     left: 50%;
-    width: 240px;
     height: 92vh;
     overflow-y: scroll;
     transform: translate(-50%, 0) scale(1);
@@ -140,7 +139,7 @@
 .socials__link:hover .socials__icon,
 .socials__link:focus .socials__icon {
     transform: scale(1.1);
-    filter: invert(100%);
+    filter: invert(50%);
 }}
 
 @media screen and (min-width: 768px) {
