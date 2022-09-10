@@ -21,12 +21,12 @@ const addTransaction = createAsyncThunk('transaction/addTransaction', async (tra
   }
 });
 
-const deleteTransaction = createAsyncThunk('transaction/delete', async (id) => {
+const deleteTransaction = createAsyncThunk('transaction/delete', async (id, thunkAPI) => {
   try {
     await axios.delete(`/api/v1/transactions/${id}`);
     return id;
   } catch (error) {
-    return error.message;
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 

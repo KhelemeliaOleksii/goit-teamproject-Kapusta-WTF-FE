@@ -61,12 +61,32 @@ const fetchCurrentUser = createAsyncThunk(
     }
   }
 );
+const getBalance = createAsyncThunk('balance/getBalance', async (_, thunkAPI) => {
+  try {
+    const { data } = await axios.get('/api/v1/balance');
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+const addBalance = createAsyncThunk('balance/addBalance', async (balance, thunkAPI) => {
+  try {
+    const { data } = await axios.post('/api/v1/balance', balance);
+    // console.log(data);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
 
 const operations = {
   register,
   logIn,
   logOut,
   fetchCurrentUser,
+  getBalance,
+  addBalance,
 };
 
 export default operations;

@@ -8,12 +8,18 @@ const getUserEmail = (state) => state.auth.user.email;
 
 const getIsFetchingCurrent = (state) => state.auth.isFetchingCurrentUser;
 
+const getBalance = (state) => state.auth.user.balance;
+const getAuthToken = (state) => state.auth.token;
+
+
 const authSelectors = {
   getIsLoggedIn,
   getUserName,
   getCurrentUser,
   getUserEmail,
   getIsFetchingCurrent,
+  getBalance
+  getAuthToken
 };
 
 export default authSelectors;

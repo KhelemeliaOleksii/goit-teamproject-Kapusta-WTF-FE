@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
-import expensesOptions from './expenses.json';
-import incomeOptions from './income.json';
+import categories from '../../redux/categories/categories-operations';
 import { ReactComponent as Up } from '../../images/svg/up.svg';
 import { ReactComponent as Down } from '../../images/svg/down.svg';
 import s from './Dropdown.module.css';
 
-function Dropdown({ category, selected, setSelected }) {
+export default function Dropdown({ category, selected, setSelected }) {
   const [isActive, setIsActive] = useState(false);
   const [clicked, setClicked] = useState(0);
   const [option, setOption] = useState('');
-  const options = category === 'expenses' ? expensesOptions : incomeOptions;
+  const [options, setOptions] = useState([]);
 
   const ref = useRef();
+
   useEffect(() => {
     const onClickOutside = (event) => {
       if (!ref?.current?.contains(event.target)) {
@@ -21,7 +21,13 @@ function Dropdown({ category, selected, setSelected }) {
       }
     };
     document.addEventListener('mousedown', onClickOutside);
-  }, [ref]);
+    const getOptionsByType = async () => {
+      const items = await categories.getCategories();
+      const itemsByType = await items.filter((item) => item.categoryType === category);
+      setOptions(itemsByType);
+    };
+    getOptionsByType();
+  }, [ref, category]);
 
   return (
     <div className={s.dropdown} ref={ref}>
@@ -49,32 +55,33 @@ function Dropdown({ category, selected, setSelected }) {
         className={s.dropdown__title}
       >
         {!selected && category === 'expenses' && 'Категорія товару'}
-        {!selected && category === 'income' ? 'Категорія доходу' : option}
+        {!selected && category === 'income' && 'Категорія доходу'}
+        {selected && option}
       </div>
       {isActive && (
         <div
           className={s.dropdown__list}
         >
-          {options.map((item) => (
+          {options.map(({ _id, categoryName }) => (
             <div
               tabIndex="0"
-              key={item.id}
+              key={_id}
               onClick={() => {
-                setSelected(item.id);
-                setOption(item.value);
+                setSelected(_id);
+                setOption(categoryName);
                 setIsActive(false);
                 setClicked(0);
               }}
               onKeyDown={() => {
-                setSelected(item.id);
-                setOption(item.value);
+                setSelected(_id);
+                setOption(categoryName);
                 setIsActive(false);
                 setClicked(0);
               }}
               role="button"
               className={s.dropdown__item}
             >
-              {item.value}
+              {categoryName}
             </div>
           ))}
         </div>
@@ -101,7 +108,5 @@ function Dropdown({ category, selected, setSelected }) {
 Dropdown.propTypes = {
   category: PropTypes.string.isRequired,
   selected: PropTypes.string.isRequired,
-  setSelected: PropTypes.func.isRequired
+  setSelected: PropTypes.func.isRequired,
 };
-
-export default Dropdown;
