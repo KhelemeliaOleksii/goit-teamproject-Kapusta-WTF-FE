@@ -7,7 +7,7 @@ function getDate(year, month, day) {
     date += `-0${Number(month) + 1}`;
   }
 
-  if (day === 2) {
+  if ((Number(day) + 1).toString().length === 2) {
     date += `-${day}`;
   } else {
     date += `-0${day}`;
