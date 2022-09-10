@@ -26,7 +26,7 @@ export default function SwitchMonth() {
   useEffect(() => {
     dispatch(dateUser(normalizedDate));
     dispatch(reportOperations.userMount(normalizedDate));
-  }, [date]);
+  }, [normalizedDate]);
 
   return (
     <div className={s.period}>
