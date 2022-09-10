@@ -8,8 +8,8 @@ import s from './FormTransaction.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import summaryOperations from '../../redux/summary/summary-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
-import balanceSelectors from '../../redux/balance/balance-selectors';
-import balanceOperations from '../../redux/balance/balance-operations';
+import authSelectors from '../../redux/auth/auth-selectors';
+import authOperations from '../../redux/auth/auth-operations';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,7 +24,7 @@ function FormTransaction({ category }) {
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
   const type = useSelector(transactionSelectors.getType);
-  const balance = useSelector(balanceSelectors.getBalance);
+  const balance = useSelector(authSelectors.getBalance);
 
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
@@ -64,9 +64,8 @@ function FormTransaction({ category }) {
     };
     await dispatch(transactionOperations.addTransaction(data));
     await dispatch(transactionOperations.getTransaction(startDay));
-    await dispatch(balanceOperations.getBalance());
+    await dispatch(authOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
-    toast.success('Операцiя успішна', { theme: 'dark' });
     reset();
   };
 

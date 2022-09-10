@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import getTableDate from '../../helpers/getTableDate/getTableDate';
@@ -8,7 +8,7 @@ import s from './Table.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import summaryOperations from '../../redux/summary/summary-operations';
-import balanceOperations from '../../redux/balance/balance-operations';
+import authOperations from '../../redux/auth/auth-operations';
 import { ReactComponent as Delete } from '../../images/svg/delete.svg';
 import Modal from '../Modal/Modal';
 import getDate from '../../helpers/getData/getDate';
@@ -45,9 +45,8 @@ function Table() {
     toggleModalIncome();
     await dispatch(transactionOperations.deleteTransaction(idTransaction));
     await dispatch(transactionOperations.getTransaction(startDay));
-    await dispatch(balanceOperations.getBalance());
+    await dispatch(authOperations.getBalance());
     await dispatch(summaryOperations.getTransactionPerMouth(type));
-    toast.success('Операцiя успiшна', { theme: 'dark' });
     setisOpen('');
   };
   const viewPort = useWindowDimensions();

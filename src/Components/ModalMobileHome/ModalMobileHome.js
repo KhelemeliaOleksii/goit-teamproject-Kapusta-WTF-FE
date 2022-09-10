@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from '../Dropdown';
 import s from './ModalMobileHome.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
-import balanceOperations from '../../redux/balance/balance-operations';
-import balanceSelectors from '../../redux/balance/balance-selectors';
+import authOperations from '../../redux/auth/auth-operations';
+import authSelectors from '../../redux/auth/auth-selectors';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import { ReactComponent as Arrow } from '../../images/svg/arrow.svg';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
@@ -22,7 +22,7 @@ function ModalMobileHome({ closeModal, category, }) {
   const calendarDate = useSelector(transactionSelectors.getDate);
   const { year, month, day } = calendarDate;
   const startDay = getDate(year, month, day);
-  const balance = useSelector(balanceSelectors.getBalance);
+  const balance = useSelector(authSelectors.getBalance);
   const handleInputChange = (e) => {
     setInputValue(e.currentTarget.value);
   };
@@ -40,11 +40,11 @@ function ModalMobileHome({ closeModal, category, }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'expenses' && balance < InputMoney) {
-      toast.error('Не достатньо коштів');
+      toast.error('Не достатньо коштів', { theme: 'dark' });
       return;
     }
     if (category === 'income' && (balance + Number(InputMoney) > 1000000)) {
-      toast.error('баланс на рахунку не має перевищувати 1 мільйон');
+      toast.error('баланс на рахунку не має перевищувати 1 мільйон', { theme: 'dark' });
       return;
     }
     const data = {
@@ -60,8 +60,7 @@ function ModalMobileHome({ closeModal, category, }) {
     closeModal();
     await dispatch(transactionOperations.addTransaction(data));
     await dispatch(transactionOperations.getTransaction(startDay));
-    await dispatch(balanceOperations.getBalance());
-    toast.success('Операцiя успiшна', { theme: 'dark' });
+    await dispatch(authOperations.getBalance());
     reset();
   };
 

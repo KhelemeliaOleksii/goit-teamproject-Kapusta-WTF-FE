@@ -5,17 +5,17 @@ import Summary from '../Summary';
 import WindowTransaction from '../WindowTransaction';
 import useWindowDimensions from '../Hooks';
 import Container from '../Containter';
-import balanceOperations from '../../redux/balance/balance-operations';
+import authOperations from '../../redux/auth/auth-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import transactionSlice from '../../redux/transaction/transaction-slice';
-import balanceSelectors from '../../redux/balance/balance-selectors';
+import authSelectors from '../../redux/auth/auth-selectors';
 import Balance from '../Balance';
 import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
 import s from './PageHome.module.css';
 
 function PageHome() {
   const dispatch = useDispatch();
-  const currentBalance = useSelector(balanceSelectors.getBalance);
+  const currentBalance = useSelector(authSelectors.getBalance);
   const [balance, setBalance] = useState(currentBalance);
 
   const viewPort = useWindowDimensions();
@@ -23,7 +23,7 @@ function PageHome() {
   const { addType } = transactionSlice.actions;
 
   useEffect(() => {
-    dispatch(balanceOperations.getBalance());
+    dispatch(authOperations.getBalance());
     setBalance(currentBalance);
   }, [dispatch, currentBalance]);
   const toggletype = (e) => {
@@ -31,8 +31,7 @@ function PageHome() {
   };
   const onBalanceSubmit = (firstBallance) => {
     setBalance(firstBallance);
-    dispatch(balanceOperations.addBalance({ currentBalance: firstBallance }));
-    // dispatch(balanceOperations.getBalance());
+    dispatch(authOperations.addBalance({ currentBalance: firstBallance }));
   };
   return (
     <section>
@@ -41,7 +40,6 @@ function PageHome() {
         <div className={s.PageHomeWrapper}>
           <div className={s.BalanseWrapper}>
             <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} />
-            {/* <Balance balanceValue={balance} /> */}
             <div className={s.wrapperlinkReport}>
               <Link to="/reports" className={s.linkReport}>
                 Звіти
