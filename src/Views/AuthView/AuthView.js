@@ -1,7 +1,8 @@
 // import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Navigate, useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { authSelectors } from '../../redux/auth';
 import AuthForm from '../../Components/AuthForm';
 import Container from '../../Components/Containter';
 import { googleLogIn } from '../../redux/auth/auth-slice';
@@ -13,6 +14,9 @@ function HomeView() {
   const [isGoogleLogined, setIsGoogleLogined] = useState(false);
   const [searchParams] = useSearchParams();
   const googleToken = searchParams.get('token');
+  const token = useSelector(authSelectors.getAuthToken);
+  console.log('token', token);
+
   // const username = searchParams.get('username');
   useEffect(() => {
     if (googleToken && !isGoogleLogined) {
@@ -24,9 +28,9 @@ function HomeView() {
   console.log('isGoogleLogined', isGoogleLogined);
   // console.log('username', username);
 
-  // if (isGoogleLogined) {
-  //   setIsGoogleLogined(false);
-  // }
+  if (isGoogleLogined) {
+    setIsGoogleLogined(false);
+  }
 
   return (
     <>
