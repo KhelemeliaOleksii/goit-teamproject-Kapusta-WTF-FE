@@ -5,8 +5,8 @@ import s from './MobilePageHome.module.css';
 import CalendarForm from '../CalendarForm';
 import ModalMobileHome from '../ModalMobileHome';
 import Container from '../Containter';
-import balanceSelectors from '../../redux/balance/balance-selectors';
-import balanceOperations from '../../redux/balance/balance-operations';
+import authSelectors from '../../redux/auth/auth-selectors';
+import authOperations from '../../redux/auth/auth-operations';
 import useWindowDimensions from '../Hooks';
 import Balance from '../Balance';
 import MobileTable from '../MobileTable';
@@ -18,11 +18,11 @@ function MobilePageHome() {
   const [type, setType] = useState('');
   const [calendarValue] = useState(new Date());
 
-  const balance = useSelector(balanceSelectors.getBalance);
+  const balance = useSelector(authSelectors.getBalance);
   const viewPort = useWindowDimensions();
 
   useEffect(() => {
-    dispatch(balanceOperations.getBalance());
+    dispatch(authOperations.getBalance());
   }, [dispatch]);
 
   const toggleModal = (e) => {

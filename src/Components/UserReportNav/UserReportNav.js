@@ -7,9 +7,9 @@ import GoBack from '../GoBack/GoBack';
 import reportOperations from '../../redux/report/report-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import reportSelectors from '../../redux/report/report-selectors';
-import balanceOperations from '../../redux/balance/balance-operations';
+import authOperations from '../../redux/auth/auth-operations';
 import Balance from '../Balance';
-import balanceSelectors from '../../redux/balance/balance-selectors';
+import authSelectors from '../../redux/auth/auth-selectors';
 import SwitchMonth from '../SwitchMonth/SwitchMonth';
 import useWindowDimensions from '../Hooks';
 
@@ -21,14 +21,14 @@ export default function UserReportNav() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(balanceOperations.getBalance());
+    dispatch(authOperations.getBalance());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(reportOperations.transactionType({ normalizedDate, type }));
   }, [normalizedDate, type]);
 
-  const balance = useSelector(balanceSelectors.getBalance);
+  const balance = useSelector(authSelectors.getBalance);
 
   return (
     <div className={s.container}>

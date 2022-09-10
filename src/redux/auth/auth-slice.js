@@ -72,6 +72,16 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.isFetchingCurrentUser = false;
     },
+    [authOperations.getBalance.fulfilled](state, action) {
+      // console.log('action.payload.data', action.payload.data);
+      state.user.balance = action.payload.data.balance;
+    },
+    [authOperations.getBalance.rejected](state, _) {
+      state.user.balance = null;
+    },
+    [authOperations.addBalance.fulfilled](state, action) {
+      state.user.balance = action.payload.data.balance;
+    },
   },
 });
 

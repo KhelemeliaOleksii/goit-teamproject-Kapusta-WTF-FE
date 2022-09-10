@@ -4,7 +4,6 @@ import storage from 'redux-persist/lib/storage';
 import report from './report';
 import authReducer from './auth/auth-slice';
 import transactionSlice from './transaction/transaction-slice';
-import balanceSlice from './balance';
 import summarySlice from './summary/summary-slice';
 
 // якщо вам потрібні якісь налаштування
@@ -26,11 +25,6 @@ const reportPersistConfig = {
   storage,
   whitelist: ['date'],
 };
-const balancePersistConfig = {
-  key: 'balance',
-  storage,
-  whitelist: ['balance'],
-};
 
 const rootReducer = combineReducers({
   // це для локал сторедж
@@ -39,7 +33,6 @@ const rootReducer = combineReducers({
   transaction: persistReducer(transactionPersistConfig, transactionSlice.reducer),
   // //це просто для стейта
   // exampleReducer:example.exampleReducer,
-  balance: persistReducer(balancePersistConfig, balanceSlice.balanceReducer),
   // balance: balanceSlice.balanceReducer,
   summary: summarySlice.reducer,
 });

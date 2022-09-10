@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import categories from '../../redux/categories/categories-operations';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
-import balanceOperations from '../../redux/balance/balance-operations';
+import authOperations from '../../redux/auth/auth-operations';
 import getDate from '../../helpers/getData/getDate';
 import getTableDate from '../../helpers/getTableDate/getTableDate';
 import Modal from '../Modal';
@@ -44,8 +44,7 @@ function MobileTable() {
     setDeletionModal(false);
     await dispatch(transactionOperations.deleteTransaction(transaction));
     await dispatch(transactionOperations.getTransaction(date));
-    await dispatch(balanceOperations.getBalance());
-    toast.success('Операцiя успiшна', { theme: 'dark' });
+    await dispatch(authOperations.getBalance());
     setTransaction('');
   };
 
