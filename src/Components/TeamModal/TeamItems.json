@@ -1,9 +1,9 @@
 [
   {
-    "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+    "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/khelemelia.jpg",
     "firstName": "Oleksii",
     "secondName": "Khelemelia",
-    "position": "Team Lead",
+    "position": "Developers Team Lead",
     "github": "https://github.com/KhelemeliaOleksii",
     "linkedin": "https://www.linkedin.com/in/oleksii-khelemelia/"
     },
@@ -11,7 +11,7 @@
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
       "firstName": "Lyudmila",
       "secondName": "Dermenzhii",
-      "position": "Scrum Master",
+      "position": "Developers Scrum Master",
       "github": "",
       "linkedin": ""
     },
@@ -21,6 +21,14 @@
       "secondName": "Hrytsyshyn",
       "position": "Developer",
       "github": "https://github.com/VasylHrytsyshyn",
+      "linkedin": ""
+    },
+    {
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "firstName": "Oleksandr",
+      "secondName": "Baranovskyi",
+      "position": "Developer",
+      "github": "https://github.com/Baranovskyi-Al",
       "linkedin": ""
     },
     {
@@ -41,26 +49,18 @@
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
-      "firstName": "Denys",
-      "secondName": "Bozhko",
-      "position": "Developer",
-      "github": "https://github.com/Canedius",
-      "linkedin": ""
-    },
-    {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
-      "firstName": "Oleksandr",
-      "secondName": "Baranovskyi",
-      "position": "Developer",
-      "github": "https://github.com/Baranovskyi-Al",
-      "linkedin": ""
-    },
-    {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
       "firstName": "Oleksandr",
       "secondName": "Mandryk",
       "position": "Developer",
       "github": "",
+      "linkedin": ""
+    },
+    {
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "firstName": "Denys",
+      "secondName": "Bozhko",
+      "position": "Developer",
+      "github": "https://github.com/Canedius",
       "linkedin": ""
     },
     {
@@ -80,7 +80,15 @@
       "linkedin": "https://www.linkedin.com/in/iryna-radkovska-343698159/"
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/shchupko.jpg",
+      "firstName": "Tetiana",
+      "secondName": "Shchupko",
+      "position": "QA Specialists Team Lead",
+      "github": "",
+      "linkedin": ""
+    },
+    {
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/vinnikova.jpg",
       "firstName": "Karina",
       "secondName": "Vinnikova",
       "position": "QA Specialist",
@@ -88,15 +96,7 @@
       "linkedin": ""
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
-      "firstName": "Tetiana",
-      "secondName": "Shchupko",
-      "position": "QA Specialist",
-      "github": "",
-      "linkedin": ""
-    },
-    {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/klochko.jpg",
       "firstName": "Yana",
       "secondName": "Klochko",
       "position": "QA Specialist",
@@ -104,7 +104,7 @@
       "linkedin": ""
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/bukhantsov.jpg",
       "firstName": "Yevhenii",
       "secondName": "Bukhantsov",
       "position": "QA Specialist",
@@ -112,7 +112,7 @@
       "linkedin": ""
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/brovchuk.jpg",
       "firstName": "Tetiana",
       "secondName": "Brovchuk",
       "position": "QA Specialist",
