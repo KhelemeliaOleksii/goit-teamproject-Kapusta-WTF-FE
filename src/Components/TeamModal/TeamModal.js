@@ -35,29 +35,31 @@ export default function TeamModal({ closeModal }) {
       role="button"
     >
       <div className={s.modal__team}>
-        {TeamItems.map(({
-          image, firstName, secondName, position, github, linkedin
-        }) => (
-          <li className={s.item} key={secondName}>
-            <img className={s.image} src={image} alt={secondName} key={secondName} width="300" loading="lazy" />
-            <div className={s.content}>
-              <h3 lang="en" className={s.title}>{firstName} <br />{secondName}</h3>
-              <p lang="en" className={s.description}>{position}</p>
-              <ul className={s.socials}>
-                <li className={s.socials__item}>
-                  <a href={github} className={s.socials__link}>
-                    <img className={s.socials__icon} alt={github} src="https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/github.png" width="25" height="25" />
-                  </a>
-                </li>
-                <li className={s.socials__item}>
-                  <a href={linkedin} className={s.socials__link}>
-                    <img className={s.socials__icon} alt={linkedin} src="https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/linkedin.png" width="25" height="25" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        ))}
+        <ul className={s.team}>
+          {TeamItems.map(({
+            image, firstName, secondName, position, github, linkedin
+          }) => (
+            <li className={s.item} key={secondName}>
+              <img className={s.image} src={image} alt={secondName} key={secondName} width="300" loading="lazy" />
+              <div className={s.content}>
+                <h3 lang="en" className={s.title}>{firstName} <br />{secondName}</h3>
+                <p lang="en" className={s.description}>{position}</p>
+                <ul className={s.socials}>
+                  <li className={s.socials__item}>
+                    <a href={github} className={s.socials__link}>
+                      <img className={s.socials__icon} alt={github} src="https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/github.png" width="25" height="25" />
+                    </a>
+                  </li>
+                  <li className={s.socials__item}>
+                    <a href={linkedin} className={s.socials__link}>
+                      <img className={s.socials__icon} alt={linkedin} src="https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/linkedin.png" width="25" height="25" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>,
     modalRoot
