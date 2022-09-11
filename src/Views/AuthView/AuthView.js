@@ -1,7 +1,8 @@
 // import { useSearchParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Navigate, useSearchParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import AuthForm from '../../Components/AuthForm';
 import Container from '../../Components/Containter';
@@ -11,31 +12,38 @@ import imgText from '../../images/svg/Kapusta.svg';
 
 function HomeView() {
   const dispatch = useDispatch();
-  const [isGoogleLogined, setIsGoogleLogined] = useState(false);
+  // const [isLogInWithGoogle, setIsLogInWithGoogle] = useState(false);
   const [searchParams] = useSearchParams();
+
   const googleToken = searchParams.get('token');
   const token = useSelector(authSelectors.getAuthToken);
+
+  useEffect(() => {
+    if (googleToken) {
+      dispatch(googleLogIn(googleToken));
+    }
+  }, [dispatch, googleToken]);
   console.log('token', token);
+  console.log('googleToken', googleToken);
 
   // const username = searchParams.get('username');
-  useEffect(() => {
-    if (googleToken && !isGoogleLogined) {
-      dispatch(googleLogIn(googleToken));
-      setIsGoogleLogined(true);
-    }
-  }, [dispatch, googleToken, isGoogleLogined]);
+  // useEffect(() => {
+  //   if (googleToken && isLogInWithGoogle) {
+  //     dispatch(googleLogIn(googleToken));
+  //   }
+  // }, [dispatch, googleToken, isLogInWithGoogle]);
 
-  console.log('isGoogleLogined', isGoogleLogined);
+  // console.log('isGoogleLogined', isLogInWithGoogle);
   // console.log('username', username);
 
-  if (isGoogleLogined) {
-    setIsGoogleLogined(false);
-  }
+  // if (isLogInWithGoogle) {
+  //   setIsLogInWithGoogle(false);
+  // }
 
   return (
     <>
-      {isGoogleLogined ? (
-        <Navigate replace to="/" />
+      {googleToken ? (
+        <Navigate to="/home" />
       )
         : (
           <section className={styles.section}>

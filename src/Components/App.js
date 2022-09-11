@@ -1,10 +1,13 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, Navigate, useSearchParams
+} from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../redux/auth';
 import PrivateRoute from '../routes/PrivatRoute/PrivatRoute';
 import PublicRoute from '../routes/PublicRoute/PublicRoute';
 import Loader from './Loader/Loader';
+import { googleLogIn } from '../redux/auth/auth-slice';
 
 import Layout from './Layout';
 
@@ -23,6 +26,14 @@ const ReportView = lazy(() => import(
 
 function App() {
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const googleToken = searchParams.get('token');
+  // const token = useSelector(authSelectors.getAuthToken);
+  useEffect(() => {
+    if (googleToken) {
+      dispatch(googleLogIn(googleToken));
+    }
+  }, [dispatch, googleToken]);
 
   useEffect(() => { dispatch(authOperations.fetchCurrentUser()); }, [dispatch]);
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
