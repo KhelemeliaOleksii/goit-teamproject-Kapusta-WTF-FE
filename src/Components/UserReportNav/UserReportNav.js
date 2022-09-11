@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './UserReportNav.module.css';
@@ -26,7 +24,7 @@ export default function UserReportNav() {
 
   useEffect(() => {
     dispatch(reportOperations.transactionType({ normalizedDate, type }));
-  }, [normalizedDate, type]);
+  }, [dispatch, normalizedDate, type]);
 
   const balance = useSelector(authSelectors.getBalance);
 
