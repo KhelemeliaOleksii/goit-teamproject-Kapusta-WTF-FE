@@ -18,7 +18,7 @@ const HomeView = lazy(() => import(
   '../Views/HomeView/HomeView' /* webpackChunkName: 'homeView' */
 ),);
 const ReportView = lazy(() => import(
-  './Report/Report' /* webpackChunkName: 'reportView' */
+  '../Views/ReportView/Report' /* webpackChunkName: 'reportView' */
 ),);
 
 function App() {
