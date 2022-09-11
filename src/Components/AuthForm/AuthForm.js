@@ -1,44 +1,16 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useSearchParams } from 'react-router-dom';
 import { authOperations } from '../../redux/auth';
-// import { googleLogIn } from '../../redux/auth/auth-slice';
 import GoogleAuth from '../GoogleAuth';
 
 import styles from './AuthForm.module.css';
 
 function AuthForm() {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  // const [isGoogleLogined, setIsGoogleLogined] = useState(false);
-  // const [searchParams] = useSearchParams();
-  // const googleToken = searchParams.get('token');
-
-  // useEffect(() => {
-  //   const googleTokenAdd = async (token) => {
-  //     await dispatch(googleLogIn(token));
-  //     setIsGoogleLogined(true);
-  //   };
-
-  //   if (googleToken && !isGoogleLogined) {
-  //     googleTokenAdd(googleToken);
-  //   }
-  // }, [dispatch, googleToken, isGoogleLogined]);
-
-  // if (isGoogleLogined) {
-  //   setIsGoogleLogined(false);
-  //   // const url = window.location.href.split('?')[0];
-  //   onGoogleAuthorize();
-  //   // console.log('token', googleToken);
-  //   // // dispatch(googleLogIn(googleToken));
-  //   // const url = window.location.href.split('?')[0];
-  //   // window.open(url);
-  //   // console.log('url', url);
-  // }
 
   const validateEmail = (emailTest) => {
     const re = /^[a-z0-9][a-z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
