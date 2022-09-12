@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import s from './Summary.module.css';
 import summaryOperations from '../../redux/summary/summary-operations';
 import summarySelectors from '../../redux/summary/summary-selectors';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import getMonth from '../../helpers/getMonth/getMonth';
+import s from './Summary.module.css';
 
 function Summary() {
   const dispatch = useDispatch();

@@ -2,9 +2,6 @@ import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import CalendarForm from '../CalendarForm';
-import Dropdown from '../Dropdown';
-import s from './FormTransaction.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import summaryOperations from '../../redux/summary/summary-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
@@ -12,7 +9,10 @@ import authSelectors from '../../redux/auth/auth-selectors';
 import authOperations from '../../redux/auth/auth-operations';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
+import CalendarForm from '../CalendarForm';
+import Dropdown from '../Dropdown';
 import 'react-toastify/dist/ReactToastify.css';
+import s from './FormTransaction.module.css';
 
 function FormTransaction({ category }) {
   const dispatch = useDispatch();

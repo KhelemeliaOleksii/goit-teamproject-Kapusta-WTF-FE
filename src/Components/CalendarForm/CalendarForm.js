@@ -2,13 +2,13 @@ import { useState, useEffect, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DatePicker, { registerLocale, } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
-import 'react-datepicker/dist/react-datepicker.css';
-import s from './CalendarForm.module.css';
-import './Data.css';
 import CustomInput from '../CustomInput';
 import transactionSlice from '../../redux/transaction/transaction-slice';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import { ReactComponent as Calendar } from '../../images/svg/calendar.svg';
+import './Data.css';
+import 'react-datepicker/dist/react-datepicker.css';
+import s from './CalendarForm.module.css';
 
 registerLocale('ru', ru);
 
