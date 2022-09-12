@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import s from './SwitchMonth.module.css';
@@ -26,7 +24,7 @@ export default function SwitchMonth() {
   useEffect(() => {
     dispatch(dateUser(normalizedDate));
     dispatch(reportOperations.userMount(normalizedDate));
-  }, [normalizedDate]);
+  }, [dispatch, normalizedDate]);
 
   return (
     <div className={s.period}>
