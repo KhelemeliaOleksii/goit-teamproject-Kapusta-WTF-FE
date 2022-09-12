@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import s from './Summary.module.css';
 import summaryOperations from '../../redux/summary/summary-operations';
 import summarySelectors from '../../redux/summary/summary-selectors';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import getMonth from '../../helpers/getMonth/getMonth';
+import s from './Summary.module.css';
 
 function Summary() {
   const dispatch = useDispatch();
@@ -17,6 +17,15 @@ function Summary() {
     <div>
       <h3 className={s.summaryTitle}>Зведення</h3>
       <ul className={s.summaryList}>
+        {mounth.length === 0 && (
+        <li>
+          <p
+            className={s.summaryNotify}
+          >
+            За цей мicяць транзакцій немає
+          </p>
+        </li>
+        )}
         {mounth.map(({ totalAmount, _id }) => (
           <li key={_id} className={s.summaryItem}>
             <p className={s.summaryText}>{getMonth(_id)}</p>

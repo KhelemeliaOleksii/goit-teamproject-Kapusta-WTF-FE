@@ -3,15 +3,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Dropdown from '../Dropdown';
-import s from './ModalMobileHome.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import authOperations from '../../redux/auth/auth-operations';
 import authSelectors from '../../redux/auth/auth-selectors';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import Dropdown from '../Dropdown';
 import { ReactComponent as Arrow } from '../../images/svg/arrow.svg';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
+import s from './ModalMobileHome.module.css';
 
 function ModalMobileHome({ closeModal, category, }) {
   const dispatch = useDispatch();

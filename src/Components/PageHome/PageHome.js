@@ -34,7 +34,7 @@ function PageHome() {
     dispatch(authOperations.addBalance({ currentBalance: firstBallance }));
   };
   return (
-    <section>
+    <section className={s.PageHomeSaction}>
       <div className={s.PageHomeBackground} />
       <Container>
         <div className={s.PageHomeWrapper}>
