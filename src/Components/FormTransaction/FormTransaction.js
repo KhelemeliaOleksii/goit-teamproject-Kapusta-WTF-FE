@@ -104,10 +104,10 @@ function FormTransaction({ category }) {
       </div>
       <ul className={s.transactionListButton}>
         <li className={s.transactionListButtonItem}>
-          <button className={s.transactionButton} type="submit" style={{ background: '#FF751D', color: '#ffffff' }}>Додати</button>
+          <button className={s.transactionButtonEnter} type="submit">Додати</button>
         </li>
         <li>
-          <button className={s.transactionButton} type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }}>Очистити</button>
+          <button className={s.transactionButtonReset} type="button" onClick={reset}>Очистити</button>
         </li>
       </ul>
     </form>

@@ -17,6 +17,15 @@ function Summary() {
     <div>
       <h3 className={s.summaryTitle}>Зведення</h3>
       <ul className={s.summaryList}>
+        {mounth.length === 0 && (
+        <li>
+          <p
+            className={s.summaryNotify}
+          >
+            За цей мicяць транзакцій немає
+          </p>
+        </li>
+        )}
         {mounth.map(({ totalAmount, _id }) => (
           <li key={_id} className={s.summaryItem}>
             <p className={s.summaryText}>{getMonth(_id)}</p>
