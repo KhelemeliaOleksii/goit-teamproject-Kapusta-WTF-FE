@@ -21,9 +21,9 @@ export default function Header() {
       <div className={styles.headerContainer}>
         <Link to="/" alt="homepage">
           <LogoHeader />
+          <button className={styles.button} type="button" onClick={openModal}>by WTF</button>
+          {showModal && <TeamModal closeModal={closeModal} />}
         </Link>
-        <button className={styles.button} type="button" onClick={openModal}>WTF Team</button>
-        {showModal && <TeamModal closeModal={closeModal} />}
       </div>
     </header>
   );
