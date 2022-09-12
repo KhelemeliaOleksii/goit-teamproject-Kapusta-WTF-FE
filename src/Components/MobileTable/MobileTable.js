@@ -49,13 +49,14 @@ function MobileTable() {
 
   const editedTransactions = transactions.map((item) => {
     const { categoryId } = item;
-    const { categoryName } = () => {
+    const getCategoryName = () => {
       try {
-        return options.find(({ _id }) => _id === categoryId);
+        return options?.find(({ _id }) => _id === categoryId);
       } catch (error) {
         return error.message;
       }
     };
+    const { categoryName } = getCategoryName() || {};
     return { ...item, categoryName };
   });
 

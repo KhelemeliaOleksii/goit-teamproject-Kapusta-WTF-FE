@@ -33,7 +33,7 @@ function ModalMobileHome({ closeModal, category, }) {
 
   const reset = () => {
     setInputValue('');
-    setSelected(selected);
+    setSelected('');
     setinputMoney('');
   };
 
