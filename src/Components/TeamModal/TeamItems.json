@@ -4,119 +4,149 @@
     "firstName": "Oleksii",
     "secondName": "Khelemelia",
     "position": "Developers Team Lead",
+    "responsibilities": "Technical Leadership",
     "github": "https://github.com/KhelemeliaOleksii",
-    "linkedin": "https://www.linkedin.com/in/oleksii-khelemelia/"
+    "linkedin": "https://www.linkedin.com/in/oleksii-khelemelia/",
+    "telegram": "https://t.me/OleksiiKhelemelia"
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/dermenzhii.jpg",
       "firstName": "Lyudmila",
       "secondName": "Dermenzhii",
       "position": "Developers Scrum Master",
-      "github": "",
-      "linkedin": ""
+      "responsibilities": "Project Management",
+      "github": "https://github.com/LyudmilaD",
+      "linkedin": "https://www.linkedin.com/in/lyudmila-dermenzhii-624472208/",
+      "telegram": "https://t.me/Lyuda_Dermenzhii"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/hrytsyshyn.jpg",
       "firstName": "Vasyl",
       "secondName": "Hrytsyshyn",
-      "position": "Developer",
+      "position": "Back-End Developer",
+      "responsibilities": "Statistics and Swagger",
       "github": "https://github.com/VasylHrytsyshyn",
-      "linkedin": ""
+      "linkedin": "https://www.linkedin.com/in/vasyl-hrytsyshyn/",
+      "telegram": "https://t.me/VasylHryts"
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/baranovskyi.jpg",
       "firstName": "Oleksandr",
       "secondName": "Baranovskyi",
-      "position": "Developer",
+      "position": "Front-End Developer",
+      "responsibilities": "Login Page",
       "github": "https://github.com/Baranovskyi-Al",
-      "linkedin": ""
+      "linkedin": "https://www.linkedin.com/in/oleksandr-baranovskyi-17953a218/",
+      "telegram": "https://t.me/DeusExPig"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/ivanytskyi.jpg",
       "firstName": "Oleh",
       "secondName": "Ivanytskyi",
-      "position": "Developer",
+      "position": "Front-End Developer",
+      "responsibilities": "Report Page",
       "github": "https://github.com/ivanytskyi2407",
-      "linkedin": ""
+      "linkedin": "https://www.linkedin.com/in/olehivanytskyi/",
+      "telegram": "https://t.me/Ivanytskyi2407"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/smertiuk.jpg",
       "firstName": "Inna",
       "secondName": "Smertiuk",
-      "position": "Developer",
-      "github": "",
-      "linkedin": ""
+      "position": "Front-End Developer",
+      "responsibilities": "Balance",
+      "github": "https://github.com/Inna-Smertyuk",
+      "linkedin": "https://www.linkedin.com/in/inna-mahliak-084b48248/",
+      "telegram": "https://t.me/S_Inna_O"
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/mandryk.jpg",
       "firstName": "Oleksandr",
       "secondName": "Mandryk",
-      "position": "Developer",
-      "github": "",
-      "linkedin": ""
+      "position": "Back-End Developer",
+      "responsibilities": "Home Page and Swagger",
+      "github": "https://github.com/PhazZzyo",
+      "linkedin": "https://www.linkedin.com/in/olexandr-mandryk-44100994/",
+      "telegram": "https://t.me/Phazzy"
     },
     {
-      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/default.jpg",
+      "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/bozhko.jpg",
       "firstName": "Denys",
       "secondName": "Bozhko",
-      "position": "Developer",
+      "position": "Front-End Developer",
+      "responsibilities": "Home Page",
       "github": "https://github.com/Canedius",
-      "linkedin": ""
+      "linkedin": "",
+      "telegram": "https://t.me/Canedius"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/lokshuk.jpg",
       "firstName": "Oleksandr",
       "secondName": "Lokshuk",
-      "position": "Developer",
-      "github": "",
-      "linkedin": ""
+      "position": "Back-End Developer",
+      "responsibilities": "Home Page and Swagger",
+      "github": "https://github.com/12Sasha21",
+      "linkedin": "",
+      "telegram": "https://t.me/LokSasha"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/radkovska.jpg",
       "firstName": "Iryna",
       "secondName": "Radkovska",
-      "position": "Developer",
+      "position": "Front-End Developer",
+      "responsibilities": "Home Page and Team Modal",
       "github": "https://github.com/Akrisia",
-      "linkedin": "https://www.linkedin.com/in/iryna-radkovska-343698159/"
+      "linkedin": "https://www.linkedin.com/in/iryna-radkovska-343698159/",
+      "telegram": "https://t.me/Akris_ia"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/shchupko.jpg",
       "firstName": "Tetiana",
       "secondName": "Shchupko",
       "position": "QA Specialists Team Lead",
+      "responsibilities": "Technical Leadership",
       "github": "",
-      "linkedin": ""
+      "linkedin": "https://www.linkedin.com/in/tetiana-shchupko-708544245/",
+      "telegram": "http://tetianashchupko/"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/vinnikova.jpg",
       "firstName": "Karina",
       "secondName": "Vinnikova",
       "position": "QA Specialist",
+      "responsibilities": "Quality Tests and Inspections",
       "github": "",
-      "linkedin": ""
+      "linkedin": "https://www.linkedin.com/in/karinavinnnikova/",
+      "telegram": "https://t.me/karina_vinnikova"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/klochko.jpg",
       "firstName": "Yana",
       "secondName": "Klochko",
       "position": "QA Specialist",
+      "responsibilities": "Quality Tests and Inspections",
       "github": "",
-      "linkedin": ""
+      "linkedin": "https://www.linkedin.com/in/yana-klochko-02b987245",
+      "telegram": "https://t.me/KlochkoYana"
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/bukhantsov.jpg",
       "firstName": "Yevhenii",
       "secondName": "Bukhantsov",
       "position": "QA Specialist",
+      "responsibilities": "Quality Tests and Inspections",
       "github": "",
-      "linkedin": ""
+      "linkedin": "",
+      "telegram": ""
     },
     {
       "image": "https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/brovchuk.jpg",
       "firstName": "Tetiana",
       "secondName": "Brovchuk",
       "position": "QA Specialist",
+      "responsibilities": "Quality Tests and Inspections",
       "github": "",
-      "linkedin": ""
+      "linkedin": "",
+      "telegram": "https://t.me/Biribinka_3005"
     }
 ]
