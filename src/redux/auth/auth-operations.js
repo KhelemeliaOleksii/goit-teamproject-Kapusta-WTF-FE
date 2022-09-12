@@ -18,6 +18,10 @@ const register = createAsyncThunk('/users/signup', async (userData, thunkAPI) =>
     notifier.success('Реєтрація успішна! Перевірте свою пошту щоб закінчити верифікацію.');
     return data;
   } catch (error) {
+    if (error.response.status === 409) {
+      notifier.error('Ця електронна пошта вже використовується');
+    }
+    console.log(error.response.status);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -28,6 +32,10 @@ const logIn = createAsyncThunk('/users/login', async (userData, thunkAPI) => {
     token.set(data.token);
     return data;
   } catch (error) {
+    if (error.response.status === 401) {
+      notifier.error('Електронна пошта не зареєстровна або пароль не вірний');
+    }
+    console.log(error);
     return thunkAPI.rejectWithValue(error.message);
   }
 });

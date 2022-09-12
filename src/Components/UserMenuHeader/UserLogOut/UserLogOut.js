@@ -49,7 +49,7 @@ function UserLogOut() {
             onClick={toggleModal}
             className={styles.logOutButton}
           >
-            Exit
+            Вихід
           </button>
         </>
       )}
