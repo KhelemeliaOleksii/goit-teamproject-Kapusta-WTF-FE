@@ -20,6 +20,9 @@ const reportSlice = createSlice({
       state.activeCategory = payload;
     },
     reset: () => initialState,
+    resetTransaction: (state) => {
+      state.transaction = { transaction: [], transactionDesc: [] };
+    },
   },
   extraReducers: {
     [reportOperations.userMount.fulfilled](state, { payload }) {
@@ -43,5 +46,7 @@ const reportSlice = createSlice({
   },
 });
 
-export const { dateUser, toggleActiveCategory, reset } = reportSlice.actions;
+export const {
+  dateUser, toggleActiveCategory, reset, resetTransaction
+} = reportSlice.actions;
 export default reportSlice.reducer;

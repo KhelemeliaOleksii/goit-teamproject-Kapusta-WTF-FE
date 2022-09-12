@@ -1,13 +1,11 @@
-/* eslint-disable no-underscore-dangle */
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import { Chart } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import reportSelectors from '../../redux/report/report-selectors';
-import s from './ChartReport.module.css';
 import useWindowDimensions from '../Hooks';
+import s from './ChartReport.module.css';
 
 ChartJS.register(...registerables);
 
@@ -46,10 +44,10 @@ function ChartDesktop({ transactions = [] }) {
           },
         }}
         data={{
-          labels: transactions.map((item) => item._id),
+          labels: transactions.map(({ _id }) => _id),
           datasets: [
             {
-              data: transactions.map((item) => item.totalAmount),
+              data: transactions.map(({ totalAmount }) => totalAmount),
               barThickness: 50,
               backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
               borderWidth: 2,
@@ -98,10 +96,10 @@ function ChartMobile({ transactions = [] }) {
           },
         }}
         data={{
-          labels: transactions.map((item) => item._id),
+          labels: transactions.map(({ _id }) => _id),
           datasets: [
             {
-              data: transactions.map((item) => item.totalAmount),
+              data: transactions.map(({ totalAmount }) => totalAmount),
               barThickness: 10,
               backgroundColor: ['#FF751D', '#FFDAC0', '#FFDAC0'],
               borderWidth: 2,

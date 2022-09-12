@@ -1,30 +1,32 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { useState } from 'react';
-import s from './Categories.module.css';
 import UserTypeAmount from '../UserTypeAmount/UserTypeAmount';
 import CategoryItem from '../CategoryItem/CategoryItem';
-// import reportSelectors from '../../redux/report/report-selectors';
-// import reportOperations from '../../redux/report/report-operations';
-// import { transactionIsActive } from '../../../redux/report/report-slice';
+import reportSelectors from '../../redux/report/report-selectors';
+import reportOperations from '../../redux/report/report-operations';
 import { toggleActiveCategory } from '../../redux/report/report-slice';
-import report from '../../redux/report';
+import s from './Categories.module.css';
 
 export default function Categories() {
-  // const [activeCategoryId, setActiveCategoryId] = useState(null);
-  const { reportSelectors, reportOperations } = report;
   const dispatch = useDispatch();
   const normalizedDate = useSelector(reportSelectors.getReportDate);
   const data = useSelector(reportSelectors.getTransactionType);
   const activeCategoryId = useSelector(reportSelectors.getActiveCategoryId);
 
-  // useEffect(() => {
-  //   setActiveCategoryId(activeCategory);
-  // }, [dispatch, activeCategory]);
+  useEffect(() => {
+    if (activeCategoryId) {
+      dispatch(
+        reportOperations.transactionDesc({
+          normalizedDate,
+          categoryId: activeCategoryId,
+        })
+      );
+    }
+  }, [dispatch, normalizedDate, activeCategoryId]);
 
   const onActiveItemClick = (categoryId) => {
     dispatch(toggleActiveCategory(categoryId));
     dispatch(reportOperations.transactionDesc({ normalizedDate, categoryId }));
-    // setActiveCategoryId(categoryId);
   };
 
   return (
