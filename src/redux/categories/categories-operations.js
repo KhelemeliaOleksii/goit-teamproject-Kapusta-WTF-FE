@@ -1,6 +1,4 @@
-const axios = require('axios');
-
-axios.defaults.baseURL = 'https://kapusta-wtf.herokuapp.com/';
+import axios from '../../api/axios/axiosConfig';
 
 const getCategories = async () => {
   const { data } = await axios.get(

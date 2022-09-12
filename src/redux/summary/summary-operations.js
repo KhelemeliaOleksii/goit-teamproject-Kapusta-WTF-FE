@@ -1,5 +1,6 @@
+import axios from '../../api/axios/axiosConfig';
+
 const { createAsyncThunk } = require('@reduxjs/toolkit');
-const axios = require('axios');
 
 const getTransactionPerMouth = createAsyncThunk('transaction/getTransactionPerMouth', async (type) => {
   try {
