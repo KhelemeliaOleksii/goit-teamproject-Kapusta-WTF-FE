@@ -62,7 +62,7 @@ export default function TeamModal({ closeModal }) {
                     </a>
                   </li>
                   <li className={s.socials__item}>
-                    <a href={linkedin} className={s.socials__link}>
+                    <a href={telegram} className={s.socials__link}>
                       <img className={s.socials__icon} alt={telegram} src="https://raw.githubusercontent.com/KhelemeliaOleksii/goit-teamproject-Kapusta-WTF-FE/develop/src/images/team/telegram.png" width="25" height="25" />
                     </a>
                   </li>
