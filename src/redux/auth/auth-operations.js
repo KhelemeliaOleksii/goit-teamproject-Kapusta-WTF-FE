@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from '../../api/axios/axiosConfig';
 import notifier from '../../services/notify';
 
 const token = {
@@ -24,6 +24,7 @@ const register = createAsyncThunk('/users/signup', async (userData, thunkAPI) =>
 
 const logIn = createAsyncThunk('/users/login', async (userData, thunkAPI) => {
   try {
+    console.log('axios', axios.defaults.baseURL);
     const { data } = await axios.post('api/v1/users/login', userData);
     token.set(data.token);
     return data;
