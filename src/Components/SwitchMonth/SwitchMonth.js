@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import s from './SwitchMonth.module.css';
-import sprite from '../../images/svg/sprite_categories.svg';
-import { dateUser } from '../../redux/report/report-slice';
+import { dateUser, resetTransaction } from '../../redux/report/report-slice';
 import reportOperations from '../../redux/report/report-operations';
 import monthes from './month';
+import sprite from '../../images/svg/sprite_categories.svg';
+import s from './SwitchMonth.module.css';
 
 export default function SwitchMonth() {
   const [date, setDate] = useState(new Date());
   const dispatch = useDispatch();
 
   const changeMonth = (e) => {
+    dispatch(resetTransaction());
     setDate((prevDate) => {
       const newDate = new Date(prevDate.getTime());
       const month = newDate.getMonth();
