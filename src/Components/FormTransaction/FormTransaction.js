@@ -57,6 +57,10 @@ function FormTransaction({ category }) {
       toast.info('Виберiть значення категорiї');
       return;
     }
+    if (inputValue.length < 3 || inputValue.length > 20) {
+      toast.info('Поле повинно мiстити вiд 3 до 20 символiв');
+      return;
+    }
     const data = {
       date: calendarDate,
       description: {
