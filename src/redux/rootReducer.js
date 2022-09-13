@@ -32,8 +32,6 @@ const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   transaction: persistReducer(transactionPersistConfig, transactionSlice.reducer),
   // //це просто для стейта
-  // exampleReducer:example.exampleReducer,
-  // balance: balanceSlice.balanceReducer,
   summary: summarySlice.reducer,
 });
 

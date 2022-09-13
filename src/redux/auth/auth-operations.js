@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../api/axios/axiosConfig';
-import notifier from '../../services/notify';
+import notifier from '../../helpers/notify';
 
 const token = {
   set(tokenAuth) {
