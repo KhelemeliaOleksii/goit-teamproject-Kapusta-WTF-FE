@@ -6,7 +6,7 @@ const initialState = {
   date: {
     year: '',
     month: '',
-    day: ''
+    day: '',
   },
   type: 'expenses',
   transactionList: [],
@@ -23,6 +23,9 @@ const transactionSlice = createSlice({
     addType: (state, action) => {
       state.type = action.payload;
     },
+    changeMonth: (state, { payload }) => {
+      state.date.month = payload;
+    },
   },
   // для асинхронних операцій, передбачає запитит до бази даних
   extraReducers: {
@@ -36,13 +39,15 @@ const transactionSlice = createSlice({
       state.transactionList = [...action.payload.data.result];
     },
     [transactionOperations.deleteTransaction.fulfilled](state, action) {
-      state.transactionList = state.transactionList.filter(({ id }) => id !== action.payload);
+      state.transactionList = state.transactionList.filter(
+        ({ id }) => id !== action.payload
+      );
       toast.success('Операцiя успiшна', { theme: 'light' });
     },
     [transactionOperations.deleteTransaction.rejected](state, action) {
       toast.success('Транзакція не може бути видалена', { theme: 'dark' });
     },
-  }
+  },
 });
 
 export default transactionSlice;
