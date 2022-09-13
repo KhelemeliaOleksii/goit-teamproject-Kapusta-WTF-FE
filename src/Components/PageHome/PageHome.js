@@ -1,15 +1,15 @@
 import { useEffect, useState, } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Summary from '../Summary';
-import WindowTransaction from '../WindowTransaction';
-import useWindowDimensions from '../Hooks';
-import Container from '../Containter';
 import authOperations from '../../redux/auth/auth-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import transactionSlice from '../../redux/transaction/transaction-slice';
 import authSelectors from '../../redux/auth/auth-selectors';
 import Balance from '../Balance';
+import Summary from '../Summary';
+import WindowTransaction from '../WindowTransaction';
+import useWindowDimensions from '../Hooks';
+import Container from '../Containter';
 import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
 import s from './PageHome.module.css';
 
