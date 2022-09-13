@@ -52,7 +52,7 @@ export default function Dropdown({ category, selected, setSelected }) {
           }
         }}
         role="button"
-        className={s.dropdown__title}
+        className={selected ? s.dropdown__title__selected : s.dropdown__title}
       >
         {!selected && category === 'expenses' && 'Категорія товару'}
         {!selected && category === 'income' && 'Категорія доходу'}
