@@ -53,6 +53,10 @@ function FormTransaction({ category }) {
       toast.error('Баланс на рахунку не може перевищувати 1 мільйон');
       return;
     }
+    if (selected === '') {
+      toast.info('Виберiть значення категорiї');
+      return;
+    }
     const data = {
       date: calendarDate,
       description: {
