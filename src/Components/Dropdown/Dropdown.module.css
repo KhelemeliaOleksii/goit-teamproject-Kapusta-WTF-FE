@@ -25,8 +25,13 @@
     height: 100%;
     composes: font;
     cursor: pointer;
+    
 }
 
+.dropdown__title__selected{
+composes: dropdown__title;
+color: #000;
+}
 .dropdown__list {
 position: absolute;
 top: 105%;
