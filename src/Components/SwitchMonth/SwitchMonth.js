@@ -1,31 +1,30 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import { dateUser, resetTransaction } from '../../redux/report/report-slice';
+import transactionSlice from '../../redux/transaction/transaction-slice';
 import reportOperations from '../../redux/report/report-operations';
+import getDate from '../../helpers/getData/getDate';
 import monthes from './month';
 import sprite from '../../images/svg/sprite_categories.svg';
 import s from './SwitchMonth.module.css';
 
 export default function SwitchMonth() {
-  const [date, setDate] = useState(new Date());
+  const calendarDate = useSelector(transactionSelectors.getDate);
+  const { year, month, day } = calendarDate;
+  const startDay = getDate(year, month, day);
+  const { changeMonth } = transactionSlice.actions;
   const dispatch = useDispatch();
-
-  const changeMonth = (e) => {
+  const handleChangeMonth = (e) => {
     dispatch(resetTransaction());
-    setDate((prevDate) => {
-      const newDate = new Date(prevDate.getTime());
-      const month = newDate.getMonth();
-      newDate.setMonth(e === 'left' ? month - 1 : month + 1);
-      return newDate;
-    });
+    const numberMonth = Number(month);
+    const changedMonth = e === 'left' ? numberMonth - 1 : numberMonth + 1;
+    dispatch(changeMonth(changedMonth.toString()));
   };
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  const normalizedDate = date.toISOString().slice(0, 10);
   useEffect(() => {
-    dispatch(dateUser(normalizedDate));
-    dispatch(reportOperations.userMount(normalizedDate));
-  }, [dispatch, normalizedDate]);
+    dispatch(dateUser(startDay));
+    dispatch(reportOperations.userMount(startDay));
+  }, [dispatch, startDay]);
 
   return (
     <div className={s.period}>
@@ -34,8 +33,8 @@ export default function SwitchMonth() {
         <li>
           <span
             className={s.span}
-            onClick={() => changeMonth('left')}
-            onKeyPress={() => changeMonth('left')}
+            onClick={() => handleChangeMonth('left')}
+            onKeyPress={() => handleChangeMonth('left')}
             role="button"
             tabIndex={0}
           >
@@ -52,8 +51,8 @@ export default function SwitchMonth() {
         <li>
           <span
             className={s.span}
-            onClick={() => changeMonth('rigth')}
-            onKeyPress={() => changeMonth('rigth')}
+            onClick={() => handleChangeMonth('rigth')}
+            onKeyPress={() => handleChangeMonth('rigth')}
             role="button"
             tabIndex={0}
           >
