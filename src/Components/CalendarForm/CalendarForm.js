@@ -31,7 +31,7 @@ function CalendarForm() {
       <Calendar />
       <DatePicker
         customInput={<CustomInput value="" onClick={() => { }} />}
-        minDate={new Date('01-01-2021')}
+        minDate={new Date('01-01-2022')}
         maxDate={new Date()}
         selected={dateNow.day ? startDate : new Date()}
         onChange={(date) => { setStartDate(date); }}
