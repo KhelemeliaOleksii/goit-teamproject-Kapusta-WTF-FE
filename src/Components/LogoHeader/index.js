@@ -1,3 +1,3 @@
-import logoHeader from './LogoHeader';
+import LogoHeader from './LogoHeader';
 
-export default logoHeader;
+export default LogoHeader;
