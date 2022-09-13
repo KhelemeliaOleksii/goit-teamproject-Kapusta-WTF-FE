@@ -61,6 +61,10 @@ function FormTransaction({ category }) {
       toast.info('Поле повинно мiстити вiд 3 до 20 символiв', { theme: 'dark' });
       return;
     }
+    if (InputMoney === '') {
+      toast.info('Поле суми повинно бути заповнене', { theme: 'dark' });
+      return;
+    }
     const data = {
       date: calendarDate,
       description: {
