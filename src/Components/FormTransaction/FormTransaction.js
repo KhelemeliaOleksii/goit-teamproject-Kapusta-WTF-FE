@@ -1,7 +1,7 @@
-import { toast } from 'react-toastify';
-import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import summaryOperations from '../../redux/summary/summary-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
@@ -46,15 +46,19 @@ function FormTransaction({ category }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'expenses' && balance < InputMoney) {
-      toast.error('Не достатньо коштів');
+      toast.error('Не достатньо коштів', { theme: 'dark' });
       return;
     }
     if (category === 'income' && (balance + Number(InputMoney) > 1000000)) {
-      toast.error('Баланс на рахунку не може перевищувати 1 мільйон');
+      toast.error('Баланс на рахунку не може перевищувати 1 мільйон', { theme: 'dark' });
       return;
     }
     if (selected === '') {
-      toast.info('Виберiть значення категорiї');
+      toast.info('Виберiть значення категорiї', { theme: 'dark' });
+      return;
+    }
+    if (inputValue.length < 3 || inputValue.length > 20) {
+      toast.info('Поле повинно мiстити вiд 3 до 20 символiв', { theme: 'dark' });
       return;
     }
     const data = {

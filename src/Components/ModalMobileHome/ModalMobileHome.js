@@ -1,8 +1,7 @@
-import { toast, } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast, } from 'react-toastify';
+import PropTypes from 'prop-types';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import authOperations from '../../redux/auth/auth-operations';
 import authSelectors from '../../redux/auth/auth-selectors';
@@ -12,6 +11,7 @@ import { ReactComponent as Arrow } from '../../images/svg/arrow.svg';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
 import s from './ModalMobileHome.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ModalMobileHome({ closeModal, category, }) {
   const dispatch = useDispatch();
