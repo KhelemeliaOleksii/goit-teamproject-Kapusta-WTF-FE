@@ -28,6 +28,7 @@
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
     "chartjs-plugin-datalabels": "^2.1.0",
+    "chartjs-plugin-zoom": "^1.2.1",
     "date-fns": "^2.29.2",
     "formik": "^2.2.9",
     "modern-normalize": "^1.1.0",

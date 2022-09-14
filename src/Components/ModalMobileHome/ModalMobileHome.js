@@ -44,7 +44,19 @@ function ModalMobileHome({ closeModal, category, }) {
       return;
     }
     if (category === 'income' && (balance + Number(InputMoney) > 1000000)) {
-      toast.error('баланс на рахунку не має перевищувати 1 мільйон', { theme: 'dark' });
+      toast.error('Баланс на рахунку не може перевищувати 1 мільйон', { theme: 'dark' });
+      return;
+    }
+    if (selected === '') {
+      toast.info('Виберiть значення категорiї', { theme: 'dark' });
+      return;
+    }
+    if (inputValue.length < 3 || inputValue.length > 20) {
+      toast.info('Поле опису повинно мiстити вiд 3 до 20 символiв', { theme: 'dark' });
+      return;
+    }
+    if (InputMoney === '') {
+      toast.info('Поле суми повинно бути заповнене', { theme: 'dark' });
       return;
     }
     const data = {

@@ -1,8 +1,10 @@
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 767px) {
     .calendarFormWrapp {
+        width: 102px;
         display: flex;
         justify-content: center;
         align-items: center;
+        scroll+animation
         margin-left: 36%;
         margin-top: 40px;
     }
@@ -10,6 +12,9 @@
 
 @media screen and (min-width: 768px) {
     .calendarFormWrapp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-right: 44px;
         margin-left: auto;
         margin-top: 0px;
