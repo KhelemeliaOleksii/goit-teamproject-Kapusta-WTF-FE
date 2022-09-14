@@ -12,7 +12,7 @@ import summarySlice from './summary/summary-slice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'reloadFrom'],
 };
 const transactionPersistConfig = {
   key: 'transaction',

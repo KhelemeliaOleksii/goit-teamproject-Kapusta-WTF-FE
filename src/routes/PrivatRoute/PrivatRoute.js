@@ -5,9 +5,9 @@ import { authSelectors } from '../../redux/auth';
 import { setReloadFrom } from '../../redux/auth/auth-slice';
 
 export default function PrivateRoute({ children, redirectTo = '/login' }) {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  useDispatch(setReloadFrom(window.location.pathname));
-  console.log('pathname', window.location.pathname);
+  dispatch(setReloadFrom(window.location.pathname));
   return isLoggedIn
     ? (children)
     : (<Navigate replace to={redirectTo} />);

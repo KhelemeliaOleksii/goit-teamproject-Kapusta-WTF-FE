@@ -7,11 +7,10 @@ export default function PublicRoute({ children, redirectTo = '/', restricted = f
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const shouldRedirect = restricted && isLoggedIn;
   const reloadFrom = useSelector(authSelectors.getReloadFrom);
-  console.log('reloadFrom', reloadFrom);
   return !shouldRedirect
     ? (children)
-    : (<Navigate replace to={redirectTo} />);
-  // : (<Navigate replace to={reloadFrom} />);
+    // : (<Navigate replace to={redirectTo} />);
+    : (<Navigate replace to={reloadFrom} />);
 }
 
 PublicRoute.propTypes = {
