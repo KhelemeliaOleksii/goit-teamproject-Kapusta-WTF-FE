@@ -27,6 +27,18 @@
     border-radius: 5px;
 }
 
+.modal__team::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal__team::-webkit-scrollbar-track {
+    -webkit-box-shadow: transparent;
+}
+
+.modal__team::-webkit-scrollbar-thumb {
+    background-color: #FF751D;
+}
+
 .team {
     margin-top: 10px;
     margin-bottom: calc(-1 * 32px);
