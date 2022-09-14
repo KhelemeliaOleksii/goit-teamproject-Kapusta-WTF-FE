@@ -37,23 +37,6 @@
 .inputMobileHome::placeholder {
   color: #c7ccdc;
 }
-/* .SelectMobileHome {
-  border-radius: 0 0 16px 0;
-  width: 280px;
-  height: 44px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16px;
-  letter-spacing: 0.02em;
-  color: #c7ccdc;
-  background-color: #f5f6fb;
-  border: 0;
-  border: 2px solid #ffffff;
-  text-indent: 20px;
-  border-top: none;
-  margin-bottom: 32px;
-} */
 
 .wrappMobileInput {
   display: flex;

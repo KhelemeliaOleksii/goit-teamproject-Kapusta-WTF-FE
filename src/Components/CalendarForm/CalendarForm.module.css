@@ -4,7 +4,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
+        /* scroll+animation */
+        margin-left: 36%;
+        margin-top: 40px;
     }
 }
 
@@ -14,12 +16,14 @@
         justify-content: center;
         align-items: center;
         margin-right: 44px;
+        margin-left: auto;
+        margin-top: 0px;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .calendarFormWrapp {
-        margin-right: 0px;
+        margin-right: 10px;
         
     }
 }
