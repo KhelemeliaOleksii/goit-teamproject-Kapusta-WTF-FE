@@ -61,8 +61,8 @@ ul{
 
   .active {
       color: #FF751D;
+      background: #FEFEFE;;
   }
-
 
   .form {
       height: 616px;

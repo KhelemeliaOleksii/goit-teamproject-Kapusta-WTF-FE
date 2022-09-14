@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 import reportOperations from './report-operations';
 import categoriesFilter from './categories.json';
@@ -7,7 +6,7 @@ const initialState = {
   date: null,
   userMount: [],
   transaction: { transaction: [], transactionDesc: [] },
-  activeCategory: '',
+  activeCategory: null,
 };
 
 const reportSlice = createSlice({
@@ -21,20 +20,27 @@ const reportSlice = createSlice({
       state.activeCategory = payload;
     },
     reset: () => initialState,
+    resetTransaction: (state) => {
+      state.transaction = { transaction: [], transactionDesc: [] };
+    },
   },
   extraReducers: {
     [reportOperations.userMount.fulfilled](state, { payload }) {
       state.userMount = payload;
     },
     [reportOperations.transactionType.fulfilled](state, { payload }) {
-      const dataItem = payload.map((item) => {
+      const dataItems = payload.map((item) => {
+        const { _id: itemId } = item;
         const category = categoriesFilter.find(
-          (filter) => filter._id.$oid === item._id
+          ({ _id: filterId }) => filterId.$oid === itemId
         );
         return { ...category, ...item };
       });
-      console.log(dataItem);
-      state.transaction.transaction = dataItem;
+      state.transaction.transaction = dataItems;
+      if (dataItems.length !== 0) {
+        const { _id } = dataItems[0];
+        state.activeCategory = _id;
+      }
     },
     [reportOperations.transactionDesc.fulfilled](state, { payload }) {
       state.transaction.transactionDesc = payload;
@@ -42,6 +48,7 @@ const reportSlice = createSlice({
   },
 });
 
-// eslint-disable-next-line operator-linebreak
-export const { dateUser, toggleActiveCategory, reset } = reportSlice.actions;
+export const {
+  dateUser, toggleActiveCategory, reset, resetTransaction
+} = reportSlice.actions;
 export default reportSlice.reducer;

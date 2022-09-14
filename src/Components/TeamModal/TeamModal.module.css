@@ -27,6 +27,18 @@
     border-radius: 5px;
 }
 
+.modal__team::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal__team::-webkit-scrollbar-track {
+    -webkit-box-shadow: transparent;
+}
+
+.modal__team::-webkit-scrollbar-thumb {
+    background-color: #FF751D;
+}
+
 .team {
     margin-top: 10px;
     margin-bottom: calc(-1 * 32px);
@@ -76,17 +88,11 @@
     padding-bottom: 8px;
 }
 
-.font {
+.subtitle {
     font-style: normal;
-    font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.02em;
-    color: #C7CCDC;
-}
-
-.subtitle {
-    composes: font;
     font-weight: 700;
     color: #52555F;
     text-align: center;
@@ -95,14 +101,24 @@
 
 .description {
     display: block;
-    composes: font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
     color: #FF751D;
     text-align: center;
     margin-bottom: 8px;
 }
 
 .title {
-    composes: description;
+    display: block;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    margin-bottom: 8px;
     text-transform: uppercase;
     font-weight: 700;
     padding-bottom: 8px;

@@ -1,17 +1,17 @@
-import { toast, } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Dropdown from '../Dropdown';
-import s from './ModalMobileHome.module.css';
+import { toast, } from 'react-toastify';
+import PropTypes from 'prop-types';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import authOperations from '../../redux/auth/auth-operations';
 import authSelectors from '../../redux/auth/auth-selectors';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
+import Dropdown from '../Dropdown';
 import { ReactComponent as Arrow } from '../../images/svg/arrow.svg';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
+import s from './ModalMobileHome.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ModalMobileHome({ closeModal, category, }) {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ function ModalMobileHome({ closeModal, category, }) {
 
   const reset = () => {
     setInputValue('');
-    setSelected(selected);
+    setSelected('');
     setinputMoney('');
   };
 
@@ -44,7 +44,19 @@ function ModalMobileHome({ closeModal, category, }) {
       return;
     }
     if (category === 'income' && (balance + Number(InputMoney) > 1000000)) {
-      toast.error('баланс на рахунку не має перевищувати 1 мільйон', { theme: 'dark' });
+      toast.error('Баланс на рахунку не може перевищувати 1 мільйон', { theme: 'dark' });
+      return;
+    }
+    if (selected === '') {
+      toast.info('Виберiть значення категорiї', { theme: 'dark' });
+      return;
+    }
+    if (inputValue.length < 3 || inputValue.length > 20) {
+      toast.info('Поле опису повинно мiстити вiд 3 до 20 символiв', { theme: 'dark' });
+      return;
+    }
+    if (InputMoney === '') {
+      toast.info('Поле суми повинно бути заповнене', { theme: 'dark' });
       return;
     }
     const data = {

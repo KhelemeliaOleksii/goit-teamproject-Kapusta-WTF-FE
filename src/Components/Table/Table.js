@@ -1,19 +1,18 @@
-// import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import getTableDate from '../../helpers/getTableDate/getTableDate';
-import Summary from '../Summary';
-import useWindowDimensions from '../Hooks';
-import s from './Table.module.css';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import summaryOperations from '../../redux/summary/summary-operations';
 import authOperations from '../../redux/auth/auth-operations';
 import { ReactComponent as Delete } from '../../images/svg/delete.svg';
+import getTableDate from '../../helpers/getTableDate/getTableDate';
+import Summary from '../Summary';
+import useWindowDimensions from '../Hooks';
 import Modal from '../Modal/Modal';
 import getDate from '../../helpers/getData/getDate';
 import expensesOptions from './expenses.json';
 import incomeOptions from './income.json';
+import s from './Table.module.css';
 
 function Table() {
   const dispatch = useDispatch();

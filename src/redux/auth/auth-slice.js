@@ -6,6 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
+  reloadFrom: '/',
   error: null,
 };
 
@@ -16,6 +17,9 @@ const authSlice = createSlice({
     googleLogIn: (state, action) => {
       state.token = action.payload;
     },
+    setReloadFrom: (state, action) => {
+      state.reloadFrom = action.payload;
+    }
   },
   extraReducers: {
     [authOperations.register.fulfilled](state, action) {
@@ -33,6 +37,7 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.token = action.payload.token;
       state.isLoggedIn = true;
+      state.reloadFrom = '/';
       state.error = null;
     },
     [authOperations.logIn.pending](state) {
@@ -50,6 +55,7 @@ const authSlice = createSlice({
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
+      state.reloadFrom = '/';
       state.error = null;
     },
     [authOperations.logOut.pending](state) {
@@ -60,8 +66,8 @@ const authSlice = createSlice({
     },
 
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
       state.isLoggedIn = true;
+      state.user = action.payload;
       state.isFetchingCurrentUser = false;
     },
     [authOperations.fetchCurrentUser.pending](state, action) {
@@ -73,7 +79,6 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = false;
     },
     [authOperations.getBalance.fulfilled](state, action) {
-      // console.log('action.payload.data', action.payload.data);
       state.user.balance = action.payload.data.balance;
     },
     [authOperations.getBalance.rejected](state, _) {
@@ -85,5 +90,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { googleLogIn } = authSlice.actions;
+export const { googleLogIn, setReloadFrom } = authSlice.actions;
 export default authSlice.reducer;

@@ -31,11 +31,6 @@
     },
     {
         "category": "expenses",
-        "value": "Хоббі",
-        "id": "63121fd1313da79b043d7b9d"
-    },
-    {
-        "category": "expenses",
         "value": "Освіта",
         "id": "63121fd1313da79b043d7b9e"
     },
@@ -53,5 +48,20 @@
         "category": "expenses",
         "value": "Інше",
         "id": "63121fd1313da79b043d7ba1"
+    },
+    {
+        "category": "expenses",
+        "value": "Продукти",
+        "id": "63121fd1313da79b043d7b96"
+    },
+    {
+        "id": "63121fd1313da79b043d7b9d",
+        "value": "Спорт",
+        "categoryType": "expenses"
+    },
+    {
+        "id": "63121fd1313da79b043d7b99",
+        "value": "Розваги",
+        "categoryType": "expenses"
     }
 ]

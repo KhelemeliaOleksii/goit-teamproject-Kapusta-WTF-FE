@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 // import { useDispatch } from 'react-redux';
 import NumberFormat from 'react-number-format';
-import notifier from '../../services/notify/notify';
+import notifier from '../../helpers/notify/notify';
 // import balanceSlice from '../../redux/balance';
 import BalanceModal from './BalanceModal';
 import s from './Balance.module.css';

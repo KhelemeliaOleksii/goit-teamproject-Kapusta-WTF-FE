@@ -12,7 +12,7 @@ import summarySlice from './summary/summary-slice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'reloadFrom'],
 };
 const transactionPersistConfig = {
   key: 'transaction',
@@ -32,8 +32,6 @@ const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   transaction: persistReducer(transactionPersistConfig, transactionSlice.reducer),
   // //це просто для стейта
-  // exampleReducer:example.exampleReducer,
-  // balance: balanceSlice.balanceReducer,
   summary: summarySlice.reducer,
 });
 

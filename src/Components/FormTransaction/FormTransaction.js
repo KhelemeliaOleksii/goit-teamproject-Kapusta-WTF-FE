@@ -1,10 +1,7 @@
-import { toast } from 'react-toastify';
-import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import CalendarForm from '../CalendarForm';
-import Dropdown from '../Dropdown';
-import s from './FormTransaction.module.css';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import transactionOperations from '../../redux/transaction/transaction-operations';
 import summaryOperations from '../../redux/summary/summary-operations';
 import transactionSelectors from '../../redux/transaction/transaction-selectors';
@@ -12,7 +9,10 @@ import authSelectors from '../../redux/auth/auth-selectors';
 import authOperations from '../../redux/auth/auth-operations';
 import { ReactComponent as Calculator } from '../../images/svg/calculator.svg';
 import getDate from '../../helpers/getData/getDate';
+import CalendarForm from '../CalendarForm';
+import Dropdown from '../Dropdown';
 import 'react-toastify/dist/ReactToastify.css';
+import s from './FormTransaction.module.css';
 
 function FormTransaction({ category }) {
   const dispatch = useDispatch();
@@ -46,11 +46,23 @@ function FormTransaction({ category }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (category === 'expenses' && balance < InputMoney) {
-      toast.error('Не достатньо коштів');
+      toast.error('Не достатньо коштів', { theme: 'dark' });
       return;
     }
     if (category === 'income' && (balance + Number(InputMoney) > 1000000)) {
-      toast.error('Баланс на рахунку не може перевищувати 1 мільйон');
+      toast.error('Баланс на рахунку не може перевищувати 1 мільйон', { theme: 'dark' });
+      return;
+    }
+    if (selected === '') {
+      toast.info('Виберiть значення категорiї', { theme: 'dark' });
+      return;
+    }
+    if (inputValue.length < 3 || inputValue.length > 20) {
+      toast.info('Поле опису повинно мiстити вiд 3 до 20 символiв', { theme: 'dark' });
+      return;
+    }
+    if (InputMoney === '') {
+      toast.info('Поле суми повинно бути заповнене', { theme: 'dark' });
       return;
     }
     const data = {
@@ -104,10 +116,10 @@ function FormTransaction({ category }) {
       </div>
       <ul className={s.transactionListButton}>
         <li className={s.transactionListButtonItem}>
-          <button className={s.transactionButton} type="submit" style={{ background: '#FF751D', color: '#ffffff' }}>Додати</button>
+          <button className={s.transactionButtonEnter} type="submit">Додати</button>
         </li>
         <li>
-          <button className={s.transactionButton} type="button" onClick={reset} style={{ background: '##FFFFFF', color: '#52555F' }}>Очистити</button>
+          <button className={s.transactionButtonReset} type="button" onClick={reset}>Очистити</button>
         </li>
       </ul>
     </form>

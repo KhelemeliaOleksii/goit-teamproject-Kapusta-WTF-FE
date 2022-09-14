@@ -49,13 +49,14 @@ function MobileTable() {
 
   const editedTransactions = transactions.map((item) => {
     const { categoryId } = item;
-    const { categoryName } = () => {
+    const getCategoryName = () => {
       try {
-        return options.find(({ _id }) => _id === categoryId);
+        return options?.find(({ _id }) => _id === categoryId);
       } catch (error) {
         return error.message;
       }
     };
+    const { categoryName } = getCategoryName() || {};
     return { ...item, categoryName };
   });
 
@@ -69,49 +70,51 @@ function MobileTable() {
           modalTitle="Ви впевнені?"
         />
       )}
-      <ul className={s.list}>
-        {editedTransactions.slice().reverse().map((item) => {
-          const {
-            _id, description, transactionType, amount, categoryName
-          } = item;
-          return (
-            <div key={_id} className={s.wrapper}>
-              <li className={s.item}>
-                <div className={s.item__wrapper}>
-                  <p className={s.item__description}>
-                    {description.descriptionName}
-                  </p>
-                  <div className={s.item__subwrapper}>
-                    <p className={s.item__date}>{getTableDate(date)}</p>
-                    <p className={s.item__category}>{categoryName}
+      <div className={s.mobileTable}>
+        <ul className={s.list}>
+          {editedTransactions.slice().reverse().map((item) => {
+            const {
+              _id, description, transactionType, amount, categoryName
+            } = item;
+            return (
+              <div key={_id} className={s.wrapper}>
+                <li className={s.item}>
+                  <div className={s.item__wrapper}>
+                    <p className={s.item__description}>
+                      {description.descriptionName}
+                    </p>
+                    <div className={s.item__subwrapper}>
+                      <p className={s.item__date}>{getTableDate(date)}</p>
+                      <p className={s.item__category}>{categoryName}
+                      </p>
+                    </div>
+                  </div>
+                  <div className={s.item__amountWrapper}>
+                    <p
+                      className={s.item__amount}
+                      style={
+                        transactionType === 'expenses'
+                          ? { color: '#E7192E' }
+                          : { color: '#407946' }
+                      }
+                    >
+                      {transactionType === 'expenses'
+                        ? `- ₴${Number(amount).toFixed(2)}`
+                        : `₴${Number(amount).toFixed(2)}`}
                     </p>
                   </div>
-                </div>
-                <div className={s.item__amountWrapper}>
-                  <p
-                    className={s.item__amount}
-                    style={
-                      transactionType === 'expenses'
-                        ? { color: '#E7192E' }
-                        : { color: '#407946' }
-                    }
-                  >
-                    {transactionType === 'expenses'
-                      ? `- ₴${Number(amount).toFixed(2)}`
-                      : `₴${Number(amount).toFixed(2)}`}
-                  </p>
-                </div>
-                <Delete onClick={() => onDelete(_id)} className={s.icon} />
-              </li>
-            </div>
-          );
-        })}
-      </ul>
-      {editedTransactions.length === 0 && (
+                  <Delete onClick={() => onDelete(_id)} className={s.icon} />
+                </li>
+              </div>
+            );
+          })}
+        </ul>
+        {editedTransactions.length === 0 && (
         <div className={s.notification}>
           За цей день транзакцій немає
         </div>
-      )}
+        )}
+      </div>
     </Section>
   );
 }

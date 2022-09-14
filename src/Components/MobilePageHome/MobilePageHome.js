@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import s from './MobilePageHome.module.css';
-import CalendarForm from '../CalendarForm';
-import ModalMobileHome from '../ModalMobileHome';
-import Container from '../Containter';
 import authSelectors from '../../redux/auth/auth-selectors';
 import authOperations from '../../redux/auth/auth-operations';
 import useWindowDimensions from '../Hooks';
+import CalendarForm from '../CalendarForm';
+import ModalMobileHome from '../ModalMobileHome';
+import Container from '../Containter';
 import Balance from '../Balance';
 import MobileTable from '../MobileTable';
 import { ReactComponent as Vector } from '../../images/svg/Vector.svg';
+import s from './MobilePageHome.module.css';
 
 function MobilePageHome() {
   const dispatch = useDispatch();

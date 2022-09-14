@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
+import transactionSelectors from '../../redux/transaction/transaction-selectors';
 import Table from '../Table';
 import FormTransaction from '../FormTransaction';
 import s from './WindowTransaction.module.css';
-import transactionSelectors from '../../redux/transaction/transaction-selectors';
 
 function WindowTransaction() {
   const type = useSelector(transactionSelectors.getType);

@@ -1,7 +1,6 @@
-const { createAsyncThunk } = require('@reduxjs/toolkit');
-const axios = require('axios');
+import axios from '../../api/axios/axiosConfig';
 
-axios.defaults.baseURL = 'https://kapusta-wtf.herokuapp.com/';
+const { createAsyncThunk } = require('@reduxjs/toolkit');
 
 const userMount = createAsyncThunk(
   'report/userMount',

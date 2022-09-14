@@ -13,7 +13,7 @@ function AuthForm() {
   const [passwordError, setPasswordError] = useState('');
 
   const validateEmail = (emailTest) => {
-    const re = /^[a-z0-9][a-z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
+    const re = /^[a-z0-9][a-z0-9._-]+@[a-z0-9]+[.]?[a-z0-9]+\.[a-z]{2,10}$/;
     return re.test(emailTest);
   };
 

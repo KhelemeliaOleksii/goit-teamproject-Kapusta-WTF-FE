@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import Avatar from 'react-avatar';
 import { authSelectors, authOperations } from '../../../redux/auth';
+import transactionSlice from '../../../redux/transaction/transaction-slice';
 import Modal from '../../Modal';
 import useWindowDimensions from '../../../helpers/WindowDimensions';
 
@@ -21,6 +22,11 @@ function UserLogOut() {
   const logoutModal = () => {
     dispatch(authOperations.logOut());
     toggleModal();
+    dispatch(transactionSlice.actions.addDate({
+      year: '',
+      month: '',
+      day: ''
+    }));
   };
 
   const viewPort = useWindowDimensions();
@@ -49,7 +55,7 @@ function UserLogOut() {
             onClick={toggleModal}
             className={styles.logOutButton}
           >
-            Exit
+            Вихід
           </button>
         </>
       )}

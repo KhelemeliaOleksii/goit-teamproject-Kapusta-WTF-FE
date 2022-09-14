@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import s from './CategoryItem.module.css';
 import sprite from '../../images/svg/sprite_categories.svg';
+import s from './CategoryItem.module.css';
 
 export default function CategoryItem({
   totalAmount,

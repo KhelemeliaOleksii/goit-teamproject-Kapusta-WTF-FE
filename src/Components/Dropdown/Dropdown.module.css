@@ -6,6 +6,7 @@
     border: 2px solid #fff;
     border-radius: 0 0 16px 0;
     border-top: none;
+    border-left: none;
     outline: none;
     margin-bottom: 32px;
     }
@@ -25,8 +26,13 @@
     height: 100%;
     composes: font;
     cursor: pointer;
+    
 }
 
+.dropdown__title__selected{
+composes: dropdown__title;
+color: #000;
+}
 .dropdown__list {
 position: absolute;
 top: 105%;
