@@ -21,19 +21,22 @@ export default function UserReportNav() {
     dispatch(reportOperations.transactionType({ normalizedDate, type }));
   }, [dispatch, normalizedDate, type]);
 
+  const onBalanceSubmit = () => {
+    console.log('I have to fix this feature');
+  };
   return (
     <div className={s.container}>
       {viewPort.width < 768 && (
         <>
           <GoBack />
           <SwitchMonth />
-          <Balance balanceValue={balance} />
+          <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} />
         </>
       )}
       {viewPort.width >= 768 && (
         <>
           <GoBack />
-          <Balance balanceValue={balance} />
+          <Balance balanceValue={balance} onBalanceSubmit={onBalanceSubmit} />
           <SwitchMonth />
         </>
       )}
