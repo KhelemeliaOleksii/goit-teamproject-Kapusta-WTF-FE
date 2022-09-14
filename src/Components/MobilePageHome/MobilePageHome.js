@@ -44,8 +44,8 @@ function MobilePageHome() {
             </div>
             <Balance balanceValue={balance} />
             <CalendarForm data={calendarValue} />
-            {balance && <MobileTable />}
           </Container>
+          {balance && <MobileTable />}
           <div className={s.wrapperMobileButton}>
             <button
               value="expenses"
