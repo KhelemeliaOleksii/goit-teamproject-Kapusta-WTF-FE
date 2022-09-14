@@ -109,6 +109,21 @@ function ChartMobile({ transactions = [] }) {
             legend: {
               display: false,
             },
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'y'
+              },
+              zoom: {
+                wheel: {
+                  enabled: true,
+                },
+                pinch: {
+                  enabled: true
+                },
+                mode: 'y',
+              },
+            }
           },
         }}
         data={{
