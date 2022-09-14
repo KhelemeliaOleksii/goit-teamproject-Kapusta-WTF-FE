@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Chart } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import reportSelectors from '../../redux/report/report-selectors';
 import useWindowDimensions from '../Hooks';
 import s from './ChartReport.module.css';
 
-ChartJS.register(...registerables);
+ChartJS.register(...registerables, zoomPlugin);
 
 function ChartDesktop({ transactions = [] }) {
   if (transactions.length === 0) {
@@ -32,6 +33,21 @@ function ChartDesktop({ transactions = [] }) {
             },
           },
           plugins: {
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'x'
+              },
+              zoom: {
+                wheel: {
+                  enabled: true,
+                },
+                pinch: {
+                  enabled: true
+                },
+                mode: 'x',
+              },
+            },
             datalabels: {
               color: '#52555F',
               align: 'end',
@@ -93,6 +109,21 @@ function ChartMobile({ transactions = [] }) {
             legend: {
               display: false,
             },
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: 'y'
+              },
+              zoom: {
+                wheel: {
+                  enabled: true,
+                },
+                pinch: {
+                  enabled: true
+                },
+                mode: 'y',
+              },
+            }
           },
         }}
         data={{
