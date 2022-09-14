@@ -58,7 +58,7 @@ function FormTransaction({ category }) {
       return;
     }
     if (inputValue.length < 3 || inputValue.length > 20) {
-      toast.info('Поле повинно мiстити вiд 3 до 20 символiв', { theme: 'dark' });
+      toast.info('Поле опису повинно мiстити вiд 3 до 20 символiв', { theme: 'dark' });
       return;
     }
     if (InputMoney === '') {
