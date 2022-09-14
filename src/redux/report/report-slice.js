@@ -37,8 +37,10 @@ const reportSlice = createSlice({
         return { ...category, ...item };
       });
       state.transaction.transaction = dataItems;
-      const { _id } = dataItems[0];
-      state.activeCategory = _id;
+      if (dataItems.length !== 0) {
+        const { _id } = dataItems[0];
+        state.activeCategory = _id;
+      }
     },
     [reportOperations.transactionDesc.fulfilled](state, { payload }) {
       state.transaction.transactionDesc = payload;

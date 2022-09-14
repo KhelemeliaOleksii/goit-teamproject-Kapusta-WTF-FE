@@ -17,6 +17,9 @@ const authSlice = createSlice({
     googleLogIn: (state, action) => {
       state.token = action.payload;
     },
+    setReloadFrom: (state, action) => {
+      state.reloadFrom = action.payload;
+    }
   },
   extraReducers: {
     [authOperations.register.fulfilled](state, action) {
@@ -66,7 +69,6 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.user = action.payload;
       state.isFetchingCurrentUser = false;
-      console.log('fullfield current user');
     },
     [authOperations.fetchCurrentUser.pending](state, action) {
       state.isFetchingCurrentUser = true;
@@ -89,5 +91,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { googleLogIn } = authSlice.actions;
+export const { googleLogIn, setReloadFrom } = authSlice.actions;
 export default authSlice.reducer;
