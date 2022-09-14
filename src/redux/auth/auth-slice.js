@@ -6,6 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
+  reloadFrom: '/',
   error: null,
 };
 
@@ -33,6 +34,7 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.token = action.payload.token;
       state.isLoggedIn = true;
+      state.reloadFrom = '/';
       state.error = null;
     },
     [authOperations.logIn.pending](state) {
@@ -50,6 +52,7 @@ const authSlice = createSlice({
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
+      state.reloadFrom = '/';
       state.error = null;
     },
     [authOperations.logOut.pending](state) {
@@ -63,6 +66,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.user = action.payload;
       state.isFetchingCurrentUser = false;
+      console.log('fullfield current user');
     },
     [authOperations.fetchCurrentUser.pending](state, action) {
       state.isFetchingCurrentUser = true;

@@ -36,6 +36,7 @@ function App() {
   // to do: check is current user available
   useEffect(() => { dispatch(authOperations.fetchCurrentUser()); }, [dispatch]);
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+  console.log('App', isFetchingCurrentUser);
   return !isFetchingCurrentUser && (
     <Suspense fallback={<Loader />}>
       <Routes>
